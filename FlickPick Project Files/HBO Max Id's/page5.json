@@ -1,0 +1,2258 @@
+
+{
+  "titles": [
+    {
+      "id": 1467729,
+      "title": "White Noise",
+      "year": 2005,
+      "imdb_id": "tt0375210",
+      "tmdb_id": 11804,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1468265,
+      "title": "Who's Afraid of Virginia Woolf?",
+      "year": 1966,
+      "imdb_id": "tt0061184",
+      "tmdb_id": 396,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1468823,
+      "title": "Wiener Dog Internationals",
+      "year": 2017,
+      "imdb_id": "tt3462880",
+      "tmdb_id": 373181,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469192,
+      "title": "Wild Strawberries",
+      "year": 1957,
+      "imdb_id": "tt0050986",
+      "tmdb_id": 614,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469227,
+      "title": "Wild Wild West",
+      "year": 1999,
+      "imdb_id": "tt0120891",
+      "tmdb_id": 8487,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469290,
+      "title": "Wildcats",
+      "year": 1986,
+      "imdb_id": "tt0092214",
+      "tmdb_id": 29355,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469471,
+      "title": "Willard",
+      "year": 1971,
+      "imdb_id": "tt0067991",
+      "tmdb_id": 42532,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469634,
+      "title": "Win a Date with Tad Hamilton!",
+      "year": 2004,
+      "imdb_id": "tt0335559",
+      "tmdb_id": 13476,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469858,
+      "title": "Wings",
+      "year": 2012,
+      "imdb_id": "tt2284790",
+      "tmdb_id": 132563,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1469887,
+      "title": "Wings of Desire",
+      "year": 1987,
+      "imdb_id": "tt0093191",
+      "tmdb_id": 144,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1470285,
+      "title": "Wise Blood",
+      "year": 1979,
+      "imdb_id": "tt0080140",
+      "tmdb_id": 42179,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1470629,
+      "title": "Within",
+      "year": 2016,
+      "imdb_id": "tt3612320",
+      "tmdb_id": 291413,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1470667,
+      "title": "Withnail & I",
+      "year": 1987,
+      "imdb_id": "tt0094336",
+      "tmdb_id": 13446,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1471204,
+      "title": "Wolves at the Door",
+      "year": 2016,
+      "imdb_id": "tt4670016",
+      "tmdb_id": 363111,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1471728,
+      "title": "Wonder Woman",
+      "year": 2017,
+      "imdb_id": "tt0451279",
+      "tmdb_id": 297762,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1471733,
+      "title": "Wonder Woman: Bloodlines",
+      "year": 2019,
+      "imdb_id": "tt8752498",
+      "tmdb_id": 537055,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1472295,
+      "title": "Worth Winning",
+      "year": 1989,
+      "imdb_id": "tt0098678",
+      "tmdb_id": 32330,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1472412,
+      "title": "Wrath of the Titans",
+      "year": 2012,
+      "imdb_id": "tt1646987",
+      "tmdb_id": 57165,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1472956,
+      "title": "Dark Phoenix",
+      "year": 2019,
+      "imdb_id": "tt6565702",
+      "tmdb_id": 320288,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1472958,
+      "title": "X-Men: First Class",
+      "year": 2011,
+      "imdb_id": "tt1270798",
+      "tmdb_id": 49538,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1476124,
+      "title": "Yogi Bear",
+      "year": 2010,
+      "imdb_id": "tt1302067",
+      "tmdb_id": 41515,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1476150,
+      "title": "Yojimbo",
+      "year": 1961,
+      "imdb_id": "tt0055630",
+      "tmdb_id": 11878,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1476604,
+      "title": "You Can Count on Me",
+      "year": 2000,
+      "imdb_id": "tt0203230",
+      "tmdb_id": 14295,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1476662,
+      "title": "You Can't Take It with You",
+      "year": 1938,
+      "imdb_id": "tt0030993",
+      "tmdb_id": 34106,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1477042,
+      "title": "You've Got Mail",
+      "year": 1998,
+      "imdb_id": "tt0128853",
+      "tmdb_id": 9489,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1477236,
+      "title": "Young Man with a Horn",
+      "year": 1950,
+      "imdb_id": "tt0043153",
+      "tmdb_id": 34623,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1477995,
+      "title": "Yuli",
+      "year": 2018,
+      "imdb_id": "tt7666250",
+      "tmdb_id": 537021,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1478363,
+      "title": "Z",
+      "year": 1969,
+      "imdb_id": "tt0065234",
+      "tmdb_id": 2721,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1482375,
+      "title": "Get Her... If You Can",
+      "year": 2019,
+      "imdb_id": "tt7398584",
+      "tmdb_id": 533984,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1493661,
+      "title": "Ride Your Wave",
+      "year": 2019,
+      "imdb_id": "tt9193612",
+      "tmdb_id": 530079,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1494195,
+      "title": "Downhill",
+      "year": 2020,
+      "imdb_id": "tt4558376",
+      "tmdb_id": 560391,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1494390,
+      "title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "year": 2020,
+      "imdb_id": "tt7713068",
+      "tmdb_id": 495764,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1496503,
+      "title": "Downton Abbey",
+      "year": 2019,
+      "imdb_id": "tt6398184",
+      "tmdb_id": 535544,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1497436,
+      "title": "Deadwood: The Movie",
+      "year": 2019,
+      "imdb_id": "tt4943998",
+      "tmdb_id": 538225,
+      "tmdb_type": "movie",
+      "type": "tv_movie"
+    },
+    {
+      "id": 1500881,
+      "title": "Cats",
+      "year": 2019,
+      "imdb_id": "tt5697572",
+      "tmdb_id": 536869,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1502456,
+      "title": "Go Youth!",
+      "year": 2020,
+      "imdb_id": "tt9173044",
+      "tmdb_id": 562626,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1506279,
+      "title": "Jojo Rabbit",
+      "year": 2019,
+      "imdb_id": "tt2584384",
+      "tmdb_id": 515001,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1507697,
+      "title": "Midway",
+      "year": 2019,
+      "imdb_id": "tt6924650",
+      "tmdb_id": 522162,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1511206,
+      "title": "Share",
+      "year": 2019,
+      "imdb_id": "tt7007696",
+      "tmdb_id": 510355,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1513049,
+      "title": "Don't Let Go",
+      "year": 2019,
+      "imdb_id": "tt6803212",
+      "tmdb_id": 539651,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1514313,
+      "title": "Bad Education",
+      "year": 2019,
+      "imdb_id": "tt8206668",
+      "tmdb_id": 530723,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1514335,
+      "title": "Charm City Kings",
+      "year": 2020,
+      "imdb_id": "tt9048840",
+      "tmdb_id": 552532,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1514651,
+      "title": "Midnight Family",
+      "year": 2019,
+      "imdb_id": "tt6010976",
+      "tmdb_id": 566367,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1514697,
+      "title": "The Inventor: Out for Blood in Silicon Valley",
+      "year": 2019,
+      "imdb_id": "tt8488126",
+      "tmdb_id": 566228,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1517627,
+      "title": "Impractical Jokers: The Movie",
+      "year": 2020,
+      "imdb_id": "tt9208444",
+      "tmdb_id": 566927,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1521615,
+      "title": "Roald Dahl's The Witches",
+      "year": 2020,
+      "imdb_id": "tt0805647",
+      "tmdb_id": 531219,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1523600,
+      "title": "Emma.",
+      "year": 2020,
+      "imdb_id": "tt9214832",
+      "tmdb_id": 556678,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1527561,
+      "title": "Scoob!",
+      "year": 2020,
+      "imdb_id": "tt3152592",
+      "tmdb_id": 385103,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1528945,
+      "title": "The Dead Don't Die",
+      "year": 2019,
+      "imdb_id": "tt8695030",
+      "tmdb_id": 535581,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1534243,
+      "title": "Weathering with You",
+      "year": 2019,
+      "imdb_id": "tt9426210",
+      "tmdb_id": 568160,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1536563,
+      "title": "Bleed Out",
+      "year": 2018,
+      "imdb_id": "tt9445054",
+      "tmdb_id": 543661,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1538583,
+      "title": "Beah: A Black Woman Speaks",
+      "year": 2003,
+      "imdb_id": "tt0350596",
+      "tmdb_id": 21428,
+      "tmdb_type": "tv",
+      "type": "movie"
+    },
+    {
+      "id": 1540132,
+      "title": "The Invisible Man",
+      "year": 2020,
+      "imdb_id": "tt1051906",
+      "tmdb_id": 570670,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1541463,
+      "title": "Superintelligence",
+      "year": 2020,
+      "imdb_id": "tt7178640",
+      "tmdb_id": 521007,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1543532,
+      "title": "Scenes from a Marriage",
+      "year": 1974,
+      "imdb_id": "tt6725014",
+      "tmdb_id": 133919,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1548086,
+      "title": "The Goya Murders",
+      "year": 2019,
+      "imdb_id": "tt9173002",
+      "tmdb_id": 573150,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1550907,
+      "title": "The Operative",
+      "year": 2019,
+      "imdb_id": "tt8000718",
+      "tmdb_id": 574207,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1557015,
+      "title": "Well Groomed",
+      "year": 2019,
+      "imdb_id": "tt8480782",
+      "tmdb_id": 576564,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1558024,
+      "title": "Promare",
+      "year": 2019,
+      "imdb_id": "tt9116358",
+      "tmdb_id": 553600,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1558518,
+      "title": "Reign of the Supermen",
+      "year": 2019,
+      "imdb_id": "tt7167686",
+      "tmdb_id": 487672,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1560768,
+      "title": "Batman: Gotham by Gaslight",
+      "year": 2018,
+      "imdb_id": "tt7167630",
+      "tmdb_id": 471474,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1562150,
+      "title": "Breslin and Hamill: Deadline Artists",
+      "year": 2018,
+      "imdb_id": "tt9275202",
+      "tmdb_id": 543658,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1563541,
+      "title": "Deerskin",
+      "year": 2019,
+      "imdb_id": "tt8193790",
+      "tmdb_id": 582883,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1564003,
+      "title": "Princess of the Row",
+      "year": 2019,
+      "imdb_id": "tt6533972",
+      "tmdb_id": 583757,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1564627,
+      "title": "The King of Staten Island",
+      "year": 2020,
+      "imdb_id": "tt9686708",
+      "tmdb_id": 579583,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1565479,
+      "title": "The Apollo",
+      "year": 2019,
+      "imdb_id": "tt7935908",
+      "tmdb_id": 585527,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1565523,
+      "title": "Showbiz Kids",
+      "year": 2020,
+      "imdb_id": "tt3197274",
+      "tmdb_id": 585530,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1566075,
+      "title": "Ernie & Joe",
+      "year": 2019,
+      "imdb_id": "tt9617448",
+      "tmdb_id": 576015,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1566275,
+      "title": "The Wolves",
+      "year": 2019,
+      "imdb_id": "tt9057808",
+      "tmdb_id": 586351,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1568891,
+      "title": "The Photograph",
+      "year": 2020,
+      "imdb_id": "tt7798646",
+      "tmdb_id": 589049,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1573770,
+      "title": "I Can Quit Whenever I Want",
+      "year": 2019,
+      "imdb_id": "tt8806768",
+      "tmdb_id": 574370,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1575464,
+      "title": "Irresistible",
+      "year": 2020,
+      "imdb_id": "tt9076562",
+      "tmdb_id": 595148,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1575641,
+      "title": "Never Rarely Sometimes Always",
+      "year": 2020,
+      "imdb_id": "tt7772582",
+      "tmdb_id": 595671,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1576064,
+      "title": "Linda Ronstadt: The Sound of My Voice",
+      "year": 2019,
+      "imdb_id": "tt10011448",
+      "tmdb_id": 596980,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1578336,
+      "title": "Norm of the North: King Sized Adventure",
+      "year": 2019,
+      "imdb_id": "tt9428190",
+      "tmdb_id": 601131,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1579133,
+      "title": "Ice on Fire",
+      "year": 2019,
+      "imdb_id": "tt9114472",
+      "tmdb_id": 599379,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1579990,
+      "title": "Wig",
+      "year": 2019,
+      "imdb_id": "tt10206188",
+      "tmdb_id": 596670,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1580563,
+      "title": "The High Note",
+      "year": 2020,
+      "imdb_id": "tt9308382",
+      "tmdb_id": 606679,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1582565,
+      "title": "Coyote Lake",
+      "year": 2019,
+      "imdb_id": "tt5117372",
+      "tmdb_id": 612051,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1584518,
+      "title": "Two Weeks to Live",
+      "year": 2020,
+      "imdb_id": "tt6075088",
+      "tmdb_id": 91445,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 1585097,
+      "title": "Porno para principiantes",
+      "year": 2018,
+      "imdb_id": "tt8786106",
+      "tmdb_id": 619139,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1585704,
+      "title": "Black Christmas",
+      "year": 2019,
+      "imdb_id": "tt10481868",
+      "tmdb_id": 551808,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1586624,
+      "title": "The Wedding Unplanner",
+      "year": 2020,
+      "imdb_id": "tt9519642",
+      "tmdb_id": 623926,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1586755,
+      "title": "Let Them All Talk",
+      "year": 2020,
+      "imdb_id": "tt10808832",
+      "tmdb_id": 623856,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1586810,
+      "title": "Endings, Beginnings",
+      "year": 2019,
+      "imdb_id": "tt9147456",
+      "tmdb_id": 554908,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1587234,
+      "title": "Our Mothers",
+      "year": 2019,
+      "imdb_id": "tt9206516",
+      "tmdb_id": 596873,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1588030,
+      "title": "An American Pickle",
+      "year": 2020,
+      "imdb_id": "tt9059704",
+      "tmdb_id": 628917,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1588429,
+      "title": "Out in the Open",
+      "year": 2019,
+      "imdb_id": "tt8406744",
+      "tmdb_id": 630018,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1588571,
+      "title": "The Garden of Evening Mists",
+      "year": 2019,
+      "imdb_id": "tt8434152",
+      "tmdb_id": 630850,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1588613,
+      "title": "If I Were a Rich Man",
+      "year": 2019,
+      "imdb_id": "tt9010802",
+      "tmdb_id": 630709,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1588929,
+      "title": "@buelos",
+      "year": 2019,
+      "imdb_id": "tt8092586",
+      "tmdb_id": 631883,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1589084,
+      "title": "Western Stars",
+      "year": 2019,
+      "imdb_id": "tt10687158",
+      "tmdb_id": 617773,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1589157,
+      "title": "Unpregnant",
+      "year": 2020,
+      "imdb_id": "tt10556022",
+      "tmdb_id": 632666,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1589796,
+      "title": "Class Action Park",
+      "year": 2020,
+      "imdb_id": "tt11015214",
+      "tmdb_id": 634233,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1591298,
+      "title": "Dating Amber",
+      "year": 2020,
+      "imdb_id": "tt7886936",
+      "tmdb_id": 635918,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1594017,
+      "title": "Turu, the Wacky Hen",
+      "year": 2019,
+      "imdb_id": "tt8790552",
+      "tmdb_id": 653247,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1594206,
+      "title": "La Leyenda Negra",
+      "year": 2020,
+      "imdb_id": "tt10313748",
+      "tmdb_id": 653713,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1596152,
+      "title": "Welcome to Chechnya",
+      "year": 2020,
+      "imdb_id": "tt11394200",
+      "tmdb_id": 653579,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1596930,
+      "title": "I Used to Go Here",
+      "year": 2020,
+      "imdb_id": "tt10887902",
+      "tmdb_id": 664301,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1598298,
+      "title": "Siempre, Luis",
+      "year": 2020,
+      "imdb_id": "tt11469908",
+      "tmdb_id": 654997,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1601328,
+      "title": "Superman: Man of Tomorrow",
+      "year": 2020,
+      "imdb_id": "tt11079116",
+      "tmdb_id": 618354,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1601480,
+      "title": "John Lewis: Good Trouble",
+      "year": 2020,
+      "imdb_id": "tt10310096",
+      "tmdb_id": 675467,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1603102,
+      "title": "Fandango at the Wall",
+      "year": 2020,
+      "imdb_id": "tt11278140",
+      "tmdb_id": 676702,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1603914,
+      "title": "One Careful Owner",
+      "year": 2020,
+      "imdb_id": "tt9354422",
+      "tmdb_id": 677574,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1604585,
+      "title": "We Are the Dream: The Kids of the Oakland MLK Oratorical Fest",
+      "year": 2020,
+      "imdb_id": "tt11661552",
+      "tmdb_id": 677639,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1606355,
+      "title": "Justice League Dark: Apokolips War",
+      "year": 2020,
+      "imdb_id": "tt11079148",
+      "tmdb_id": 618344,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1606485,
+      "title": "After Truth: Disinformation and the Cost of Fake News",
+      "year": 2020,
+      "imdb_id": "tt11615038",
+      "tmdb_id": 680438,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1606783,
+      "title": "Cross the Line",
+      "year": 2020,
+      "imdb_id": "tt4359330",
+      "tmdb_id": 681580,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1607062,
+      "title": "The Scheme",
+      "year": 2020,
+      "imdb_id": "tt11916278",
+      "tmdb_id": 682598,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1607065,
+      "title": "Baby God",
+      "year": 2020,
+      "imdb_id": "tt11916166",
+      "tmdb_id": 682588,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1607066,
+      "title": "Crazy, Not Insane",
+      "year": 2020,
+      "imdb_id": "tt11668320",
+      "tmdb_id": 682589,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1607286,
+      "title": "Mortal Kombat Legends: Scorpion's Revenge",
+      "year": 2020,
+      "imdb_id": "tt9580138",
+      "tmdb_id": 664767,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1608110,
+      "title": "Kill Chain: The Cyber War on America's Elections",
+      "year": 2020,
+      "imdb_id": "tt12041084",
+      "tmdb_id": 685814,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1608450,
+      "title": "Turtle Tale",
+      "year": 2015,
+      "imdb_id": "tt4312236",
+      "tmdb_id": 689166,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1609152,
+      "title": "Jimmy Carter: Rock & Roll President",
+      "year": 2020,
+      "imdb_id": "tt11804758",
+      "tmdb_id": 692982,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1609777,
+      "title": "Transhood",
+      "year": 2020,
+      "imdb_id": "tt11447806",
+      "tmdb_id": 695762,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1609892,
+      "title": "On the Record",
+      "year": 2020,
+      "imdb_id": "tt11394650",
+      "tmdb_id": 653612,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1610160,
+      "title": "LEGO DC: Shazam! Magic and Monsters",
+      "year": 2020,
+      "imdb_id": "tt12093878",
+      "tmdb_id": 690369,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1610277,
+      "title": "2 Minutes of Fame",
+      "year": 2020,
+      "imdb_id": "tt7661376",
+      "tmdb_id": 698783,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1612493,
+      "title": "Zack Snyder's Justice League",
+      "year": 2021,
+      "imdb_id": "tt12361974",
+      "tmdb_id": 791373,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1613151,
+      "title": "Stockton on My Mind",
+      "year": 2020,
+      "imdb_id": "tt11905696",
+      "tmdb_id": 712393,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1613696,
+      "title": "American Utopia",
+      "year": 2020,
+      "imdb_id": "tt11874226",
+      "tmdb_id": 668800,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1615262,
+      "title": "One Night in Bangkok",
+      "year": 2020,
+      "imdb_id": "tt12192190",
+      "tmdb_id": 721452,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1615827,
+      "title": "The Weight of Gold",
+      "year": 2020,
+      "imdb_id": "tt8311394",
+      "tmdb_id": 724343,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1616576,
+      "title": "The Perfect Weapon",
+      "year": 2020,
+      "imdb_id": "tt11354168",
+      "tmdb_id": 728209,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1616689,
+      "title": "On the Trail: Inside the 2020 Primaries",
+      "year": 2020,
+      "imdb_id": "tt12759084",
+      "tmdb_id": 728921,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1616898,
+      "title": "The Swamp",
+      "year": 2020,
+      "imdb_id": "tt12762002",
+      "tmdb_id": 725239,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1616961,
+      "title": "The Bee Gees: How Can You Mend a Broken Heart",
+      "year": 2020,
+      "imdb_id": "tt9850386",
+      "tmdb_id": 730009,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1617866,
+      "title": "Deathstroke: Knights & Dragons - The Movie",
+      "year": 2020,
+      "imdb_id": "tt12876132",
+      "tmdb_id": 703771,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1617990,
+      "title": "537 Votes",
+      "year": 2020,
+      "imdb_id": "tt13128292",
+      "tmdb_id": 748911,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1618350,
+      "title": "Growing Up Milwaukee",
+      "year": 2020,
+      "imdb_id": "tt10043770",
+      "tmdb_id": 750241,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1619094,
+      "title": "Locked Down",
+      "year": 2021,
+      "imdb_id": "tt13061914",
+      "tmdb_id": 741228,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1619382,
+      "title": "A Storybook Ending",
+      "year": 2020,
+      "imdb_id": "tt8282582",
+      "tmdb_id": 754290,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 1620632,
+      "title": "Burning Ojai: Our Fire Story",
+      "year": 2020,
+      "imdb_id": "tt13355988",
+      "tmdb_id": 755420,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1621875,
+      "title": "40 Years a Prisoner",
+      "year": 2020,
+      "imdb_id": "tt9697452",
+      "tmdb_id": 736536,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1622020,
+      "title": "Alabama Snake",
+      "year": 2020,
+      "imdb_id": "tt12837230",
+      "tmdb_id": 766238,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1624127,
+      "title": "Under The Grapefruit Tree: The CC Sabathia Story",
+      "year": 2020,
+      "imdb_id": "tt13692182",
+      "tmdb_id": 778743,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1624802,
+      "title": "The Infamous Future",
+      "year": 2021,
+      "imdb_id": "tt9064760",
+      "tmdb_id": 783398,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 1626864,
+      "title": "Lupe",
+      "year": 0,
+      "imdb_id": "tt2402959",
+      "tmdb_id": 675045,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1627340,
+      "title": "There Is No \"I\" in Threesome",
+      "year": 2021,
+      "imdb_id": "tt8368380",
+      "tmdb_id": 790846,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1627679,
+      "title": "Constantine: City of Demons - The Movie",
+      "year": 2018,
+      "imdb_id": "tt9177882",
+      "tmdb_id": 539517,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1628031,
+      "title": "Black Art: In the Absence of Light",
+      "year": 2021,
+      "imdb_id": "tt13937354",
+      "tmdb_id": 794227,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1628439,
+      "title": "TINA",
+      "year": 2021,
+      "imdb_id": "tt8399720",
+      "tmdb_id": 773736,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1629348,
+      "title": "Hotel Coppelia",
+      "year": 2021,
+      "imdb_id": "tt9497404",
+      "tmdb_id": 676150,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1630193,
+      "title": "The Day Sports Stood Still",
+      "year": 2021,
+      "imdb_id": "tt12363832",
+      "tmdb_id": 804244,
+      "tmdb_type": "movie",
+      "type": "tv_movie"
+    },
+    {
+      "id": 1630276,
+      "title": "Persona: The Dark Truth Behind Personality Tests",
+      "year": 2021,
+      "imdb_id": "tt14173880",
+      "tmdb_id": 800164,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 1631743,
+      "title": "Our Towns",
+      "year": 2021,
+      "imdb_id": "tt14330162",
+      "tmdb_id": 812018,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 2448222,
+      "title": "Sin Cielo",
+      "year": 2018,
+      "imdb_id": "tt7385806",
+      "tmdb_id": 539272,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2536038,
+      "title": "The Number on Great-Grandpa's Arm",
+      "year": 2018,
+      "imdb_id": "tt7758866",
+      "tmdb_id": 497274,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2545770,
+      "title": "The Rink",
+      "year": 1916,
+      "imdb_id": "tt0007264",
+      "tmdb_id": 2077,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2686515,
+      "title": "In Other Words",
+      "year": 2001,
+      "imdb_id": "tt1776937",
+      "tmdb_id": 638550,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2692922,
+      "title": "White Eye",
+      "year": 2019,
+      "imdb_id": "tt10538710",
+      "tmdb_id": 675235,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2698110,
+      "title": "The Undocumented Lawyer",
+      "year": 2020,
+      "imdb_id": "tt11084786",
+      "tmdb_id": 699145,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2702531,
+      "title": "Batman: Death in the Family",
+      "year": 2020,
+      "imdb_id": "tt12794046",
+      "tmdb_id": 618353,
+      "tmdb_type": "movie",
+      "type": "movie"
+    },
+    {
+      "id": 2703635,
+      "title": "Dolapo is Fine",
+      "year": 0,
+      "imdb_id": "tt11782574",
+      "tmdb_id": 751142,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2704207,
+      "title": "Black Boy Joy",
+      "year": 2019,
+      "imdb_id": "tt10832628",
+      "tmdb_id": 754285,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 2710894,
+      "title": "The Last Cruise",
+      "year": 2021,
+      "imdb_id": "tt13415790",
+      "tmdb_id": 800394,
+      "tmdb_type": "movie",
+      "type": "short_film"
+    },
+    {
+      "id": 3590,
+      "title": "12 oz. Mouse",
+      "year": 2005,
+      "imdb_id": "tt0465774",
+      "tmdb_id": 3043,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 31478,
+      "title": "4 Blocks",
+      "year": 2017,
+      "imdb_id": "tt5754602",
+      "tmdb_id": 71641,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 32030,
+      "title": "91 Days",
+      "year": 2016,
+      "imdb_id": "tt5839706",
+      "tmdb_id": 67043,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 34141,
+      "title": "Adam Ruins Everything",
+      "year": 2015,
+      "imdb_id": "tt5034326",
+      "tmdb_id": 64537,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 34347,
+      "title": "Adventure Time: Islands",
+      "year": 2010,
+      "imdb_id": "tt1305826",
+      "tmdb_id": 437217,
+      "tmdb_type": "movie",
+      "type": "tv_series"
+    },
+    {
+      "id": 35475,
+      "title": "Aldnoah.Zero",
+      "year": 2014,
+      "imdb_id": "tt3544556",
+      "tmdb_id": 61259,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 36182,
+      "title": "Almost Royal",
+      "year": 2014,
+      "imdb_id": "tt3727552",
+      "tmdb_id": 60932,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 37837,
+      "title": "Animals.",
+      "year": 2016,
+      "imdb_id": "tt4953128",
+      "tmdb_id": 65228,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 38152,
+      "title": "Anthony Bourdain: Parts Unknown",
+      "year": 2013,
+      "imdb_id": "tt2845786",
+      "tmdb_id": 56305,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 38492,
+      "title": "Aqua Teen Hunger Force",
+      "year": 2000,
+      "imdb_id": "tt0297494",
+      "tmdb_id": 251,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 39617,
+      "title": "At Home with Amy Sedaris",
+      "year": 2017,
+      "imdb_id": "tt7552590",
+      "tmdb_id": 74666,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 310964,
+      "title": "Babylon 5",
+      "year": 1993,
+      "imdb_id": "tt0105946",
+      "tmdb_id": 3137,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 311541,
+      "title": "Ballers",
+      "year": 2015,
+      "imdb_id": "tt2891574",
+      "tmdb_id": 62704,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 311547,
+      "title": "Ballmastrz: 9009",
+      "year": 2018,
+      "imdb_id": "tt8170404",
+      "tmdb_id": 78672,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 311767,
+      "title": "Banshee",
+      "year": 2013,
+      "imdb_id": "tt2017109",
+      "tmdb_id": 41727,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 311979,
+      "title": "Barry",
+      "year": 2018,
+      "imdb_id": "tt5348176",
+      "tmdb_id": 73107,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 312124,
+      "title": "Batman Beyond",
+      "year": 1999,
+      "imdb_id": "tt0147746",
+      "tmdb_id": 513,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 312128,
+      "title": "Batman: The Animated Series",
+      "year": 1992,
+      "imdb_id": "tt0103359",
+      "tmdb_id": 2098,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 312129,
+      "title": "Batman: The Brave and the Bold",
+      "year": 2008,
+      "imdb_id": "tt1213218",
+      "tmdb_id": 15804,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 312247,
+      "title": "Batwoman",
+      "year": 2019,
+      "imdb_id": "tt8712204",
+      "tmdb_id": 89247,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 312938,
+      "title": "Being Erica",
+      "year": 2009,
+      "imdb_id": "tt1149608",
+      "tmdb_id": 8459,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 313102,
+      "title": "Ben 10",
+      "year": 2016,
+      "imdb_id": "tt6148376",
+      "tmdb_id": 68295,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 313103,
+      "title": "Ben 10",
+      "year": 2005,
+      "imdb_id": "tt0760437",
+      "tmdb_id": 4686,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 313105,
+      "title": "Ben 10: Omniverse",
+      "year": 2012,
+      "imdb_id": "tt2293002",
+      "tmdb_id": 46922,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 313306,
+      "title": "Berserk",
+      "year": 2016,
+      "imdb_id": "tt5847454",
+      "tmdb_id": 66053,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 314162,
+      "title": "Big Little Lies",
+      "year": 2017,
+      "imdb_id": "tt3920596",
+      "tmdb_id": 66292,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 314163,
+      "title": "Big Love",
+      "year": 2006,
+      "imdb_id": "tt0421030",
+      "tmdb_id": 4392,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 314827,
+      "title": "Black Dynamite",
+      "year": 2011,
+      "imdb_id": "tt1608383",
+      "tmdb_id": 40064,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 315158,
+      "title": "Blinded by the Lights",
+      "year": 2018,
+      "imdb_id": "tt6520930",
+      "tmdb_id": 82858,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 315419,
+      "title": "Blue Exorcist",
+      "year": 2011,
+      "imdb_id": "tt1799631",
+      "tmdb_id": 38464,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 315551,
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "imdb_id": "tt0979432",
+      "tmdb_id": 1621,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 316105,
+      "title": "Bored to Death",
+      "year": 2009,
+      "imdb_id": "tt1255913",
+      "tmdb_id": 31078,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 317900,
+      "title": "Bungo Stray Dogs",
+      "year": 2016,
+      "imdb_id": "tt5679720",
+      "tmdb_id": 65931,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 318405,
+      "title": "Strike",
+      "year": 2017,
+      "imdb_id": "tt4276618",
+      "tmdb_id": 72748,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 319563,
+      "title": "Capadocia",
+      "year": 2008,
+      "imdb_id": "tt1068899",
+      "tmdb_id": 31388,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 319907,
+      "title": "Carnivàle",
+      "year": 2003,
+      "imdb_id": "tt0319969",
+      "tmdb_id": 185,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 321176,
+      "title": "Chappelle's Show",
+      "year": 2003,
+      "imdb_id": "tt0353049",
+      "tmdb_id": 713,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 321433,
+      "title": "Check It Out! with Dr. Steve Brule",
+      "year": 2010,
+      "imdb_id": "tt1657563",
+      "tmdb_id": 32612,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 321655,
+      "title": "Chewing Gum",
+      "year": 2015,
+      "imdb_id": "tt5097050",
+      "tmdb_id": 64339,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 321907,
+      "title": "China, IL",
+      "year": 2008,
+      "imdb_id": "tt2058221",
+      "tmdb_id": 39680,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 322112,
+      "title": "Chowder",
+      "year": 2007,
+      "imdb_id": "tt1140100",
+      "tmdb_id": 9907,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 322947,
+      "title": "Clarence",
+      "year": 2013,
+      "imdb_id": "tt3061050",
+      "tmdb_id": 50035,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 323633,
+      "title": "Codename: Kids Next Door",
+      "year": 2002,
+      "imdb_id": "tt0312109",
+      "tmdb_id": 2660,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 325560,
+      "title": "Coupling",
+      "year": 2000,
+      "imdb_id": "tt0237123",
+      "tmdb_id": 2719,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 325566,
+      "title": "Courage the Cowardly Dog",
+      "year": 1999,
+      "imdb_id": "tt0220880",
+      "tmdb_id": 2085,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 325754,
+      "title": "Craig of the Creek",
+      "year": 2018,
+      "imdb_id": "tt7713450",
+      "tmdb_id": 79061,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 325827,
+      "title": "Crashing",
+      "year": 2017,
+      "imdb_id": "tt5037914",
+      "tmdb_id": 68898,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 327088,
+      "title": "DCI Banks",
+      "year": 2010,
+      "imdb_id": "tt1652216",
+      "tmdb_id": 40675,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 329319,
+      "title": "Deadwood",
+      "year": 2004,
+      "imdb_id": "tt0348914",
+      "tmdb_id": 1406,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 329415,
+      "title": "Death Note",
+      "year": 2006,
+      "imdb_id": "tt0877057",
+      "tmdb_id": 13916,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 329795,
+      "title": "Delocated",
+      "year": 2009,
+      "imdb_id": "tt1299729",
+      "tmdb_id": 17425,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 330950,
+      "title": "Dexter's Laboratory",
+      "year": 1996,
+      "imdb_id": "tt0115157",
+      "tmdb_id": 4229,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 332135,
+      "title": "Dios Inc.",
+      "year": 2016,
+      "imdb_id": "tt5625508",
+      "tmdb_id": 66089,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 332613,
+      "title": "Divorce",
+      "year": 2016,
+      "imdb_id": "tt4304864",
+      "tmdb_id": 67280,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 332865,
+      "title": "Doctor Who",
+      "year": 2005,
+      "imdb_id": "tt0436992",
+      "tmdb_id": 57243,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 333481,
+      "title": "Doom Patrol",
+      "year": 2019,
+      "imdb_id": "tt8416494",
+      "tmdb_id": 79501,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 334227,
+      "title": "Dream the Future",
+      "year": 2015,
+      "imdb_id": "tt6808314",
+      "tmdb_id": 68230,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 335208,
+      "title": "Eagleheart",
+      "year": 2011,
+      "imdb_id": "tt1728860",
+      "tmdb_id": 32752,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 335302,
+      "title": "Eastbound & Down",
+      "year": 2009,
+      "imdb_id": "tt0866442",
+      "tmdb_id": 8624,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 335505,
+      "title": "Ed, Edd n Eddy",
+      "year": 1999,
+      "imdb_id": "tt0184111",
+      "tmdb_id": 606,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 336166,
+      "title": "The Bronze Garden",
+      "year": 2017,
+      "imdb_id": "tt7048386",
+      "tmdb_id": 71816,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 336600,
+      "title": "El Hipnotizador",
+      "year": 2015,
+      "imdb_id": "tt4905820",
+      "tmdb_id": 63733,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 337244,
+      "title": "Ellen's Game of Games",
+      "year": 2017,
+      "imdb_id": "tt7369770",
+      "tmdb_id": 76048,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 338086,
+      "title": "Entourage",
+      "year": 2004,
+      "imdb_id": "tt0387199",
+      "tmdb_id": 1940,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 338254,
+      "title": "Epitaphs",
+      "year": 2004,
+      "imdb_id": "tt0423646",
+      "tmdb_id": 12838,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 338584,
+      "title": "Esme & Roy",
+      "year": 2018,
+      "imdb_id": "tt7167690",
+      "tmdb_id": 81190,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 339116,
+      "title": "Everwood",
+      "year": 2002,
+      "imdb_id": "tt0318883",
+      "tmdb_id": 1950,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 340363,
+      "title": "Falling Skies",
+      "year": 2011,
+      "imdb_id": "tt1462059",
+      "tmdb_id": 34967,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 341878,
+      "title": "Final Space",
+      "year": 2018,
+      "imdb_id": "tt6317068",
+      "tmdb_id": 74387,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 341935,
+      "title": "Finding Jesus: Faith. Fact. Forgery",
+      "year": 2015,
+      "imdb_id": "tt4459206",
+      "tmdb_id": 62752,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 342524,
+      "title": "Flight of the Conchords",
+      "year": 2007,
+      "imdb_id": "tt0863046",
+      "tmdb_id": 2742,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 342965,
+      "title": "Food Wars! Shokugeki no Soma",
+      "year": 2015,
+      "imdb_id": "tt4731072",
+      "tmdb_id": 62273,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 343242,
+      "title": "Forensic Files",
+      "year": 1996,
+      "imdb_id": "tt0247882",
+      "tmdb_id": 11105,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 343427,
+      "title": "Foster's Home for Imaginary Friends",
+      "year": 2004,
+      "imdb_id": "tt0419326",
+      "tmdb_id": 1720,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 344177,
+      "title": "Friends",
+      "year": 1994,
+      "imdb_id": "tt0108778",
+      "tmdb_id": 1668,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 344240,
+      "title": "Frisky Dingo",
+      "year": 2006,
+      "imdb_id": "tt0865409",
+      "tmdb_id": 1542,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 344523,
+      "title": "Profugos",
+      "year": 2011,
+      "imdb_id": "tt1941928",
+      "tmdb_id": 56733,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 344577,
+      "title": "Full Frontal with Samantha Bee",
+      "year": 2016,
+      "imdb_id": "tt5323988",
+      "tmdb_id": 65592,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 344622,
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "year": 2009,
+      "imdb_id": "tt1355642",
+      "tmdb_id": 31911,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 345534,
+      "title": "Game of Thrones",
+      "year": 2011,
+      "imdb_id": "tt0944947",
+      "tmdb_id": 1399,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 345741,
+      "title": "Garfunkel and Oates",
+      "year": 2014,
+      "imdb_id": "tt2276413",
+      "tmdb_id": 61880,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 345867,
+      "title": "Gavin & Stacey",
+      "year": 2007,
+      "imdb_id": "tt0908454",
+      "tmdb_id": 3696,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 347110,
+      "title": "Girls",
+      "year": 2012,
+      "imdb_id": "tt1723816",
+      "tmdb_id": 42282,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 347786,
+      "title": "Gold Rush",
+      "year": 2010,
+      "imdb_id": "tt1800864",
+      "tmdb_id": 34634,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 347821,
+      "title": "Golden Life",
+      "year": 2015,
+      "imdb_id": "tt5099020",
+      "tmdb_id": 64379,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 347890,
+      "title": "Gomorrah",
+      "year": 2014,
+      "imdb_id": "tt2049116",
+      "tmdb_id": 61068,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 348243,
+      "title": "Gossip Girl",
+      "year": 2007,
+      "imdb_id": "tt0397442",
+      "tmdb_id": 1395,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 348835,
+      "title": "Green Lantern: The Animated Series",
+      "year": 2011,
+      "imdb_id": "tt1724587",
+      "tmdb_id": 40351,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 349894,
+      "title": "Hack My Life",
+      "year": 2015,
+      "imdb_id": "tt4362342",
+      "tmdb_id": 62906,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 350100,
+      "title": "Halfworlds",
+      "year": 2015,
+      "imdb_id": "tt4766568",
+      "tmdb_id": 65267,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 350441,
+      "title": "Happy Endings",
+      "year": 2011,
+      "imdb_id": "tt1587678",
+      "tmdb_id": 32829,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 350578,
+      "title": "Hard Knocks",
+      "year": 2001,
+      "imdb_id": "tt0446622",
+      "tmdb_id": 12940,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 350797,
+      "title": "Harvey Birdman, Attorney at Law",
+      "year": 2000,
+      "imdb_id": "tt0294097",
+      "tmdb_id": 416,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    }
+  ],
+  "page": 6,
+  "total_results": 1969,
+  "total_pages": 8
+}
