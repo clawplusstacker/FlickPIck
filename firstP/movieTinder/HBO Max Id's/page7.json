@@ -1,0 +1,2258 @@
+
+{
+  "titles": [
+    {
+      "id": 351145,
+      "title": "Head of the Class",
+      "year": 1986,
+      "imdb_id": "tt0090444",
+      "tmdb_id": 2589,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 351672,
+      "title": "Hello Ladies",
+      "year": 2013,
+      "imdb_id": "tt2378794",
+      "tmdb_id": 53300,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 351904,
+      "title": "Here and Now",
+      "year": 2018,
+      "imdb_id": "tt5923012",
+      "tmdb_id": 75506,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 352442,
+      "title": "High Maintenance",
+      "year": 2016,
+      "imdb_id": "tt6078096",
+      "tmdb_id": 67243,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 353722,
+      "title": "Home Movies",
+      "year": 1999,
+      "imdb_id": "tt0197159",
+      "tmdb_id": 2274,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 354327,
+      "title": "Hot Streets",
+      "year": 2016,
+      "imdb_id": "tt7234598",
+      "tmdb_id": 76246,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 354715,
+      "title": "How It Really Happened",
+      "year": 2016,
+      "imdb_id": "tt6186030",
+      "tmdb_id": 75299,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 354862,
+      "title": "How to Make It in America",
+      "year": 2010,
+      "imdb_id": "tt1299365",
+      "tmdb_id": 32023,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 355223,
+      "title": "Hung",
+      "year": 2009,
+      "imdb_id": "tt1229413",
+      "tmdb_id": 18614,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 355269,
+      "title": "Hunter x Hunter",
+      "year": 2011,
+      "imdb_id": "tt2098220",
+      "tmdb_id": 46298,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 356173,
+      "title": "I'm Alan Partridge",
+      "year": 1997,
+      "imdb_id": "tt0129690",
+      "tmdb_id": 1073,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 357117,
+      "title": "Impractical Jokers",
+      "year": 2011,
+      "imdb_id": "tt2100976",
+      "tmdb_id": 59186,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 357367,
+      "title": "In Treatment",
+      "year": 2008,
+      "imdb_id": "tt0835434",
+      "tmdb_id": 14069,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 358040,
+      "title": "Insecure",
+      "year": 2016,
+      "imdb_id": "tt5024912",
+      "tmdb_id": 67883,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 358064,
+      "title": "Inside Amy Schumer",
+      "year": 2013,
+      "imdb_id": "tt2578508",
+      "tmdb_id": 47562,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 358148,
+      "title": "Inside No. 9",
+      "year": 2014,
+      "imdb_id": "tt2674806",
+      "tmdb_id": 61746,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 358654,
+      "title": "InuYasha",
+      "year": 2000,
+      "imdb_id": "tt0290223",
+      "tmdb_id": 35610,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 360733,
+      "title": "Joe Pera Talks with You",
+      "year": 2018,
+      "imdb_id": "tt8199790",
+      "tmdb_id": 79864,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 360819,
+      "title": "John from Cincinnati",
+      "year": 2007,
+      "imdb_id": "tt0814164",
+      "tmdb_id": 1086,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 360968,
+      "title": "Jonny Quest",
+      "year": 1964,
+      "imdb_id": "tt0057730",
+      "tmdb_id": 962,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 361054,
+      "title": "Josie and the Pussycats",
+      "year": 1970,
+      "imdb_id": "tt0065307",
+      "tmdb_id": 4489,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 361761,
+      "title": "Justice League",
+      "year": 2001,
+      "imdb_id": "tt0275137",
+      "tmdb_id": 1618,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 362063,
+      "title": "Kabaneri of the Iron Fortress Recap 1: Gathering Light",
+      "year": 2016,
+      "imdb_id": "tt5556656",
+      "tmdb_id": 431802,
+      "tmdb_type": "movie",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 363436,
+      "title": "Key & Peele",
+      "year": 2012,
+      "imdb_id": "tt1981558",
+      "tmdb_id": 43082,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 363791,
+      "title": "Kill la Kill",
+      "year": 2013,
+      "imdb_id": "tt3114390",
+      "tmdb_id": 60728,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 364596,
+      "title": "Knowing Me Knowing You with Alan Partridge",
+      "year": 1994,
+      "imdb_id": "tt0108828",
+      "tmdb_id": 960,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 364905,
+      "title": "KonoSuba – God’s blessing on this wonderful world!!",
+      "year": 2016,
+      "imdb_id": "tt5370118",
+      "tmdb_id": 65844,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 368210,
+      "title": "Last Week Tonight with John Oliver",
+      "year": 2014,
+      "imdb_id": "tt3530232",
+      "tmdb_id": 60694,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 370470,
+      "title": "Life's Too Short",
+      "year": 2011,
+      "imdb_id": "tt1641247",
+      "tmdb_id": 38294,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 371693,
+      "title": "Loiter Squad",
+      "year": 2012,
+      "imdb_id": "tt2272367",
+      "tmdb_id": 40520,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 371931,
+      "title": "Looking",
+      "year": 2014,
+      "imdb_id": "tt2581458",
+      "tmdb_id": 57774,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 373018,
+      "title": "Luck",
+      "year": 2011,
+      "imdb_id": "tt1578887",
+      "tmdb_id": 32727,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 373071,
+      "title": "Lucy, the Daughter of the Devil",
+      "year": 2005,
+      "imdb_id": "tt0491560",
+      "tmdb_id": 2980,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 373251,
+      "title": "Luther",
+      "year": 2010,
+      "imdb_id": "tt1474684",
+      "tmdb_id": 1426,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 374401,
+      "title": "Magnifica 70",
+      "year": 2015,
+      "imdb_id": "tt4725820",
+      "tmdb_id": 62892,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 374586,
+      "title": "Major Crimes",
+      "year": 2012,
+      "imdb_id": "tt1936532",
+      "tmdb_id": 39483,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 375009,
+      "title": "Mammon",
+      "year": 2014,
+      "imdb_id": "tt2377081",
+      "tmdb_id": 60563,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 377401,
+      "title": "Men of a Certain Age",
+      "year": 2009,
+      "imdb_id": "tt1242441",
+      "tmdb_id": 16208,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 377758,
+      "title": "Metalocalypse",
+      "year": 2006,
+      "imdb_id": "tt0839188",
+      "tmdb_id": 653,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 378269,
+      "title": "Mighty Magiswords",
+      "year": 2015,
+      "imdb_id": "tt4847134",
+      "tmdb_id": 68368,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 378867,
+      "title": "Miracle Workers",
+      "year": 2019,
+      "imdb_id": "tt7529770",
+      "tmdb_id": 78950,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 380248,
+      "title": "Moral Orel",
+      "year": 2005,
+      "imdb_id": "tt0476922",
+      "tmdb_id": 292,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 380456,
+      "title": "Mosaic",
+      "year": 2018,
+      "imdb_id": "tt5056958",
+      "tmdb_id": 75944,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 380517,
+      "title": "Mostly 4 Millennials",
+      "year": 2018,
+      "imdb_id": "tt7262218",
+      "tmdb_id": 80810,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 381029,
+      "title": "Mr. Show with Bob and David",
+      "year": 1995,
+      "imdb_id": "tt0112084",
+      "tmdb_id": 610,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 381872,
+      "title": "My Brilliant Friend",
+      "year": 2018,
+      "imdb_id": "tt7278862",
+      "tmdb_id": 78154,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 383780,
+      "title": "Nathan For You",
+      "year": 2013,
+      "imdb_id": "tt2297757",
+      "tmdb_id": 58957,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 384571,
+      "title": "New Looney Tunes",
+      "year": 2015,
+      "imdb_id": "tt4558858",
+      "tmdb_id": 65763,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 387203,
+      "title": "OK K.O.! Let's Be Heroes",
+      "year": 2017,
+      "imdb_id": "tt6965802",
+      "tmdb_id": 72468,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 387556,
+      "title": "Off the Air",
+      "year": 2011,
+      "imdb_id": "tt2289131",
+      "tmdb_id": 39479,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 388461,
+      "title": "On the Spectrum",
+      "year": 2018,
+      "imdb_id": "tt8178684",
+      "tmdb_id": 79830,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 390217,
+      "title": "Oz",
+      "year": 1997,
+      "imdb_id": "tt0118421",
+      "tmdb_id": 3322,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 390400,
+      "title": "Pac-Man and the Ghostly Adventures",
+      "year": 2013,
+      "imdb_id": "tt2392179",
+      "tmdb_id": 44593,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 392347,
+      "title": "Person of Interest",
+      "year": 2011,
+      "imdb_id": "tt1839578",
+      "tmdb_id": 1411,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 393068,
+      "title": "Pinky Dinky Doo",
+      "year": 2005,
+      "imdb_id": "tt0804425",
+      "tmdb_id": 2424,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 395274,
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "imdb_id": "tt1578873",
+      "tmdb_id": 31917,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 396170,
+      "title": "Psi",
+      "year": 2014,
+      "imdb_id": "tt3637900",
+      "tmdb_id": 67405,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 396318,
+      "title": "Puella Magi Madoka Magica",
+      "year": 2011,
+      "imdb_id": "tt1773185",
+      "tmdb_id": 39218,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 396587,
+      "title": "Pushing Daisies",
+      "year": 2007,
+      "imdb_id": "tt0925266",
+      "tmdb_id": 5639,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 398331,
+      "title": "Re:ZERO -Starting Life in Another World-",
+      "year": 2016,
+      "imdb_id": "tt5607616",
+      "tmdb_id": 65942,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 398534,
+      "title": "Real Sports with Bryant Gumbel",
+      "year": 1995,
+      "imdb_id": "tt0290369",
+      "tmdb_id": 10471,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 398556,
+      "title": "Real Time with Bill Maher",
+      "year": 2003,
+      "imdb_id": "tt0350448",
+      "tmdb_id": 4419,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 399148,
+      "title": "Regular Show",
+      "year": 2009,
+      "imdb_id": "tt1710308",
+      "tmdb_id": 31132,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 399434,
+      "title": "Reno 911!",
+      "year": 2003,
+      "imdb_id": "tt0370194",
+      "tmdb_id": 2187,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3100109,
+      "title": "Rick and Morty",
+      "year": 2013,
+      "imdb_id": "tt2861424",
+      "tmdb_id": 60625,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3100737,
+      "title": "Robot Chicken",
+      "year": 2005,
+      "imdb_id": "tt0437745",
+      "tmdb_id": 709,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3101091,
+      "title": "Rokka: Braves of the Six Flowers",
+      "year": 2015,
+      "imdb_id": "tt4958610",
+      "tmdb_id": 63146,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3101216,
+      "title": "Rome",
+      "year": 2005,
+      "imdb_id": "tt0384766",
+      "tmdb_id": 1891,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3101329,
+      "title": "Room 104",
+      "year": 2017,
+      "imdb_id": "tt6064882",
+      "tmdb_id": 72581,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3102021,
+      "title": "Rurouni Kenshin",
+      "year": 1996,
+      "imdb_id": "tt0182629",
+      "tmdb_id": 28136,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3103200,
+      "title": "Samurai Jack",
+      "year": 2001,
+      "imdb_id": "tt0278238",
+      "tmdb_id": 2723,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3104352,
+      "title": "Scooby-Doo, Where Are You?",
+      "year": 1969,
+      "imdb_id": "tt0063950",
+      "tmdb_id": 926,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3104415,
+      "title": "Scott & Bailey",
+      "year": 2011,
+      "imdb_id": "tt1843678",
+      "tmdb_id": 39551,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3104654,
+      "title": "Sealab 2021",
+      "year": 2000,
+      "imdb_id": "tt0278877",
+      "tmdb_id": 334,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3104676,
+      "title": "Search Party",
+      "year": 2016,
+      "imdb_id": "tt5460226",
+      "tmdb_id": 67697,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3105641,
+      "title": "Sesame Street",
+      "year": 1969,
+      "imdb_id": "tt0063951",
+      "tmdb_id": 502,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3105857,
+      "title": "Sex and the City",
+      "year": 1998,
+      "imdb_id": "tt0159206",
+      "tmdb_id": 105,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3106287,
+      "title": "Sharp Objects",
+      "year": 2018,
+      "imdb_id": "tt2649356",
+      "tmdb_id": 70453,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3107530,
+      "title": "Silicon Valley",
+      "year": 2014,
+      "imdb_id": "tt2575988",
+      "tmdb_id": 60573,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3108093,
+      "title": "Six Feet Under",
+      "year": 2001,
+      "imdb_id": "tt0248654",
+      "tmdb_id": 1274,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3108968,
+      "title": "Snowpiercer",
+      "year": 2020,
+      "imdb_id": "tt6156584",
+      "tmdb_id": 79680,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3109994,
+      "title": "South Park",
+      "year": 1997,
+      "imdb_id": "tt0121955",
+      "tmdb_id": 2190,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3110052,
+      "title": "Southland",
+      "year": 2009,
+      "imdb_id": "tt1299368",
+      "tmdb_id": 17611,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3110130,
+      "title": "Space Ghost Coast to Coast",
+      "year": 1993,
+      "imdb_id": "tt0108937",
+      "tmdb_id": 2798,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3110283,
+      "title": "Spawn",
+      "year": 1997,
+      "imdb_id": "tt0118475",
+      "tmdb_id": 10331,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3111080,
+      "title": "Squidbillies",
+      "year": 2005,
+      "imdb_id": "tt0457146",
+      "tmdb_id": 539,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3111097,
+      "title": "Sr. Ávila",
+      "year": 2013,
+      "imdb_id": "tt2280066",
+      "tmdb_id": 64969,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3111540,
+      "title": "Stargirl",
+      "year": 2020,
+      "imdb_id": "tt8722888",
+      "tmdb_id": 80986,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3111778,
+      "title": "Static Shock",
+      "year": 2000,
+      "imdb_id": "tt0247729",
+      "tmdb_id": 1487,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3112006,
+      "title": "Steven Universe",
+      "year": 2013,
+      "imdb_id": "tt3061046",
+      "tmdb_id": 61175,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3113204,
+      "title": "Succession",
+      "year": 2018,
+      "imdb_id": "tt7660850",
+      "tmdb_id": 76331,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3113405,
+      "title": "Summer Camp Island",
+      "year": 2018,
+      "imdb_id": "tt8146760",
+      "tmdb_id": 81665,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3114035,
+      "title": "Superjail!",
+      "year": 2007,
+      "imdb_id": "tt1031283",
+      "tmdb_id": 3108,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3114041,
+      "title": "Superman: The Animated Series",
+      "year": 1996,
+      "imdb_id": "tt0115378",
+      "tmdb_id": 4303,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3117040,
+      "title": "Teen Titans",
+      "year": 2003,
+      "imdb_id": "tt0343314",
+      "tmdb_id": 604,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3117325,
+      "title": "Tell Me You Love Me",
+      "year": 2007,
+      "imdb_id": "tt0809497",
+      "tmdb_id": 15003,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3117479,
+      "title": "Tenacious D",
+      "year": 1997,
+      "imdb_id": "tt0180241",
+      "tmdb_id": 1171,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3118619,
+      "title": "The Alienist",
+      "year": 2018,
+      "imdb_id": "tt4604612",
+      "tmdb_id": 71769,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3118708,
+      "title": "The Amazing World of Gumball",
+      "year": 2011,
+      "imdb_id": "tt1942683",
+      "tmdb_id": 37606,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119070,
+      "title": "The Bachelor",
+      "year": 2002,
+      "imdb_id": "tt0313038",
+      "tmdb_id": 355,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119079,
+      "title": "The Bachelorette",
+      "year": 2003,
+      "imdb_id": "tt0348894",
+      "tmdb_id": 1562,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119186,
+      "title": "The Batman",
+      "year": 2004,
+      "imdb_id": "tt0398417",
+      "tmdb_id": 2022,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119408,
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "imdb_id": "tt0898266",
+      "tmdb_id": 1418,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119803,
+      "title": "The Boondocks",
+      "year": 2005,
+      "imdb_id": "tt0373732",
+      "tmdb_id": 2604,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119897,
+      "title": "The Brak Show",
+      "year": 2000,
+      "imdb_id": "tt0297512",
+      "tmdb_id": 481,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3119959,
+      "title": "The Brink",
+      "year": 2015,
+      "imdb_id": "tt3216586",
+      "tmdb_id": 15907,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3120093,
+      "title": "El Negocio",
+      "year": 2013,
+      "imdb_id": "tt2650940",
+      "tmdb_id": 62490,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3120218,
+      "title": "The Carbonaro Effect",
+      "year": 2014,
+      "imdb_id": "tt3559912",
+      "tmdb_id": 60913,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3120630,
+      "title": "The Closer",
+      "year": 2005,
+      "imdb_id": "tt0458253",
+      "tmdb_id": 1450,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3120716,
+      "title": "The Comeback",
+      "year": 2005,
+      "imdb_id": "tt0434672",
+      "tmdb_id": 1999,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3121411,
+      "title": "The Deuce",
+      "year": 2017,
+      "imdb_id": "tt4998350",
+      "tmdb_id": 65817,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3121974,
+      "title": "The Event",
+      "year": 2010,
+      "imdb_id": "tt1582459",
+      "tmdb_id": 32730,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3122402,
+      "title": "The Flintstones",
+      "year": 1960,
+      "imdb_id": "tt0053502",
+      "tmdb_id": 1996,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3122556,
+      "title": "The Fresh Prince of Bel-Air",
+      "year": 1990,
+      "imdb_id": "tt0098800",
+      "tmdb_id": 1892,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3123254,
+      "title": "The Great Pottery Throw Down",
+      "year": 2015,
+      "imdb_id": "tt6417190",
+      "tmdb_id": 77631,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3123346,
+      "title": "The Grim Adventures of Billy and Mandy",
+      "year": 2001,
+      "imdb_id": "tt0292800",
+      "tmdb_id": 897,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3123574,
+      "title": "The Heart, She Holler",
+      "year": 2011,
+      "imdb_id": "tt2104664",
+      "tmdb_id": 41821,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3123926,
+      "title": "The Hunt with John Walsh",
+      "year": 2014,
+      "imdb_id": "tt3872824",
+      "tmdb_id": 64917,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3124339,
+      "title": "The Jellies",
+      "year": 2017,
+      "imdb_id": "tt6898698",
+      "tmdb_id": 74501,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3124361,
+      "title": "The Jetsons",
+      "year": 1962,
+      "imdb_id": "tt0055683",
+      "tmdb_id": 2362,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3124749,
+      "title": "The Knick",
+      "year": 2014,
+      "imdb_id": "tt2937900",
+      "tmdb_id": 61014,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3124845,
+      "title": "The Larry Sanders Show",
+      "year": 1992,
+      "imdb_id": "tt0103466",
+      "tmdb_id": 1915,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3125033,
+      "title": "The Leftovers",
+      "year": 2014,
+      "imdb_id": "tt2699128",
+      "tmdb_id": 54344,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3125380,
+      "title": "The Looney Tunes Show",
+      "year": 2011,
+      "imdb_id": "tt1726839",
+      "tmdb_id": 32605,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3125755,
+      "title": "The Marvelous Misadventures of Flapjack",
+      "year": 2008,
+      "imdb_id": "tt1178180",
+      "tmdb_id": 6673,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3125932,
+      "title": "The Middle",
+      "year": 2009,
+      "imdb_id": "tt1442464",
+      "tmdb_id": 1422,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126417,
+      "title": "The Nanny",
+      "year": 1993,
+      "imdb_id": "tt0106080",
+      "tmdb_id": 2352,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126547,
+      "title": "The New Adventures of Old Christine",
+      "year": 2006,
+      "imdb_id": "tt0462128",
+      "tmdb_id": 4402,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126703,
+      "title": "The Newsroom",
+      "year": 2012,
+      "imdb_id": "tt1870479",
+      "tmdb_id": 15621,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126788,
+      "title": "The No. 1 Ladies' Detective Agency",
+      "year": 2008,
+      "imdb_id": "tt1356380",
+      "tmdb_id": 7154,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126864,
+      "title": "The O.C.",
+      "year": 2003,
+      "imdb_id": "tt0362359",
+      "tmdb_id": 2673,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3126903,
+      "title": "The Office",
+      "year": 2001,
+      "imdb_id": "tt0290978",
+      "tmdb_id": 2996,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3127586,
+      "title": "The Powerpuff Girls",
+      "year": 1998,
+      "imdb_id": "tt0175058",
+      "tmdb_id": 607,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3127587,
+      "title": "The Powerpuff Girls",
+      "year": 2016,
+      "imdb_id": "tt4718304",
+      "tmdb_id": 66149,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3128709,
+      "title": "The Sarah Jane Adventures",
+      "year": 2007,
+      "imdb_id": "tt0862620",
+      "tmdb_id": 203,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3128790,
+      "title": "The Scooby-Doo/Dynomutt Hour",
+      "year": 1976,
+      "imdb_id": "tt0074053",
+      "tmdb_id": 2150,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3128880,
+      "title": "The Secret Life of Couples",
+      "year": 2017,
+      "imdb_id": "tt7462576",
+      "tmdb_id": 74278,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3129074,
+      "title": "The Shivering Truth",
+      "year": 2018,
+      "imdb_id": "tt6905458",
+      "tmdb_id": 85000,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3129300,
+      "title": "The Smurfs",
+      "year": 1981,
+      "imdb_id": "tt0081933",
+      "tmdb_id": 5687,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3129354,
+      "title": "The Sopranos",
+      "year": 1999,
+      "imdb_id": "tt0141842",
+      "tmdb_id": 1398,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3129876,
+      "title": "The Sylvester & Tweety Mysteries",
+      "year": 1995,
+      "imdb_id": "tt0112186",
+      "tmdb_id": 9867,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3130027,
+      "title": "The Testament of Sister New Devil",
+      "year": 2015,
+      "imdb_id": "tt4219258",
+      "tmdb_id": 64163,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3130044,
+      "title": "The Thick of It",
+      "year": 2005,
+      "imdb_id": "tt0459159",
+      "tmdb_id": 4507,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3131038,
+      "title": "The Wayans Bros.",
+      "year": 1995,
+      "imdb_id": "tt0112220",
+      "tmdb_id": 2297,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3131149,
+      "title": "The West Wing",
+      "year": 1999,
+      "imdb_id": "tt0200276",
+      "tmdb_id": 688,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3131273,
+      "title": "The Windsors",
+      "year": 2016,
+      "imdb_id": "tt5692740",
+      "tmdb_id": 66437,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3131293,
+      "title": "The Wire",
+      "year": 2002,
+      "imdb_id": "tt0306414",
+      "tmdb_id": 1438,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3131611,
+      "title": "The Young Pope",
+      "year": 2016,
+      "imdb_id": "tt3655448",
+      "tmdb_id": 62699,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3132249,
+      "title": "Those Who Can't",
+      "year": 2016,
+      "imdb_id": "tt4264096",
+      "tmdb_id": 65574,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3132751,
+      "title": "Tim and Eric Awesome Show, Great Job!",
+      "year": 2007,
+      "imdb_id": "tt0912343",
+      "tmdb_id": 1229,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3133089,
+      "title": "Titans",
+      "year": 2018,
+      "imdb_id": "tt1043813",
+      "tmdb_id": 75450,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3133498,
+      "title": "Togetherness",
+      "year": 2015,
+      "imdb_id": "tt3061830",
+      "tmdb_id": 61637,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3133623,
+      "title": "Tom Goes to the Mayor",
+      "year": 2004,
+      "imdb_id": "tt0425720",
+      "tmdb_id": 2718,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3133972,
+      "title": "Top Gear",
+      "year": 2002,
+      "imdb_id": "tt1628033",
+      "tmdb_id": 45,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3134136,
+      "title": "Torchwood",
+      "year": 2006,
+      "imdb_id": "tt0485301",
+      "tmdb_id": 424,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3135047,
+      "title": "Treme",
+      "year": 2010,
+      "imdb_id": "tt1279972",
+      "tmdb_id": 17967,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3135512,
+      "title": "True Blood",
+      "year": 2008,
+      "imdb_id": "tt0844441",
+      "tmdb_id": 10545,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3135535,
+      "title": "True Detective",
+      "year": 2014,
+      "imdb_id": "tt2356777",
+      "tmdb_id": 46648,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3137074,
+      "title": "Shadows",
+      "year": 2014,
+      "imdb_id": "tt4269716",
+      "tmdb_id": 62111,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3137398,
+      "title": "Uncle Grandpa",
+      "year": 2010,
+      "imdb_id": "tt3042608",
+      "tmdb_id": 47035,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3137816,
+      "title": "United Shades of America",
+      "year": 2016,
+      "imdb_id": "tt4515676",
+      "tmdb_id": 66335,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3139477,
+      "title": "Veep",
+      "year": 2012,
+      "imdb_id": "tt1759761",
+      "tmdb_id": 2947,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3140002,
+      "title": "Vice Principals",
+      "year": 2016,
+      "imdb_id": "tt3766376",
+      "tmdb_id": 65150,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3140498,
+      "title": "Vinyl",
+      "year": 2016,
+      "imdb_id": "tt3186130",
+      "tmdb_id": 63535,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3141828,
+      "title": "Wallander",
+      "year": 2008,
+      "imdb_id": "tt1178618",
+      "tmdb_id": 7263,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3142025,
+      "title": "Warrior",
+      "year": 2019,
+      "imdb_id": "tt5743796",
+      "tmdb_id": 73544,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3142144,
+      "title": "The Border",
+      "year": 2014,
+      "imdb_id": "tt4048942",
+      "tmdb_id": 61598,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3142204,
+      "title": "Watchmen",
+      "year": 2019,
+      "imdb_id": "tt7049682",
+      "tmdb_id": 79788,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3142344,
+      "title": "We Bare Bears",
+      "year": 2014,
+      "imdb_id": "tt4839610",
+      "tmdb_id": 63401,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3143011,
+      "title": "Westworld",
+      "year": 2016,
+      "imdb_id": "tt0475784",
+      "tmdb_id": 63247,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3143105,
+      "title": "What I Like About You",
+      "year": 2002,
+      "imdb_id": "tt0321018",
+      "tmdb_id": 33,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3143694,
+      "title": "Whitechapel",
+      "year": 2009,
+      "imdb_id": "tt1186356",
+      "tmdb_id": 17450,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3143903,
+      "title": "Whose Line Is It Anyway?",
+      "year": 1998,
+      "imdb_id": "tt0163507",
+      "tmdb_id": 61018,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3145061,
+      "title": "Wonder Woman",
+      "year": 1975,
+      "imdb_id": "tt0074074",
+      "tmdb_id": 4331,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3145581,
+      "title": "Wrecked",
+      "year": 2016,
+      "imdb_id": "tt4168956",
+      "tmdb_id": 66556,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3146794,
+      "title": "Young Justice",
+      "year": 2010,
+      "imdb_id": "tt1641384",
+      "tmdb_id": 33217,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3146819,
+      "title": "Young Sheldon",
+      "year": 2017,
+      "imdb_id": "tt6226232",
+      "tmdb_id": 71728,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3146927,
+      "title": "Your Lie in April",
+      "year": 2014,
+      "imdb_id": "tt3895150",
+      "tmdb_id": 61663,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3153783,
+      "title": "The Undoing",
+      "year": 2020,
+      "imdb_id": "tt8134470",
+      "tmdb_id": 83851,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3154479,
+      "title": "Harley Quinn",
+      "year": 2019,
+      "imdb_id": "tt7658402",
+      "tmdb_id": 74440,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3155025,
+      "title": "Lovecraft Country",
+      "year": 2020,
+      "imdb_id": "tt6905686",
+      "tmdb_id": 82816,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3157147,
+      "title": "Axios",
+      "year": 2018,
+      "imdb_id": "tt9322904",
+      "tmdb_id": 83114,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3158331,
+      "title": "American Style",
+      "year": 2019,
+      "imdb_id": "tt9139238",
+      "tmdb_id": 84981,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3158669,
+      "title": "The Righteous Gemstones",
+      "year": 2019,
+      "imdb_id": "tt8634332",
+      "tmdb_id": 82782,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159113,
+      "title": "Messy goes to OKIDO",
+      "year": 2015,
+      "imdb_id": "tt3700734",
+      "tmdb_id": 76054,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159624,
+      "title": "Justice League Unlimited",
+      "year": 2004,
+      "imdb_id": "tt6025022",
+      "tmdb_id": 84200,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159670,
+      "title": "The Other Two",
+      "year": 2019,
+      "imdb_id": "tt8310612",
+      "tmdb_id": 85519,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159707,
+      "title": "Success",
+      "year": 2019,
+      "imdb_id": "tt8453458",
+      "tmdb_id": 85549,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159756,
+      "title": "Euphoria",
+      "year": 2019,
+      "imdb_id": "tt8772296",
+      "tmdb_id": 85552,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159793,
+      "title": "Heroes Cotidianos",
+      "year": 2014,
+      "imdb_id": "tt4003572",
+      "tmdb_id": 85656,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3159899,
+      "title": "Raised by Wolves",
+      "year": 2020,
+      "imdb_id": "tt9170108",
+      "tmdb_id": 85723,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160215,
+      "title": "Patria",
+      "year": 2020,
+      "imdb_id": "tt6625730",
+      "tmdb_id": 85964,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160365,
+      "title": "Gentleman Jack",
+      "year": 2019,
+      "imdb_id": "tt7211618",
+      "tmdb_id": 86163,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160438,
+      "title": "gen:LOCK",
+      "year": 2019,
+      "imdb_id": "tt7945066",
+      "tmdb_id": 86233,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160522,
+      "title": "Pure",
+      "year": 2019,
+      "imdb_id": "tt8147076",
+      "tmdb_id": 86401,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160606,
+      "title": "Tigtone",
+      "year": 2018,
+      "imdb_id": "tt8413062",
+      "tmdb_id": 86501,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160877,
+      "title": "Tacoma FD",
+      "year": 2019,
+      "imdb_id": "tt8026448",
+      "tmdb_id": 86893,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3160978,
+      "title": "This Time with Alan Partridge",
+      "year": 2019,
+      "imdb_id": "tt7011370",
+      "tmdb_id": 87058,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3161005,
+      "title": "Years and Years",
+      "year": 2019,
+      "imdb_id": "tt8694364",
+      "tmdb_id": 87104,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3161043,
+      "title": "Mrs. Fletcher",
+      "year": 2019,
+      "imdb_id": "tt8304608",
+      "tmdb_id": 81879,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3161137,
+      "title": "The Promised Neverland",
+      "year": 2019,
+      "imdb_id": "tt8788458",
+      "tmdb_id": 83097,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3161344,
+      "title": "Close Enough",
+      "year": 2020,
+      "imdb_id": "tt6994156",
+      "tmdb_id": 84503,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3161724,
+      "title": "RUN",
+      "year": 2020,
+      "imdb_id": "tt8045468",
+      "tmdb_id": 87393,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162258,
+      "title": "I Know This Much Is True",
+      "year": 2020,
+      "imdb_id": "tt0425118",
+      "tmdb_id": 88166,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3162354,
+      "title": "The Plot Against America",
+      "year": 2020,
+      "imdb_id": "tt9308346",
+      "tmdb_id": 83870,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3162386,
+      "title": "The New Pope",
+      "year": 2019,
+      "imdb_id": "tt7157248",
+      "tmdb_id": 88408,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3162420,
+      "title": "Lazor Wulf",
+      "year": 2019,
+      "imdb_id": "tt10133864",
+      "tmdb_id": 88477,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162553,
+      "title": "The Nevers",
+      "year": 2021,
+      "imdb_id": "tt8697870",
+      "tmdb_id": 80828,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162667,
+      "title": "Beware the Batman",
+      "year": 2013,
+      "imdb_id": "tt2329077",
+      "tmdb_id": 41676,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162828,
+      "title": "Primal",
+      "year": 2019,
+      "imdb_id": "tt10332508",
+      "tmdb_id": 89456,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162868,
+      "title": "Nancy Drew",
+      "year": 2019,
+      "imdb_id": "tt10313176",
+      "tmdb_id": 89572,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3162941,
+      "title": "The Celts",
+      "year": 2001,
+      "imdb_id": "tt1091328",
+      "tmdb_id": 89730,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163372,
+      "title": "Death Row Stories",
+      "year": 2014,
+      "imdb_id": "tt3602046",
+      "tmdb_id": 68520,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163401,
+      "title": "Xavier: Renegade Angel",
+      "year": 2007,
+      "imdb_id": "tt1132124",
+      "tmdb_id": 14769,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163408,
+      "title": "Catherine the Great",
+      "year": 2019,
+      "imdb_id": "tt7243884",
+      "tmdb_id": 76692,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3163558,
+      "title": "Avenue 5",
+      "year": 2020,
+      "imdb_id": "tt10234362",
+      "tmdb_id": 90811,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163605,
+      "title": "A Black Lady Sketch Show",
+      "year": 2019,
+      "imdb_id": "tt9698520",
+      "tmdb_id": 90877,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163790,
+      "title": "Mao Mao: Heroes of Pure Heart",
+      "year": 2014,
+      "imdb_id": "tt10364808",
+      "tmdb_id": 91246,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163865,
+      "title": "Infinity Train",
+      "year": 2019,
+      "imdb_id": "tt8146754",
+      "tmdb_id": 91425,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3163907,
+      "title": "Beforeigners",
+      "year": 2019,
+      "imdb_id": "tt8332130",
+      "tmdb_id": 91520,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164049,
+      "title": "Prodigal Son",
+      "year": 2019,
+      "imdb_id": "tt10327354",
+      "tmdb_id": 91875,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164110,
+      "title": "Joint Venture",
+      "year": 2019,
+      "imdb_id": "tt10756754",
+      "tmdb_id": 91907,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164377,
+      "title": "Squish",
+      "year": 2019,
+      "imdb_id": "tt8667180",
+      "tmdb_id": 92560,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164380,
+      "title": "The Misery Index",
+      "year": 2019,
+      "imdb_id": "tt9169870",
+      "tmdb_id": 92670,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164767,
+      "title": "The Yogi Bear Show",
+      "year": 1961,
+      "imdb_id": "tt0255768",
+      "tmdb_id": 30773,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3164775,
+      "title": "Scooby-Doo and Scrappy-Doo",
+      "year": 1979,
+      "imdb_id": "tt0083475",
+      "tmdb_id": 6005,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3165148,
+      "title": "The Outsider",
+      "year": 2020,
+      "imdb_id": "tt8550800",
+      "tmdb_id": 84661,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3165382,
+      "title": "Betty",
+      "year": 2020,
+      "imdb_id": "tt10814438",
+      "tmdb_id": 95170,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3165905,
+      "title": "Awkwafina is Nora From Queens",
+      "year": 2020,
+      "imdb_id": "tt8494614",
+      "tmdb_id": 96231,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3165907,
+      "title": "McMillion$",
+      "year": 2020,
+      "imdb_id": "tt9148598",
+      "tmdb_id": 96213,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3166010,
+      "title": "Katy Keene",
+      "year": 2020,
+      "imdb_id": "tt10312964",
+      "tmdb_id": 87539,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3166162,
+      "title": "Genera+ion",
+      "year": 2021,
+      "imdb_id": "tt11454722",
+      "tmdb_id": 96718,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3166692,
+      "title": "Love Monster",
+      "year": 2020,
+      "imdb_id": "tt11437474",
+      "tmdb_id": 98101,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3166865,
+      "title": "Road Trip",
+      "year": 2020,
+      "imdb_id": "tt10916470",
+      "tmdb_id": 98763,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3167049,
+      "title": "Perfect Life",
+      "year": 2019,
+      "imdb_id": "tt8344544",
+      "tmdb_id": 94734,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3167213,
+      "title": "The Third Day",
+      "year": 2020,
+      "imdb_id": "tt10482370",
+      "tmdb_id": 90259,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3168563,
+      "title": "Veneno",
+      "year": 2020,
+      "imdb_id": "tt10383046",
+      "tmdb_id": 100834,
+      "tmdb_type": "tv",
+      "type": "tv_miniseries"
+    },
+    {
+      "id": 3168608,
+      "title": "Three Busy Debras",
+      "year": 2020,
+      "imdb_id": "tt8619594",
+      "tmdb_id": 99858,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3168913,
+      "title": "Tower of God",
+      "year": 2020,
+      "imdb_id": "tt12057106",
+      "tmdb_id": 97860,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3168944,
+      "title": "Love Life",
+      "year": 2020,
+      "imdb_id": "tt10380768",
+      "tmdb_id": 102316,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3168948,
+      "title": "Looney Tunes Cartoons",
+      "year": 2019,
+      "imdb_id": "tt8543208",
+      "tmdb_id": 102321,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3168977,
+      "title": "The Head",
+      "year": 2020,
+      "imdb_id": "tt8290362",
+      "tmdb_id": 102434,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169008,
+      "title": "Little Baby Bum",
+      "year": 2011,
+      "imdb_id": "tt10051854",
+      "tmdb_id": 102562,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169060,
+      "title": "Other Parents",
+      "year": 2019,
+      "imdb_id": "tt10095376",
+      "tmdb_id": 87660,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169230,
+      "title": "I May Destroy You",
+      "year": 2020,
+      "imdb_id": "tt11204260",
+      "tmdb_id": 102619,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169381,
+      "title": "Hard",
+      "year": 2020,
+      "imdb_id": "tt12144960",
+      "tmdb_id": 102290,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169385,
+      "title": "Tig n' Seek",
+      "year": 2020,
+      "imdb_id": "tt10399810",
+      "tmdb_id": 103672,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169658,
+      "title": "Earwig and the Witch",
+      "year": 2020,
+      "imdb_id": "tt12441478",
+      "tmdb_id": 683127,
+      "tmdb_type": "movie",
+      "type": "tv_movie"
+    },
+    {
+      "id": 3169795,
+      "title": "Very Scary People",
+      "year": 2019,
+      "imdb_id": "tt10081386",
+      "tmdb_id": 87569,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    },
+    {
+      "id": 3169836,
+      "title": "Josie and the Pussycats in Outer Space",
+      "year": 1972,
+      "imdb_id": "tt0068088",
+      "tmdb_id": 24211,
+      "tmdb_type": "tv",
+      "type": "tv_series"
+    }
+  ],
+  "page": 7,
+  "total_results": 1969,
+  "total_pages": 8
+}
