@@ -1,6 +1,0 @@
-framework module Pods_movieTinder {
-  umbrella header "Pods-movieTinder-umbrella.h"
-
-  export *
-  module * { export * }
-}
