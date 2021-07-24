@@ -68,7 +68,7 @@
 		0F1F72702605812800EA07C4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0F20BE7B26576B3A007C8765 /* HBOfulldata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HBOfulldata.json; sourceTree = "<group>"; };
 		0F519AF02630A4300005B845 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
-		0F6677EC26113B0F00114612 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainContentView.swift; path = ../../../../MainContentView.swift; sourceTree = "<group>"; };
+		0F6677EC26113B0F00114612 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		0F8CFEC0260FA84B006D5B8C /* AddFreindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFreindsView.swift; sourceTree = "<group>"; };
 		0FA5D16626124CB1003EFE22 /* FriendsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContentView.swift; sourceTree = "<group>"; };
 		0FA5D16B26125829003EFE22 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
