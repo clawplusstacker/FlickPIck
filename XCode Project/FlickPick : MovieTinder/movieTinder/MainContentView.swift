@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MainContentView: View {
     
+    @Binding var loggedIn : Bool
+    
     
     @State var selectedTab = 0;
 
@@ -47,7 +49,7 @@ struct MainContentView: View {
                 }.tag(2)
             
             NavigationView{
-                SettingsContentView()
+                SettingsContentView(logIn: $loggedIn)
             }
                 .tabItem {
                     VStack{

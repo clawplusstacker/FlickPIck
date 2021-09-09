@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import RealmSwift
 import SwiftUI
+import FirebaseAuth
 
 
 struct SettingsContentView : View{
@@ -17,7 +17,8 @@ struct SettingsContentView : View{
     @State var changePassSelected = false;
     @State var notificationSelected = false;
     @State var streamingSelected = false;
-    @State var loggingOut = false;
+    
+    @Binding var logIn : Bool
 
 
     var body: some View{
@@ -25,15 +26,13 @@ struct SettingsContentView : View{
         return Group{
             
             if(settingsMainSelected){
-                SettingsMainView(settingsMainSelected: $settingsMainSelected, changePassSelected: $changePassSelected, notificationSelected: $notificationSelected, streamingSelected: $streamingSelected, loggingOut: $loggingOut);
+                SettingsMainView(settingsMainSelected: $settingsMainSelected, changePassSelected: $changePassSelected, notificationSelected: $notificationSelected, streamingSelected: $streamingSelected, loggingIn: $logIn);
             }else if(changePassSelected){
                 ChangePasswordView(backButton: $settingsMainSelected);
             }else if(notificationSelected){
                 NotificationView(backButton: $settingsMainSelected);
             }else if(streamingSelected){
                 StreamingServiceView(backButton: $settingsMainSelected);
-            }else if(loggingOut){
-                fatalError();
             }
             
         }//Return group
@@ -47,7 +46,8 @@ struct SettingsMainView : View{
     @Binding var changePassSelected : Bool;
     @Binding var notificationSelected : Bool;
     @Binding var streamingSelected : Bool;
-    @Binding var loggingOut : Bool;
+    
+    @Binding var loggingIn : Bool;
 
     
     var body: some View{
@@ -84,14 +84,14 @@ struct SettingsMainView : View{
                     
                 Button("Logout"){
                     
-                    settingsMainSelected = false;
-                    changePassSelected = false;
-                    notificationSelected = false;
-                    streamingSelected = false;
-                    loggingOut = true;
-                    
-                    CurrentUser.loggedIn = false;
-                    
+                    let firebaseAuth = Auth.auth()
+                do {
+                  try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                  print("Error signing out: %@", signOutError)
+                }
+                    loggingIn = false;
+                                        
         
                 }
                     
@@ -154,15 +154,7 @@ struct ChangePasswordView : View{
                 } //HSTACK
                 .padding()
                 
-                if(passVerifyFail){
-                    Text("Passwords do not match!")
-                }
-                if(passWhiteSpace){
-                    Text("Passwords can not have any spaces!")
-                }
-                if(passChangeSuccess){
-                    Text("Successfully Changed Your Password!")
-                }
+               
                 
                 SecureField("Enter New Password:", text: $password)
                     .padding()
@@ -186,30 +178,6 @@ struct ChangePasswordView : View{
                 Button("Change Password"){
                     
             
-                    if(password != passwordVerify){
-                        passVerifyFail = true;
-                        passWhiteSpace = false;
-                        passChangeSuccess = false;
-
-                    }else if(password.contains(" ")){
-                    
-                        passWhiteSpace = true;
-                        passVerifyFail = false;
-                        passChangeSuccess = false;
-
-
-                    }else{
-                        passChangeSuccess = true;
-                        passWhiteSpace = false;
-                        passVerifyFail = false;
-
-                          
-                        let realm = try! Realm();
-                        try! realm.write{
-                            CurrentUser.currentUser.password = password;
-                        }
-                            
-                    }
                 }
                 .padding()
                 .font(.headline)

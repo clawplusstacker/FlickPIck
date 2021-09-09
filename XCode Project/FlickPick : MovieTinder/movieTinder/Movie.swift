@@ -5,94 +5,72 @@
 //  Created by Colby Beach on 3/19/21.
 //
 
-import Foundation
-import RealmSwift
 
-class Movie: Object {
-    @objc dynamic var _id: String? = nil
-    @objc dynamic var Actors: String? = nil
-    @objc dynamic var Awards: String? = nil
-    @objc dynamic var BoxOffice: String? = nil
-    @objc dynamic var Country: String? = nil
-    @objc dynamic var DVD: String? = nil
-    @objc dynamic var Director: String? = nil
-    @objc dynamic var Genre: String? = nil
-    @objc dynamic var Language: String? = nil
-    @objc dynamic var Metascore: String? = nil
-    @objc dynamic var Plot: String = ""
-    @objc dynamic var Poster: String = ""
-    @objc dynamic var Production: String? = nil
-    @objc dynamic var Rated: String? = nil
-    @objc dynamic var Ratings: String? = nil
-    @objc dynamic var Released: String? = nil
-    @objc dynamic var Response: String? = nil
-    @objc dynamic var Runtime: String? = nil
-    @objc dynamic var Title: String = ""
-    @objc dynamic var `Type`: String? = nil
-    @objc dynamic var Website: String? = nil
-    @objc dynamic var Writer: String? = nil
-    @objc dynamic var Year: String? = nil
-    @objc dynamic var imdbID: String? = nil
-    @objc dynamic var imdbRating: String = ""
-    @objc dynamic var imdbVotes: String? = nil
-    override static func primaryKey() -> String? {
-        return "_id"
-    }
+import Foundation
+import FirebaseFirestore
+
+struct Movie {
+    
+    var Plot: String = ""
+    var Poster: String = ""
+    var Title: String = ""
+    var Year: String? = nil
+    var imdbRating: String = ""
+
+
 
     
     func equals(movie1 : Movie) -> Bool{
-        
+
         var result = false;
-        
+
         if(movie1.Title == self.Title){
             result = true;
         }
 
         return result;
-        
-        
-    }
 
-    
-}
-
-struct MovieJSON: Decodable{
-    
-    var Movie : [Movies]
-
-    
-    struct Rating : Decodable{
-        var Source : String? = nil;
-        var Value : String? = nil;
-    }
-    struct Movies : Decodable{
-        
-        var Actors: String? = nil
-        var Awards: String? = nil
-        var BoxOffice: String? = nil
-        var Country: String? = nil
-        var DVD: String? = nil
-        var Director: String? = nil
-        var Genre: String? = nil
-        var Language: String? = nil
-        var Metascore: String? = nil
-        var Plot: String? = nil
-        var Poster: String? = nil
-        var Production: String? = nil
-        var Rated: String? = nil
-        var Ratings : [Rating]? = nil
-        var Released: String? = nil
-        var Response: String? = nil
-        var Runtime: String? = nil
-        var Title: String? = nil
-        var `Type`: String? = nil
-        var Website: String? = nil
-        var Writer: String? = nil
-        var Year: String? = nil
-        var imdbID: String? = nil
-        var imdbRating: String? = nil
-        var imdbVotes: String? = nil
     }
     
 }
+
+/*
+ I wish I knew how this class actually worked
+ */
+class MovieViewModel:  ObservableObject{
+    
+    @Published var movies = [Movie]()
+    
+    private var db = Firestore.firestore()
+    
+    func fetchData() {
+        
+        db.collection("HBOMaxMovies").addSnapshotListener{ (QuerySnapshot, Error) in
+            guard  let documents = QuerySnapshot?.documents else{
+                print("No Documents")
+                return
+            }
+                        
+            
+            self.movies = documents.map {  (QueryDocumentSnapshot) -> Movie in
+                
+                let data = QueryDocumentSnapshot.data()
+                
+                let title = data["Title"] as? String ?? ""
+                let desc = data["Plot"] as? String ?? ""
+                let rating = data["imdbRating"] as? String ?? ""
+                let year = data["Year"] as? String ?? ""
+                let poster = data["Poster"] as? String ?? ""
+                
+                return Movie(Plot: desc, Poster: poster, Title: title, Year: year, imdbRating: rating)
+
+              
+            } 
+        }
+
+    }
+
+}
+
+
 

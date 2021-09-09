@@ -7,19 +7,8 @@
 
 import Foundation
 import SwiftUI
-import RealmSwift
 
 
-//
-//  AddFreindsView.swift
-//  movieTinder
-//
-//  Created by Colby Beach on 3/27/21.
-//
-
-import Foundation
-import SwiftUI
-import RealmSwift
 
 struct FriendsContentView: View {
     
@@ -51,7 +40,6 @@ struct FriendsView: View {
     //private var users = try! Realm().objects(User.self)
 
     @State private var searchText = ""
-    @State private var userList = CurrentUser.currentUser.friendList;
     @Binding var friendsViewSelected : Bool;
     @Binding var matchViewSelected : Bool;
     @Binding var addFriendsSelected : Bool;
@@ -91,28 +79,7 @@ struct FriendsView: View {
                 SearchBar(text: $searchText)
                     .padding(.top, 10)
                
-                
-                List(userList, id: \.userName) { i in
-                    
-                    HStack{
-                        
-                        Button{
-                            
-                            matchViewSelected = true;
-                            CurrentUser.matchUserSelected = i;
-                            addFriendsSelected = false;
-                            friendsViewSelected = false;
-                            
-                        }label: {
-                            Text(String((i.userName)))
-                        }
-
-
-                      
-                        }//HS Stack
-                    }//List
-                    //.frame(width: 400, height: 400)
-            
+  
                 
             }
     

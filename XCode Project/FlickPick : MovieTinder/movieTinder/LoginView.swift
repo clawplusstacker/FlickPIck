@@ -13,305 +13,459 @@
 //
 
 import SwiftUI
-import RealmSwift
+import FirebaseAuth
+import Firebase
 
 
-/**
-    Invisble view that is running the loginform view until a username and password match
- */
+
 struct LoginContentView: View {
     
     @State var signInSuccess = false
-    @State var newUserWanted = false
+    @State var homeScreenWanted = true
+    @State var fireSignedIn = Auth.auth().currentUser
+
+    @ViewBuilder
+    
+    var body: some View {
+        
+        if (signInSuccess || fireSignedIn != nil) {
+            
+            MainContentView(loggedIn: $signInSuccess)
+                .onAppear(){
+                    signInSuccess = true
+                    fireSignedIn = nil
+                }
+            
+        }else if(homeScreenWanted){
+            
+            HomeScreenView(signInSuccess: $signInSuccess)
+            
+        }
+     
+    }   //View
+}   //Struct
+
+
+
+
+struct HomeScreenView: View{
+    
+    
+    @Binding var signInSuccess : Bool
+        
+    @State var showingSignIn = false
+    @State var showingSignUp = false
+
+    
+    var body: some View {
+        
+        
+        ZStack{
+            
+            //Background image
+            Image("moviecollage")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+                .blur(radius: 2)
+            
+            VStack{
+                
+                Spacer()
+                
+                Button("Login"){
+                    
+                    showingSignIn.toggle()
+                    
+                }
+                .sheet(isPresented: $showingSignIn){
+                    
+                    LoginFormView(signInSuccess: $signInSuccess)
+                    
+                }
+                
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(15.0)
+            
+                
+                
+                
+                Button("Sign Up"){
+                    
+                    showingSignUp.toggle()
+                    
+                }
+                
+                .sheet(isPresented: $showingSignUp){
+                    
+                    SignUpView(signInSuccess: $signInSuccess)
+                    
+                }
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.pink)
+                    .cornerRadius(15.0)
+                
+                
+            } //VStack
+        } //ZStack
+    } //View
+}   //Struct
+
+
+
+struct LoginFormView: View{
+
+    @Binding var signInSuccess : Bool
+    
+    @State private var email = "";
+    @State private var password = "";
+    
+    
+    @State private var errorMessage = "";
+    @State private var showingError = false;
 
 
     var body: some View {
         
-        return Group {
-            if (signInSuccess || CurrentUser.loggedIn) {
-                MainContentView();
-            }else if(newUserWanted){
-                SignUpView(newUserSuccess: $signInSuccess)
-            }
-            else {
-                LoginFormView(signInSuccess: $signInSuccess, newUserWanted: $newUserWanted)
-            }
-        }
-    }
-}
-
-
-
-
-/**
-    View function for Login forms
- */
-struct LoginFormView: View{
-
-    //State looks for changing variable
-    
-    @State private var userName = "";
-    @State private var password = "";
-    
-    
-    //Binding lets us share a value between two places
-    @Binding var signInSuccess: Bool
-    @Binding var newUserWanted: Bool;
-    
-    @State private var incorrectUser = false;
-
-
-    var body: some View {
-      
-        VStack{
-
-    
-            Text("Login:")
-            
-            if(incorrectUser){
-                Text("The username/password was incorrect!")
-                    .foregroundColor(.red)
-                    
-            }
-            
-            
-            TextField("Username:", text: $userName)
-                .padding()
-                .cornerRadius(20.0)
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                 )
-                .shadow(radius:1)
-            
-            
-            //SecureField makes the letters hidden
-            SecureField("Password:", text: $password)
-                .padding()
-                .cornerRadius(20.0)
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                 )
-                .shadow(radius:1)
-            
-            
-
-            Button("Sign In"){
-               
-                CheckForMovies();
-
-                let userInputted = User();
-                userInputted.userName = userName;
-                userInputted.password = password;
+        Spacer()
+        
+        ZStack {
+                            
+            VStack{
                 
-                if(checkUserName(user1: userInputted) && checkPassword(user1: userInputted)){
-                    print(Realm.Configuration.defaultConfiguration.fileURL)
-                    CurrentUser.loggedIn = true;
-                    signInSuccess = true;
+                Text("WE DON'T POST ANYTHING TO FACEBOOK")
+                    .foregroundColor(Color.gray)
+                
                     
-                }else{
-                    incorrectUser = true;
+                Button("Login with Facebook"){
+                   
+            
+                    
+                }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(15.0)
+                    .padding()
+                
+                
+                LabelledDivider(label: "OR")
+                    .padding()
+
+                
+                if(showingError){
+                    Text(errorMessage)
+                        .foregroundColor(Color.red)
                 }
                 
-            }
-            .padding()
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 150, height: 50)
-            .background(Color.blue)
-            .cornerRadius(15.0)
+                
+                
+                TextField("Email:", text: $email)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 15)
+
+                
+                
+                //SecureField makes the letters hidden
+                SecureField("Password:", text: $password)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 15)
+                
+                
+                Button("Login With Email"){
+                    
+                    let checkFields = validateSignIn(email: email, password: password)
+                    
+                    if checkFields != nil {
+                        
+                        showingError = false
+                        errorMessage = checkFields!
+                        showingError = true
+                        
+                    }else{
+                        
+                        Auth.auth().signIn(withEmail: email, password: password) {
+                            (result, error) in
+                                
+                            if error != nil{
+                                showingError = false
+                                errorMessage = "The email and/or password was did not match any existing user!"
+                                showingError = true
+                            } else{
+                                signInSuccess = true;
+                            }
+                            
+                        }   //Sign in Auth
+                        
+                    }  // Check Fields
+                }   //Button
+                .padding()
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 350, height: 50)
+                .background(Color.pink)
+                .cornerRadius(15.0)
+                .padding()
+                
             
-            
-            Button("Sign Up"){
-                
-                CheckForMovies();
-                
-                newUserWanted = true;
-                
-            }
-            
-            .padding()
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 150, height: 50)
-            .background(Color.pink)
-            .cornerRadius(15.0)
-                
-        }
+            }   //VStack
+        } //ZStack
+        
+        Spacer()
+        
+        HStack(){
+            Text("By continuing, you agree to our Terms of Use & Privacy Policy")
+                .foregroundColor(Color.gray)
+                .font(.system(size: 14))
+                .padding(.horizontal, 100)
+
+        }   //HStack
      
-    }
-    
-}
+    }   //View
+        
+}   //Struct
+
+
 
 struct SignUpView: View{
     
+    @Binding var signInSuccess : Bool
+
     
+    @State private var email = "";
     @State private var userName = "";
     @State private var password = "";
     @State private var passwordVerify = "";
-    @State private var newUserFail = false;
-    @State private var passVerifyFail = false;
-    @State private var userOrPassWhiteSpace = false;
-    @Binding var newUserSuccess : Bool;
+    
+    
+    @State private var errorMessage = "";
+    @State private var showingError = false;
+    
     
     var body: some View{
         
-        VStack{
-
-    
-            Text("Create New User:")
+        Spacer()
+        
+        ZStack {
             
-            if(newUserFail){
-                Text("The username already exists!")
-                    .foregroundColor(.red)
-                    
-            }
-            if(passVerifyFail){
-                Text("The passwords did not match!")
-                    .foregroundColor(.red)
-                    
-            }
-            if(userOrPassWhiteSpace){
-                Text("Username/Password cannot contain any spaces!")
-                    .foregroundColor(.red)
-                    
-            }
-
-            
-            
-            
-            TextField("Create Username:", text: $userName)
-                .padding()
-                .cornerRadius(20.0)
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                 )
-                .shadow(radius:1)
-            
-            
-            //SecureField makes the letters hidden
-            SecureField("Create Password:", text: $password)
-                .padding()
-                .cornerRadius(20.0)
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                 )
-                .shadow(radius:1)
-            
-            SecureField("Verify Password:", text: $passwordVerify)
-                .padding()
-                .cornerRadius(20.0)
-                .overlay(
-                     RoundedRectangle(cornerRadius: 8)
-                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                 )
-                .shadow(radius:1)
-            
-            
-
-            Button("Sign Up"){
+            VStack{
                 
-                let user0 = User();
-                user0.userName = userName;
-                user0.password = password;
                 
-                if(password != passwordVerify){
+                Text("WE DON'T POST ANYTHING TO FACEBOOK")
+                    .foregroundColor(Color.gray)
+                
                     
-                    passVerifyFail = true;
-                    userOrPassWhiteSpace = false;
-                    newUserFail = false;
-
+                Button("Sign Up with Facebook"){
+                   
+            
                     
-                }else if(userName.contains(" ") || password.contains(" ") || userName ==  "" || password == ""){
-                    
-                    userOrPassWhiteSpace = true;
-                    newUserFail = false;
-                    passVerifyFail = false;
-
-                    
-                }else if(checkUserName(user1: user0)){
-                        
-                    newUserFail = true;
-                    userOrPassWhiteSpace = false;
-                    passVerifyFail = false;
-
-                }else{
-                    newUserSuccess = true;
-                    CurrentUser.currentUser = user0;
-
-                    let realm = try! Realm();
-                    try! realm.write{
-                        realm.add(user0)
-                    }
-                        
-                    
-                        
                 }
-            }
-          
-    
-            
-            .padding()
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 150, height: 50)
-            .background(Color.blue)
-            .cornerRadius(15.0)
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(15.0)
+                    .padding()
                 
-        }//End of VStack
+                
+                LabelledDivider(label: "OR")
+                    .padding()
+
+                
+                
+                if(showingError){
+                    Text(errorMessage)
+                        .foregroundColor(Color.red)
+                }
+                
+                
+        
+                TextField("Enter Email:", text: $email)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 12)
+                
+                TextField("Create Username:", text: $userName)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 12)
+                
+                //SecureField makes the letters hidden
+                SecureField("Create Password:", text: $password)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 12)
+                
+                SecureField("Verify Password:", text: $passwordVerify)
+                    .padding()
+                    .cornerRadius(20.0)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 0.2)
+                     )
+                    .shadow(radius:1)
+                    .padding(.horizontal, 12)
+                
+                
+
+                Button("Sign Up With Email"){
+                    
+                    let checkFields = validateSignUp(email: email, userName: userName, password: password, passVerify: passwordVerify)
+                    
+                    if checkFields != nil {
+                        
+                        showingError = false
+                        errorMessage = checkFields!
+                        showingError = true
+
+                    } else{
+                        
+                        Auth.auth().createUser(withEmail: email, password: password) { result, err in
+                            
+                            if err != nil {
+            
+                                showingError = false
+                                errorMessage = "THERE WAS AN ERROR CREATING THE NEW USER!"
+                                showingError = true
+
+                            } else{
+                                
+                                let dataBase = Firestore.firestore()
+                                dataBase.collection("users").addDocument(data: ["userName":  userName, "uid": result!.user.uid, "moviesLiked": [], "moviesDisliked": [], "friends": [] ]) { error in
+                                    
+                                    if  error != nil{
+                                        showingError = false
+                                        errorMessage = "ERROR SAVING USER DATA!"
+                                        showingError = true
+                                    }
+                                } //Error adding user to firestore
+                                
+                                
+                                //Successfully logged in
+                                signInSuccess = true
+                                
+                                
+                            }   //Error create user
+                        }   //Create user
+                    }   //if else check fields
+                }   //Button
+                .padding()
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 350, height: 50)
+                .background(Color.pink)
+                .cornerRadius(15.0)
+                .padding()
+                    
+            }//End of VStack
+        } //End of ZStack
+        
+        Spacer()
+        
+        HStack(){
+            Text("By continuing, you agree to our Terms of Use & Privacy Policy")
+                .foregroundColor(Color.gray)
+                .font(.system(size: 14))
+                .padding(.horizontal, 100)
+        }   //End of HStack
+        
     }//End of var: some body
 }//End of view
 
-func checkUserName(user1: User) -> Bool{
-    
-    var result = false;
-    
-    let user = try! Realm().objects(User.self)
-    
-    for users in user{
-        
-        if(users.userName.lowercased() == user1.userName.lowercased()){
-            result = true;
-            CurrentUser.currentUser = users;
-        }
-        
-    }
-    return result;
-}
 
-func checkPassword(user1: User) -> Bool{
+
+///
+///Check the login fields and validate that the data is correct
+///If correct, the login returns nil, or returns error message in form of String
+///
+func validateSignUp(email: String, userName: String, password: String, passVerify: String) -> String? {
     
-    var result = false;
     
-    let user = try! Realm().objects(User.self)
-    
-    for users in user{
+    //Checks that all fields are filled in
+    if (email.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+        userName.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+        password.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+        passVerify.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
         
-        if(users.password == user1.password){
-            result = true;
-        }
+        return "PLEASE FILL IN ALL FIELDS"
         
+    } else if (userName.contains(" ") || email.contains(" ") || password.contains(" ") || passVerify.contains(" ")){
+        return "FIELDS CANNOT CONTAIN ANY SPACES!"
+    } else if (password != passVerify){
+        return "PASSWORDS DO NOT MATCH!"
+    } else if isPasswordValid(password) == false{
+        return "PASSWORDS NEED TO CONTAIN AT LEAST 8 CHARACTERS, ONE UPPERCASE LETTER, AND ONE NUMBER!"
     }
     
-    return result;
+    return nil
     
 }
 
-
-
-
-/*
-struct View_Previews: PreviewProvider {
-    static var previews: some View {
-        NewUserView()
+func validateSignIn(email: String, password: String) -> String? {
+    
+    if (email.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+        password.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+        
+        return "PLEASE FILL IN ALL FIELDS"
+        
+    } else if (email.contains(" ") || password.contains(" ")){
+        return "FIELDS CANNOT CONTAIN ANY SPACES!"
     }
-}*/
+    
+    return nil
+    
+}
+
+
+///
+///Password Valification Field Checker
+///
+func isPasswordValid(_ password : String) -> Bool{
+    let passwordTest = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
+    return passwordTest.evaluate(with: password)
+}
+
 
 
 

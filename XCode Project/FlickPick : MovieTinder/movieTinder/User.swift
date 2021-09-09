@@ -5,101 +5,130 @@
 //  Created by Colby Beach on 3/24/21.
 //
 
+
 import Foundation
-import RealmSwift
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
-class User: Object{
+private var db = Firestore.firestore()
+
+struct UserStore {
     
-    @objc dynamic var userName = "";
-    @objc dynamic var password = "";
-    let moviesLiked = List<Movie>()
-    let moviesDisliked = List<Movie>()
-    let friendList = List<User>()
+    var id: String
+    var userName : String
+    var uid : String
+    var moviesLiked : Array<String>
+    var moviesDisliked : Array<String>
+    var friends : Array<String>
+        
+}
+
+class UserStoreFunctions{
+    
+    private var users = UserViewModel()
+    
+    
+    func getFirestoreUserID(uid: String) -> Int{
+
+        self.users.fetchData()
+
+        let numOfUsers = users.users.count
+        var x = 0
+
+        while x < numOfUsers {
+
+            if users.users[x].uid == uid{
+                return x
+            }else{
+                x += 1
+            }
+        }
+
+        return x
+    }
+    
+
+    func getMovieNum(index : Int) -> Int {
+        
+        if(self.users.users.count > 0){
+
+            let currentUser = users.users[index]
+
+            return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
+        }
+
+        self.users.fetchData()
 
 
-    
-    
-    
-    func equals(user1 : User) -> Bool{
+        return 0
         
-        var result = false;
+    }
+    
+    func addToMoviesLiked(index: Int, title: String){
         
-        if(user1.userName == self.userName && user1.password == self.password){
-            result = true;
+        let currentUserUID = users.users[index].id
+
+        self.users.fetchData()
+
+
+        let userDoc = db.collection("users").document(currentUserUID)
+
+        userDoc.updateData([
+            "moviesLiked": FieldValue.arrayUnion([title])
+        ])
+        
+    }
+    
+    func addToMoviesDisliked(index: Int, title: String){
+        
+        
+        let currentUserUID = users.users[index].id
+
+        self.users.fetchData()
+
+        
+        let userDoc = db.collection("users").document(currentUserUID)
+        
+        userDoc.updateData([
+            "moviesDisliked": FieldValue.arrayUnion([title])
+        ])
+        
+    }
+    
+}
+    
+class UserViewModel:  ObservableObject{
+    
+    @Published var users = [UserStore]()
+    
+    private var db = Firestore.firestore()
+    
+    func fetchData() {
+        
+        db.collection("users").addSnapshotListener{ (QuerySnapshot, Error) in
+            guard let documents = QuerySnapshot?.documents else{
+                print("No Documents")
+                return
+            }
+                        
+            
+            self.users = documents.map {  (QueryDocumentSnapshot) -> UserStore in
+                
+                let data = QueryDocumentSnapshot.data()
+                
+                let id = QueryDocumentSnapshot.documentID
+                let userName = data["userName"] as? String ?? ""
+                let uid = data["uid"] as? String ?? ""
+                let moviesLiked = data["moviesLiked"] as? Array<String> ?? []
+                let moviesDisliked = data["moviesDisliked"] as? Array<String> ?? []
+                let friends = data["friends"] as? Array<String> ?? []
+                
+                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends)
+              
+            }
         }
 
-        return result;
-        
-        
     }
-    
-    func friendListContains(user1: User) -> Bool{
-        
-        var result = false;
-        
-        for users in friendList{
-            if(user1.equals(user1: users)){
-                result = true;
-            }
-        }
-        
-        return result;
-        
-    }
-    
-    func likedListContains(movie1: Movie) -> Bool{
-        
-        var result = false;
-        
-        for movie in self.moviesLiked{
-            if(movie1.equals(movie1: movie)){
-                result = true;
-            }
-        }
-        
-        return result;
-        
-    }
-    
-    func disListContains(movie1: Movie) -> Bool{
-        
-        var result = false;
-        
-        for movie in self.moviesDisliked{
-            if(movie1.equals(movie1: movie)){
-                result = true;
-            }
-        }
-        
-        return result;
-        
-    }
-    func matchList(user1: User) -> Array<Movie>{
-        
-        var result = [Movie]();
-        
-        for movies in user1.moviesLiked{
-            if likedListContains(movie1: movies){
-                result.append(movies)
-            }
-        }
-        return result;
-    }
-    
-    func matchListContains(movie1: Movie, user: User) -> Bool{
-        
-        var result = false;
-        var matchList1 = matchList(user1: user)
-        
-        for movie in matchList1{
-            if(movie1.equals(movie1: movie)){
-                result = true;
-            }
-        }
-        
-        return result;
-        
-    }
-    
-    
+
 }

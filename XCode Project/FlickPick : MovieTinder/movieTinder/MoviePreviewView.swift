@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import RealmSwift
 
 struct MoviePreview: View {
     
@@ -16,33 +15,23 @@ struct MoviePreview: View {
         
         VStack{
 
-            let movie1 = CurrentUser.matchMovieSelected;
-            
-            let url = URL(string: movie1.Poster);
-            let data = try? Data(contentsOf: url!)
-            
-            if let imageData = data {
-                let moviePoster = UIImage(data: imageData)
-            
-
-            
-                Image(uiImage : moviePoster!)
+                Image("1")
                     
                     .resizable()
                     .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .frame(width: 400, height: 400)
                     .clipped()
                 
-            }
+            
 
                 VStack{
-                    Text(movie1.Title)
+                    Text("Title")
                         .font(.headline)
                         .foregroundColor(.secondary)
                         .padding()
                         
                     
-                    Text(movie1.Plot + "  Rated: " + String(movie1.imdbRating) + "/10")
+                    Text("  Rated: " + "/10")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     

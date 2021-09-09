@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import RealmSwift
 
 
 
@@ -15,7 +14,6 @@ struct matchView: View {
         
     //private var users = try! Realm().objects(User.self)
 
-    @State private var movieList: Results<Movie> = try! Realm(configuration: Realm.Configuration(schemaVersion: 1)).objects(Movie.self)
     @State private var addedOrRemoved = false;
     @State private var showingSheet = false
     @Binding var backButton : Bool;
@@ -56,18 +54,12 @@ struct matchView: View {
                 
                 Button("Shuffle!"){
                     
-                    if(CurrentUser.currentUser.matchList(user1: CurrentUser.matchUserSelected).randomElement() == nil){
-                        
-                    }else{
-                        CurrentUser.matchMovieSelected = CurrentUser.currentUser.matchList(user1: CurrentUser.matchUserSelected).randomElement()!;  //Exclamation point unwraps the value
-                        showingSheet.toggle()
-                    }
                     
                  
                     
                 }
                 .sheet(isPresented: $showingSheet) {
-                           MoviePreview()
+                    //Movie Preview View Pops Up
                        }
                 
                 .font(.headline)
@@ -79,23 +71,6 @@ struct matchView: View {
                 
                     
                 
-                
-                
-                List(CurrentUser.currentUser.matchList(user1: CurrentUser.matchUserSelected), id: \.Title) { i in
-    
-                    Button(action: {
-                        CurrentUser.matchMovieSelected = i;
-                        showingSheet.toggle()
-                        
-                    }, label: {
-                        Text(String((i.Title)))
-                    })
-                    
-                    .sheet(isPresented: $showingSheet) {
-                               MoviePreview()
-                           }
-                    
-                }//List
                                     
             }
     
