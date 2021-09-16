@@ -202,9 +202,10 @@ struct MovieView: View {
                         
                         //Main Button Pressed
                         Button(action: {
-                            
-                            userStore.addToMoviesLiked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
                             movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
+                            userStore.addToMoviesLiked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
+                     
+                            print(movieNum)
 
                         }) {
                                 Image(systemName: "heart.circle.fill")

@@ -49,7 +49,7 @@ class UserStoreFunctions{
     }
     
 
-    func getMovieNum(index : Int) -> Int {
+    func getMovieNum(index : Int) async -> Int {
         
         if(self.users.users.count > 0){
 
