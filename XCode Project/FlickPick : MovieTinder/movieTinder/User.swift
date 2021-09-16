@@ -26,19 +26,20 @@ struct UserStore {
 
 class UserStoreFunctions{
     
-    private var users = UserViewModel()
+    
+    private var UserView = UserViewModel()
     
     
     func getFirestoreUserID(uid: String) -> Int{
 
-        self.users.fetchData()
+        self.UserView.fetchData()
 
-        let numOfUsers = users.users.count
+        let numOfUsers = UserView.users.count
         var x = 0
 
         while x < numOfUsers {
 
-            if users.users[x].uid == uid{
+            if UserView.users[x].uid == uid{
                 return x
             }else{
                 x += 1
@@ -49,27 +50,29 @@ class UserStoreFunctions{
     }
     
 
-    func getMovieNum(index : Int) async -> Int {
+    func getMovieNum(index : Int) -> Int {
         
-        if(self.users.users.count > 0){
+        self.UserView.fetchData()
+        
+        if(self.UserView.users.count > 0){
 
-            let currentUser = users.users[index]
+            let currentUser = UserView.users[index]
 
             return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
         }
 
-        self.users.fetchData()
 
 
         return 0
         
     }
     
+    
     func addToMoviesLiked(index: Int, title: String){
         
-        let currentUserUID = users.users[index].id
+        let currentUserUID = UserView.users[index].id
 
-        self.users.fetchData()
+        self.UserView.fetchData()
 
 
         let userDoc = db.collection("users").document(currentUserUID)
@@ -83,9 +86,9 @@ class UserStoreFunctions{
     func addToMoviesDisliked(index: Int, title: String){
         
         
-        let currentUserUID = users.users[index].id
+        let currentUserUID = UserView.users[index].id
 
-        self.users.fetchData()
+        self.UserView.fetchData()
 
         
         let userDoc = db.collection("users").document(currentUserUID)

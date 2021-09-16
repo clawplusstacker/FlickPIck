@@ -10,21 +10,29 @@ import Firebase
 import FirebaseFirestore
 
 
+
 private var db = Firestore.firestore()
 private var currentUserUID = Auth.auth().currentUser?.uid
 
 private var userStore = UserStoreFunctions()
 
-
 struct MovieView: View {
-    
-    @State var movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
+   
+        
         
     @ObservedObject var movieList = MovieViewModel()
+    @State var updater = ""
+    
     
     
     
     func getCurrentMovie() -> Dictionary<String, String>{
+        
+        
+        let movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
+        
+        print(movieNum)
+        
         
         var title = ""
         var desc = ""
@@ -41,6 +49,8 @@ struct MovieView: View {
             rating = movieList.movies[movieNum].imdbRating
             year = movieList.movies[movieNum].Year!
             
+        
+            
         }
         
         let dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
@@ -50,8 +60,8 @@ struct MovieView: View {
 
     }
     
+    
     var body: some View {
-        
         
         var currentMovie = getCurrentMovie()
 
@@ -63,7 +73,7 @@ struct MovieView: View {
             
                 VStack{
                     
-                    let url = URL(string: currentMovie["poster"]!)
+                    let url = URL(string: getCurrentMovie()["poster"]!)
                     let data = try? Data(contentsOf: url!)
 
                     if let imageData = data {
@@ -85,6 +95,7 @@ struct MovieView: View {
                             HStack{
                                 
                                 HStack{
+  
                                     
                                     Text(currentMovie["title"]!)
                                         
@@ -97,6 +108,8 @@ struct MovieView: View {
                                     Text(currentMovie["year"]!)
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
+                                    
+                                    Text(updater)
 
                                                             
                                 }
@@ -174,7 +187,14 @@ struct MovieView: View {
                         Button(action: {
               
                             userStore.addToMoviesDisliked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
-                            movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
+                            
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                currentMovie = getCurrentMovie()
+                                updater =  ""
+                                updater =  " "
+                            
+                            }
 
 
                         }) {
@@ -202,10 +222,20 @@ struct MovieView: View {
                         
                         //Main Button Pressed
                         Button(action: {
-                            movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
+                            
+                            
+
+                            
                             userStore.addToMoviesLiked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
-                     
-                            print(movieNum)
+                            
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                currentMovie = getCurrentMovie()
+                                updater =  ""
+                                updater =  " "
+
+                            }
+                                
 
                         }) {
                                 Image(systemName: "heart.circle.fill")
@@ -224,9 +254,8 @@ struct MovieView: View {
                                     
         } //ZStack
         .onAppear() {
+            
             self.movieList.fetchData()
-            movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
-
         }
        
     }
