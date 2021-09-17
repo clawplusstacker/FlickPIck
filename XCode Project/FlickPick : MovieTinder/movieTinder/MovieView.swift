@@ -29,10 +29,8 @@ struct MovieView: View {
     func getCurrentMovie() -> Dictionary<String, String>{
         
         
-        let movieNum = userStore.getMovieNum(index: userStore.getFirestoreUserID(uid: currentUserUID!))
-        
-        print(movieNum)
-        
+        let movieNum = userStore.getMovieNum(index: userStore.getFireStoreUserIndex(uid: currentUserUID!))
+            
         
         var title = ""
         var desc = ""
@@ -48,8 +46,6 @@ struct MovieView: View {
             poster = movieList.movies[movieNum].Poster
             rating = movieList.movies[movieNum].imdbRating
             year = movieList.movies[movieNum].Year!
-            
-        
             
         }
         
@@ -186,7 +182,7 @@ struct MovieView: View {
                         //Main Button Pressed
                         Button(action: {
               
-                            userStore.addToMoviesDisliked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
+                            userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: currentUserUID!), title: currentMovie["title"]!)
                             
 
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -226,7 +222,7 @@ struct MovieView: View {
                             
 
                             
-                            userStore.addToMoviesLiked(index: userStore.getFirestoreUserID(uid: currentUserUID!), title: currentMovie["title"]!)
+                            userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: currentUserUID!), title: currentMovie["title"]!)
                             
 
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

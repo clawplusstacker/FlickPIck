@@ -119,13 +119,13 @@ struct DislikedView: View {
 }
 
 
-struct LikedPreview: PreviewProvider  {
-    
-
-    static var previews: some View {
-        
-        LikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
-        //DislikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
-
-    }
-}
+//struct LikedPreview: PreviewProvider  {
+//
+//
+//    static var previews: some View {
+//
+//        LikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
+//        //DislikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
+//
+//    }
+//}

@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 
 
@@ -34,21 +37,25 @@ struct FriendsContentView: View {
     }
 }
 
+private var UserFunctions = UserStoreFunctions()
+private var db = Firestore.firestore()
+private var currentUserUID = Auth.auth().currentUser?.uid
+
 struct FriendsView: View {
         
 
-    //private var users = try! Realm().objects(User.self)
 
     @State private var searchText = ""
     @Binding var friendsViewSelected : Bool;
-    @Binding var matchViewSelected : Bool;
+    @Binding var matchViewSelected : Bool
     @Binding var addFriendsSelected : Bool;
-
-
     
+    
+    @State var friendsList = ["Loading Data..."]
+ 
     var body: some View {
+    
         
-
 
         ZStack {
             
@@ -72,19 +79,51 @@ struct FriendsView: View {
                             .foregroundColor(.purple)
                         }
                 
-                }
+                } //HStack
                 .padding()
                 
                 
                 SearchBar(text: $searchText)
                     .padding(.top, 10)
+
+               
+                    List(friendsList, id: \.self) { friends in
+                        VStack(alignment: .leading){
+                            Text(friends)
+                        }
+
+                    }
+                
+                
+                Spacer()
+            
+
                
   
+            } //VStack
+            
+
+        } //ZStack
+        .onAppear(){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                UserViewModel().fetchData()
+                friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
                 
             }
-    
         }
-    }
 
-}
+    } // View
+    
 
+} //Struct
+//
+//struct Friends: PreviewProvider  {
+//
+//
+//    static var previews: some View {
+//
+//        FriendsContentView()
+//        //DislikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
+//
+//    }
+//}

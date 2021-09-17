@@ -7,17 +7,32 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
 
+
+
+private var UserFunctions = UserStoreFunctions()
+private var db = Firestore.firestore()
+private var currentUserUID = Auth.auth().currentUser?.uid
 
 
 struct addFriendsView: View {
-        
+    
+    //@State var notFriendsList = ["Loading Data"]
 
-    //private var users = try! Realm().objects(User.self)
 
     @State private var searchText = ""
     @State private var addedOrRemoved = false;
     @Binding var backButton : Bool;
+    
+    @ObservedObject private var viewModel = UserViewModel()
+    @State private var showingUserSheet = false
+    
+    @State private var passingUserID = ""
+    
+    
+    
 
     
     var body: some View {
@@ -44,7 +59,7 @@ struct addFriendsView: View {
                     Spacer()
 
                 
-                    Text("Find or Remove Friends")
+                    Text("Find Friends")
                         .font(.system(size: 40, weight: .black, design: .rounded))
                         
                     
@@ -56,6 +71,39 @@ struct addFriendsView: View {
                 
                 SearchBar(text: $searchText)
                     .padding(.top, 10)
+                
+                
+                List(viewModel.users) { user in
+                    VStack(alignment: .leading) {
+                        HStack{
+                            Text(user.userName)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+
+                                    UserFunctions.addUserToFriends(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)
+
+                                }
+                               
+                            }, label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(.pink)
+                            })
+                        }
+                        
+                    }
+                }
+                
+                
+                
+                Spacer()
+                
+                    .sheet(isPresented: $showingUserSheet) {
+                        userSheetView(userId: passingUserID)
+                    }
                
             
                 
@@ -63,8 +111,24 @@ struct addFriendsView: View {
     
         }   //ZStack
         
+        .onAppear(){
+            self.viewModel.fetchData()
+        }
+        
         
     }
 
 }
 
+struct userSheetView : View {
+    
+    var userId = ""
+    
+    
+    
+    var body: some View{
+        
+        Text(userId)
+        
+    }
+}

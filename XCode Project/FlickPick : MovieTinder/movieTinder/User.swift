@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 private var db = Firestore.firestore()
 
-struct UserStore {
+struct UserStore: Identifiable {
     
     var id: String
     var userName : String
@@ -30,7 +30,8 @@ class UserStoreFunctions{
     private var UserView = UserViewModel()
     
     
-    func getFirestoreUserID(uid: String) -> Int{
+    
+    func getFireStoreUserIndex(uid: String) -> Int{
 
         self.UserView.fetchData()
 
@@ -98,6 +99,54 @@ class UserStoreFunctions{
         ])
         
     }
+    
+    func getFreindsList(index: Int)-> Array<String>{
+        
+        self.UserView.fetchData()
+        
+        
+        if(self.UserView.users.count > 0){
+
+            let currentUserFriends = UserView.users[index].friends
+
+            return currentUserFriends
+        }
+        
+        return ["Loading Friends"]
+                
+    }
+    
+    func addUserToFriends(index: Int, userName: String){
+        
+        if(self.UserView.users.count > 0){
+
+            let currentUserUID = UserView.users[index].id
+
+            self.UserView.fetchData()
+
+            
+            let userDoc = db.collection("users").document(currentUserUID)
+            
+            userDoc.updateData([
+                "friends": FieldValue.arrayUnion([userName])
+            ])
+        
+    }
+    
+//    func getFullUserData(index: Int) ->  Dictionary<String, String>{
+//        self.UserView.fetchData()
+//
+//
+//        if(self.UserView.users.count > 0){
+//
+//        }
+//
+//        return
+//
+//
+//
+//    }
+//
     
 }
     
