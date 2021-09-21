@@ -69,7 +69,7 @@ struct MovieView: View {
             
                 VStack{
                     
-                    let url = URL(string: getCurrentMovie()["poster"]!)
+                    let url = URL(string: currentMovie["poster"]!)
                     let data = try? Data(contentsOf: url!)
 
                     if let imageData = data {
@@ -101,7 +101,7 @@ struct MovieView: View {
 
                                     
                                         
-                                    Text(currentMovie["year"]!)
+                                    Text("(" + currentMovie["year"]! + ")")
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
                                     

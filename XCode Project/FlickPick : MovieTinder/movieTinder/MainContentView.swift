@@ -11,6 +11,9 @@ import SwiftUI
 struct MainContentView: View {
     
     @Binding var loggedIn : Bool
+    @State var string1 = ""
+    @State var array1 = [String]()
+
     
     
     @State var selectedTab = 0;
@@ -38,7 +41,7 @@ struct MainContentView: View {
                     }
                 }.tag(1)
             NavigationView{
-                FriendsContentView()
+                FriendsContentView(passingUserName: $string1, passingMatchList: $array1)
 
             }
                 .tabItem {

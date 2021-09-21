@@ -16,21 +16,28 @@ import FirebaseAuth
 struct FriendsContentView: View {
     
     @State var friendsViewSelected = true
-    @State var matchViewSelected = false
+    @State var profileViewSelected = false
     @State var addFriendsSelected = false
-
+    
+    @Binding var passingUserName : String
+    @Binding var passingMatchList : Array<String>
+    
+    
 
     var body: some View {
         
         return Group{
             
             if(friendsViewSelected){
-                FriendsView(friendsViewSelected: $friendsViewSelected, matchViewSelected: $matchViewSelected, addFriendsSelected: $addFriendsSelected);
-            }else if(matchViewSelected){
-                //addFriendsView(backButton: $friendsViewSelected)
-                matchView(backButton: $friendsViewSelected);
+                
+                //FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected, passingUserName: $passingUserName, passingMatchList: $passingMatchList)
+                FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected, passingUserName: $passingUserName, passingMatchList: $passingMatchList)
+                
+            }else if(profileViewSelected){
+                FriendSheetView(backButton: $friendsViewSelected, userName: passingUserName, matchList: passingMatchList)
+
             }else if(addFriendsSelected){
-                addFriendsView(backButton: $friendsViewSelected);
+                addFriendsView(backButton: $friendsViewSelected, friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected)
             }
         
         }
@@ -47,11 +54,15 @@ struct FriendsView: View {
 
     @State private var searchText = ""
     @Binding var friendsViewSelected : Bool;
-    @Binding var matchViewSelected : Bool
+    @Binding var profileViewSelected : Bool
     @Binding var addFriendsSelected : Bool;
     
     
     @State var friendsList = ["Loading Data..."]
+
+    @Binding var passingUserName  : String
+    @Binding var passingMatchList : Array<String>
+
  
     var body: some View {
     
@@ -70,7 +81,7 @@ struct FriendsView: View {
                     Button(action: {
                         
                         addFriendsSelected = true;
-                        matchViewSelected = false;
+                        profileViewSelected = false;
                         friendsViewSelected = false;
                                           
                     }) {
@@ -89,24 +100,48 @@ struct FriendsView: View {
                
                     List(friendsList, id: \.self) { friends in
                         VStack(alignment: .leading){
-                            Text(friends)
-                        }
+                            HStack{
+                                                            
+                                Button(action: {
+                              
+                                    
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                        
+                                        
+                                        passingUserName = friends
+                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userNameOfOther: friends)
+                                        
+                                       
+                                        addFriendsSelected = false;
+                                        profileViewSelected = true;
+                                        friendsViewSelected = false;
+                                        
+
+                                    }
+
+                                   
+                                   
+                                }, label: {
+                                    Text(friends)
+                                })
+                            }
+                                                    }
 
                     }
                 
                 
                 Spacer()
-            
-
-               
+                    
   
             } //VStack
             
 
         } //ZStack
         .onAppear(){
+            UserViewModel().fetchData()
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                UserViewModel().fetchData()
                 friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
                 
             }
@@ -115,7 +150,11 @@ struct FriendsView: View {
     } // View
     
 
-} //Struct
+}
+
+
+
+
 //
 //struct Friends: PreviewProvider  {
 //

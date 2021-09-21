@@ -23,15 +23,27 @@ struct addFriendsView: View {
 
 
     @State private var searchText = ""
-    @State private var addedOrRemoved = false;
-    @Binding var backButton : Bool;
+    @State private var addedOrRemoved = false
+    @Binding var backButton : Bool
+    
+    @Binding var friendsViewSelected : Bool;
+    @Binding var profileViewSelected : Bool
+    @Binding var addFriendsSelected : Bool;
+    
     
     @ObservedObject private var viewModel = UserViewModel()
     @State private var showingUserSheet = false
+    @State private var showingSelfSheet = false
+    @State private var showingFriendSheet = false
+
+
     
-    @State private var passingUserID = ""
-    
-    
+    @State private var passingUserName = ""
+    //@State private var passingProfilePicture = "default"
+    @State private var passingMoviesLiked = [""]
+
+
+    //@State private var passingProfilePicture = "default"
     
 
     
@@ -74,23 +86,36 @@ struct addFriendsView: View {
                 
                 
                 List(viewModel.users) { user in
+                    
                     VStack(alignment: .leading) {
                         HStack{
-                            Text(user.userName)
-                            
-                            Spacer()
-                            
+                                                        
                             Button(action: {
                                 
+                                let listHandler = UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)
+                                
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-
-                                    UserFunctions.addUserToFriends(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)
-
+                                    passingUserName = user.userName
+                                    passingMoviesLiked = user.moviesLiked
                                 }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now()){
+
+                                    if(user.uid == currentUserUID){
+                                        showingSelfSheet.toggle()
+                                        
+                                    }else if(UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)){
+                                        
+                                        showingFriendSheet.toggle()
+                                    }else{
+                    
+                                        showingUserSheet.toggle()
+                                    }
+                                }
+                            
                                
                             }, label: {
-                                Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(.pink)
+                                Text(user.userName)
                             })
                         }
                         
@@ -102,9 +127,16 @@ struct addFriendsView: View {
                 Spacer()
                 
                     .sheet(isPresented: $showingUserSheet) {
-                        userSheetView(userId: passingUserID)
+                        UserSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
                     }
-               
+                    .sheet(isPresented: $showingSelfSheet) {
+                        SelfSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                    }
+                    .sheet(isPresented: $showingFriendSheet) {
+                        FriendSheetViewAdd(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                    }
+                
+            
             
                 
             } //VStack
@@ -118,17 +150,4 @@ struct addFriendsView: View {
         
     }
 
-}
-
-struct userSheetView : View {
-    
-    var userId = ""
-    
-    
-    
-    var body: some View{
-        
-        Text(userId)
-        
-    }
 }

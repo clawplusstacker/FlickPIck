@@ -50,6 +50,26 @@ class UserStoreFunctions{
         return x
     }
     
+    func getFireStoreUserIndex(userName: String) -> Int{
+
+        self.UserView.fetchData()
+
+        let numOfUsers = UserView.users.count
+        var x = 0
+
+        while x < numOfUsers {
+
+            if UserView.users[x].userName == userName{
+                return x
+            }else{
+                x += 1
+            }
+        }
+
+        return x
+    }
+    
+    
 
     func getMovieNum(index : Int) -> Int {
         
@@ -99,6 +119,36 @@ class UserStoreFunctions{
         ])
         
     }
+    func removeFromLiked(index: Int, title: String){
+        
+        let currentUserUID = UserView.users[index].id
+
+        self.UserView.fetchData()
+
+
+        let userDoc = db.collection("users").document(currentUserUID)
+
+        userDoc.updateData([
+            "moviesLiked": FieldValue.arrayRemove([title])
+        ])
+        
+    }
+    
+    func removeFromDisliked(index: Int, title: String){
+        
+        
+        let currentUserUID = UserView.users[index].id
+
+        self.UserView.fetchData()
+
+        
+        let userDoc = db.collection("users").document(currentUserUID)
+        
+        userDoc.updateData([
+            "moviesDisliked": FieldValue.arrayRemove([title])
+        ])
+        
+    }
     
     func getFreindsList(index: Int)-> Array<String>{
         
@@ -116,38 +166,111 @@ class UserStoreFunctions{
                 
     }
     
-    func addUserToFriends(index: Int, userName: String){
+    func getLikedList(index: Int)-> Array<String>{
+        
+        self.UserView.fetchData()
+        
         
         if(self.UserView.users.count > 0){
 
-            let currentUserUID = UserView.users[index].id
+            let likedList = UserView.users[index].moviesLiked
 
-            self.UserView.fetchData()
-
-            
-            let userDoc = db.collection("users").document(currentUserUID)
-            
-            userDoc.updateData([
-                "friends": FieldValue.arrayUnion([userName])
-            ])
+            return likedList
+        }
         
+        return ["Loading Movies"]
+                
     }
     
-//    func getFullUserData(index: Int) ->  Dictionary<String, String>{
-//        self.UserView.fetchData()
-//
-//
-//        if(self.UserView.users.count > 0){
-//
-//        }
-//
-//        return
-//
-//
-//
-//    }
-//
+    func getDislikedList(index: Int)-> Array<String>{
+        
+        self.UserView.fetchData()
+        
+        
+        if(self.UserView.users.count > 0){
+
+            let dislikedList = UserView.users[index].moviesDisliked
+
+            return dislikedList
+        }
+        
+        return ["Loading Movies"]
+                
+    }
     
+    func checkFriendListContains(index: Int, userName: String) -> Bool{
+        
+        var friendsList = self.getFreindsList(index: index)
+        
+        if(friendsList.contains(userName)){
+            return true
+        }
+
+        return false
+    }
+    
+    func addUserToFriends(index: Int, userName: String){
+    
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                
+
+                    let currentUserUID = self.UserView.users[index].id
+                        
+                    let userDoc = db.collection("users").document(currentUserUID)
+                        
+                    userDoc.updateData([
+                        "friends": FieldValue.arrayUnion([userName])
+                    ])
+            }
+        
+        self.UserView.fetchData()
+        }
+    
+    func removeUserFromFriends(index: Int, userName: String){
+    
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                
+
+                    let currentUserUID = self.UserView.users[index].id
+                        
+                    let userDoc = db.collection("users").document(currentUserUID)
+                        
+                    userDoc.updateData([
+                        "friends": FieldValue.arrayRemove([userName])
+                    ])
+            }
+        
+        self.UserView.fetchData()
+        }
+    
+    
+    
+    func getMatches(indexOfSelf: Int, userNameOfOther: String) -> Array<String>{
+        
+        self.UserView.fetchData()
+        
+        var result = [String]()
+
+        if(self.UserView.users.count > 0){
+
+            let currentUserMovies = UserView.users[indexOfSelf].moviesLiked
+            
+            let otherUserMovies = UserView.users[getFireStoreUserIndex(userName: userNameOfOther)].moviesLiked
+            
+            for movie in currentUserMovies{
+                if otherUserMovies.contains(movie){
+                    result.append(movie)
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    
+
 }
     
 class UserViewModel:  ObservableObject{
