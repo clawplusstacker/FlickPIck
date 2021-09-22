@@ -78,12 +78,12 @@ struct UserSheetView : View {
 struct FriendSheetView : View {
     
     @ObservedObject private var user = UserViewModel()
-    
-    @Binding var backButton : Bool;
 
-    @State var profilePicture = "defaultUser"
-    @State var userName = ""
-    @State var matchList = [String]()
+    
+    
+    @Binding var profilePicture : String
+    @Binding var userName : String
+    @Binding var matchList : Array<String>
     
     @State private var buttonText = "Remove Friend"
     @State private var showingMovieSheet = false
@@ -101,33 +101,21 @@ struct FriendSheetView : View {
                                     
                     HStack{
                         
-                        Button(action: {
-                            
-                            backButton = true;
-                            
-                                              
-                        }) {
-                            Image(systemName: "chevron.left.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(.purple)
-                            }
-                        
                         Text(userName)
                             .font(.system(size: 40, weight: .black, design: .rounded))
-                            .padding()
+                            .padding(.top, 40)
                       
                     }//Hstack
                 
                 Spacer()
                    
                 
-               
-                
-                Image(profilePicture)
-                    .padding(.top, 40)
+                Image("defaultUser")
+                    .padding()
                 
 
                 Text("MATCHES:")
+                    .padding()
                     .font(.headline)
                 
                 List(matchList, id: \.self) { movies in
@@ -184,7 +172,6 @@ struct FriendSheetView : View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
 
                         UserFunctions.removeUserFromFriends(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: userName)
-                        backButton = true
 
                     }
                  

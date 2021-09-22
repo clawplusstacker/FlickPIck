@@ -19,8 +19,7 @@ struct FriendsContentView: View {
     @State var profileViewSelected = false
     @State var addFriendsSelected = false
     
-    @Binding var passingUserName : String
-    @Binding var passingMatchList : Array<String>
+
     
     
 
@@ -30,11 +29,10 @@ struct FriendsContentView: View {
             
             if(friendsViewSelected){
                 
-                //FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected, passingUserName: $passingUserName, passingMatchList: $passingMatchList)
-                FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected, passingUserName: $passingUserName, passingMatchList: $passingMatchList)
+                FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected)
                 
             }else if(profileViewSelected){
-                FriendSheetView(backButton: $friendsViewSelected, userName: passingUserName, matchList: passingMatchList)
+//                FriendSheetView(backButton: $friendsViewSelected, userName: passingUserName, matchList: passingMatchList)
 
             }else if(addFriendsSelected){
                 addFriendsView(backButton: $friendsViewSelected, friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected)
@@ -60,8 +58,11 @@ struct FriendsView: View {
     
     @State var friendsList = ["Loading Data..."]
 
-    @Binding var passingUserName  : String
-    @Binding var passingMatchList : Array<String>
+    @State var passingProfilePicture = ""
+    @State var passingUserName  = ""
+    @State var passingMatchList = [String]()
+    
+    @State var showingSheet = false
 
  
     var body: some View {
@@ -112,10 +113,8 @@ struct FriendsView: View {
                                         passingUserName = friends
                                         passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userNameOfOther: friends)
                                         
-                                       
-                                        addFriendsSelected = false;
-                                        profileViewSelected = true;
-                                        friendsViewSelected = false;
+
+                                        showingSheet = true
                                         
 
                                     }
@@ -132,12 +131,19 @@ struct FriendsView: View {
                 
                 
                 Spacer()
+                
+                    
+                    .sheet(isPresented: $showingSheet){
+                        FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
+                    }
+                    
                     
   
             } //VStack
             
 
         } //ZStack
+    
         .onAppear(){
             UserViewModel().fetchData()
 

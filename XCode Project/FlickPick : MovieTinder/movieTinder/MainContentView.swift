@@ -41,7 +41,7 @@ struct MainContentView: View {
                     }
                 }.tag(1)
             NavigationView{
-                FriendsContentView(passingUserName: $string1, passingMatchList: $array1)
+                FriendsContentView()
 
             }
                 .tabItem {

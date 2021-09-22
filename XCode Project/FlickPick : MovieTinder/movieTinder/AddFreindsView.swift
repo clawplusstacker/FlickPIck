@@ -16,6 +16,14 @@ private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
 private var currentUserUID = Auth.auth().currentUser?.uid
 
+//Used for switch case for sheets 
+enum ActiveSheet: Identifiable {
+    case own, user, friend
+    
+    var id: Int {
+        hashValue
+    }
+}
 
 struct addFriendsView: View {
     
@@ -23,27 +31,23 @@ struct addFriendsView: View {
 
 
     @State private var searchText = ""
-    @State private var addedOrRemoved = false
-    @Binding var backButton : Bool
     
+    @Binding var backButton : Bool
     @Binding var friendsViewSelected : Bool;
     @Binding var profileViewSelected : Bool
     @Binding var addFriendsSelected : Bool;
     
     
     @ObservedObject private var viewModel = UserViewModel()
-    @State private var showingUserSheet = false
-    @State private var showingSelfSheet = false
-    @State private var showingFriendSheet = false
+    @State var showingSheet: ActiveSheet?
+    //@State private var showingSelfSheet = false
+    //@State private var showingFriendSheet = false
 
 
     
     @State private var passingUserName = ""
     //@State private var passingProfilePicture = "default"
     @State private var passingMoviesLiked = [""]
-
-
-    //@State private var passingProfilePicture = "default"
     
 
     
@@ -92,6 +96,7 @@ struct addFriendsView: View {
                                                         
                             Button(action: {
                                 
+                                //Crappy way to solve a crappy problem
                                 let listHandler = UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
@@ -102,14 +107,14 @@ struct addFriendsView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now()){
 
                                     if(user.uid == currentUserUID){
-                                        showingSelfSheet.toggle()
+                                        showingSheet = .own
                                         
                                     }else if(UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)){
-                                        
-                                        showingFriendSheet.toggle()
+                                        showingSheet = .friend
+
                                     }else{
-                    
-                                        showingUserSheet.toggle()
+                                        showingSheet = .user
+
                                     }
                                 }
                             
@@ -126,14 +131,18 @@ struct addFriendsView: View {
                 
                 Spacer()
                 
-                    .sheet(isPresented: $showingUserSheet) {
-                        UserSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
-                    }
-                    .sheet(isPresented: $showingSelfSheet) {
-                        SelfSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
-                    }
-                    .sheet(isPresented: $showingFriendSheet) {
-                        FriendSheetViewAdd(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                
+                    .sheet(item: $showingSheet) { item in
+                        switch item {
+                        case .own:
+                            SelfSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                        case .friend:
+                            FriendSheetViewAdd(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                        case .user:
+                            UserSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
+
+                        }
+
                     }
                 
             
@@ -151,3 +160,4 @@ struct addFriendsView: View {
     }
 
 }
+
