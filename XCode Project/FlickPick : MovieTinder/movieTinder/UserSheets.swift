@@ -70,6 +70,8 @@ struct UserSheetView : View {
         .onAppear(){
             self.user.fetchData()
         }
+        .background(Image("whitePinkGradient"))
+
        
         
     }
@@ -113,10 +115,14 @@ struct FriendSheetView : View {
                 Image("defaultUser")
                     .padding()
                 
+                LabelledDivider(label: "")
+                
 
                 Text("MATCHES:")
                     .padding()
                     .font(.headline)
+                
+                
                 
                 List(matchList, id: \.self) { movies in
                     VStack(alignment: .leading){
@@ -142,10 +148,16 @@ struct FriendSheetView : View {
                 Button(action: {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                        movieTitle = matchList[Int.random(in: 0...matchList.count-1)]
+                        
+                        if(matchList.count > 0){
+                            movieTitle = matchList[Int.random(in: 0...matchList.count-1)]
+                        }
+
                         
                     }
-                    showingMovieSheet.toggle()
+                    if(matchList.count > 0){
+                        showingMovieSheet.toggle()
+                    }
                  
                     
                 }, label: {
@@ -201,6 +213,8 @@ struct FriendSheetView : View {
             .onAppear(){
                 self.user.fetchData()
             }
+        .background(Image("whitePinkGradient"))
+
                 
             
         }
@@ -245,6 +259,8 @@ struct FriendSheetView : View {
             .onAppear(){
                 self.user.fetchData()
             }
+            .background(Image("whitePinkGradient"))
+
            
         }
         
@@ -280,12 +296,14 @@ struct SelfSheetView : View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 400, height: 50)
-                .background(Color.green)
+                .background(Color.purple)
                 .cornerRadius(15.0)
         }
         .onAppear(){
             self.user.fetchData()
         }
+        .background(Image("whitePinkGradient"))
+
        
         
     }

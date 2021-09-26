@@ -20,7 +20,7 @@ struct MoviePreviewView: View {
         
         var title = movieTitle
         var desc = ""
-        var poster = "https://cdn.theatlantic.com/thumbor/X3e6dgwG1vDBxRUBA8AY6nwIDJQ=/0x102:1400x831/960x500/media/img/mt/2013/12/wallstreet/original.jpg"
+        var poster = "https://i.ibb.co/yRrfLwf/Flick-Pick-logos-transparent.png"
         var rating = ""
         var year = ""
         
@@ -125,15 +125,19 @@ struct MoviePreviewView: View {
                             
                             HStack{
                                 
-                                Text("IMDB Rating: " + currentMovie["rating"]! + "/10")
+                                Text("IMDB Rating: ")
+                                    .font(.subheadline)
+                                    .foregroundColor(.primary)
+                                
+                                Text(currentMovie["rating"]! + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
-                                    .padding()
-                                    .padding(.horizontal, 90)
-                            
+                                
                                 Spacer()
 
                             }
+                            .padding()
+                            .padding(.horizontal, 85)
 
                             
                             
@@ -172,6 +176,8 @@ struct MoviePreviewView: View {
 
 
         }
+        .background(Image("whitePinkGradient"))
+
                
     }
 }

@@ -29,13 +29,13 @@ struct LikedContentView : View{
 
 private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
-private var currentUserUID = Auth.auth().currentUser?.uid
 
 struct LikedView: View {
     
     @ObservedObject private var user = UserViewModel()
 
-    @State private var likedList = ["Loading Movies"]
+    @State private var likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+
     
     @State private var addedOrRemoved = false;
     @Binding var likedSelected : Bool;
@@ -44,76 +44,86 @@ struct LikedView: View {
     @State var movieTitle = ""
     @State var showingMovieSheet = false;
 
+    
 
     var body: some View {
         
 
             VStack {
-                
-                HStack {
                              
+                HStack {
+                                 
                     Text("Liked Movies")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
+                        .padding()
+                        .foregroundColor(.pink)
+                        .font(.system(size: 20, weight: .medium, design: .default))
+
+                        
+
+                    Divider()
                         .padding()
                     
-
-                    Spacer()
-
                     Button(action: {
                         likedSelected = false;
                         dislikedSelected = true;
                         
                     }, label: {
-                        Text("Disliked")
+                        Text("Disliked Movies")
                             .padding()
+                            .foregroundColor(.black)
+                            .font(.system(size: 20, weight: .medium, design: .default))
+
                     })
-
-   
+       
                 }   //Hstack
-                .padding()
+                .frame(height: 60)
                 
+                Divider()
+                    .padding(.horizontal, 30)
                 
-                
-                List(likedList, id: \.self) { movies in
-                    VStack(alignment: .leading){
-                        
-                        HStack{
-                            Button(action: {
-                                movieTitle = movies
-                                showingMovieSheet.toggle()
-
-                            }, label: {
-                                Text(movies)
-                            })
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), title: movies)
-                                UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), title: movies)
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                    likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
-                                }
-
-                                
-                            }, label: {
-                                Image(systemName: "minus.circle.fill")
-                                    .foregroundColor(.blue)
-                            })
-                            
-                        }//Hstack
-                        .buttonStyle(BorderlessButtonStyle())
-
-                    }
-                }
-                
-                
-                Spacer()
                
+                
+                
+                    
+                    List(likedList, id: \.self) { movies in
+                        VStack(alignment: .leading){
+                            
+                            HStack{
+                                Button(action: {
+                                    movieTitle = movies
+                                    showingMovieSheet.toggle()
+
+                                }, label: {
+                                    Text(movies)
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
+                                    UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
                                     
-            }   //VStack
-            
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                        likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+                                    }
+
+                                    
+                                }, label: {
+                                    Image(systemName: "minus.circle.fill")
+                                        .foregroundColor(.blue)
+                                })
+                                
+                            }//Hstack
+                            .buttonStyle(BorderlessButtonStyle())
+
+                        }
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                    
+                    Spacer()
+                   
+                                        
+                }   //VStack
      
             .sheet(isPresented: $showingMovieSheet, content: {
                 MoviePreviewView(movieTitle: $movieTitle)
@@ -124,10 +134,12 @@ struct LikedView: View {
                 UserViewModel().fetchData()
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                    likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
+                    likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                     
                 }
             }
+            .background(Image("whitePinkGradient"))
+
     
     }
 
@@ -137,7 +149,7 @@ struct DislikedView: View {
 
     
     @ObservedObject private var user = UserViewModel()
-    @State private var dislikedList = ["Loading Movies"]
+    @State private var dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
     
     @State private var addedOrRemoved = false;
     @Binding var likedSelected : Bool;
@@ -157,27 +169,39 @@ struct DislikedView: View {
             VStack {
                 
                 HStack {
-                             
-                    Text("Disliked Movies")
-                        .font(.system(size: 39, weight: .black, design: .rounded))
-                        .padding()
-                    
-                    
-                    Spacer()
-                    
-                    
+                                 
                     Button(action: {
                         likedSelected = true;
                         dislikedSelected = false;
                         
                     }, label: {
-                        Text("Liked")
-                
-                    })
+                        Text("Liked Movies")
+                            .padding()
+                            .foregroundColor(.black)
+                            .font(.system(size: 20, weight: .medium, design: .default))
 
-   
-                }   //HStack
-                .padding()
+                    })
+                        
+
+                    Divider()
+                        .padding()
+                    
+                    Button(action: {
+                        likedSelected = false;
+                        dislikedSelected = true;
+                        
+                    }, label: {
+                        Text("Disliked Movies")
+                            .padding()
+                            .foregroundColor(.pink)
+                            .font(.system(size: 20, weight: .medium, design: .default))
+                    })
+       
+                }   //Hstack
+                .frame(height: 60)
+                
+                Divider()
+                    .padding(.horizontal, 30)
                 
                 Spacer()
                 
@@ -200,11 +224,11 @@ struct DislikedView: View {
                             Spacer()
                             
                             Button(action: {
-                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), title: movies)
-                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), title: movies)
+                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
+                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
+                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
                                 }
                                 
                             }, label: {
@@ -216,6 +240,7 @@ struct DislikedView: View {
                       
                     }//VStack
                 }//List
+                .listStyle(InsetGroupedListStyle())
          
                
                                     
@@ -232,10 +257,13 @@ struct DislikedView: View {
             UserViewModel().fetchData()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
+                dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
                 
             }
         }
+        
+        .background(Image("whitePinkGradient"))
+
     }
 
 }

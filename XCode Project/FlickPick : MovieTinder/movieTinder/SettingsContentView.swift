@@ -8,51 +8,42 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 
-struct SettingsContentView : View{
+
+//Used for switch case for sheets
+enum ActiveSheetSettings: Identifiable {
+    case changePass, stremServ
     
-    
-    @State var settingsMainSelected = true;
-    @State var changePassSelected = false;
-    @State var notificationSelected = false;
-    @State var streamingSelected = false;
-    
-    @Binding var logIn : Bool
-
-
-    var body: some View{
-        
-        return Group{
-            
-            if(settingsMainSelected){
-                SettingsMainView(settingsMainSelected: $settingsMainSelected, changePassSelected: $changePassSelected, notificationSelected: $notificationSelected, streamingSelected: $streamingSelected, loggingIn: $logIn);
-            }else if(changePassSelected){
-                ChangePasswordView(backButton: $settingsMainSelected);
-            }else if(notificationSelected){
-                NotificationView(backButton: $settingsMainSelected);
-            }else if(streamingSelected){
-                StreamingServiceView(backButton: $settingsMainSelected);
-            }
-            
-        }//Return group
-  
-        
+    var id: Int {
+        hashValue
     }
 }
+
+
+
+private var UserFunctions = UserStoreFunctions()
+
 struct SettingsMainView : View{
     
-    @Binding var settingsMainSelected : Bool;
-    @Binding var changePassSelected : Bool;
-    @Binding var notificationSelected : Bool;
-    @Binding var streamingSelected : Bool;
+    @ObservedObject private var user = UserViewModel()
+
+        
+    @Binding var loggingIn : Bool
     
-    @Binding var loggingIn : Bool;
+    @State var userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+
+    @State var showingSettingSheet: ActiveSheetSettings?
+    
+    @State var notificationTogggle = false
+    
+
+    
 
     
     var body: some View{
         
-                    
         VStack {
             
             HStack {
@@ -65,215 +56,191 @@ struct SettingsMainView : View{
             
             .padding()
               
-            HStack{
+
                 
-                Button("Change Password"){
-                    settingsMainSelected = false;
-                    changePassSelected = true;
-                    notificationSelected = false;
-                    streamingSelected = false;
+                Image("defaultUser")
+                    .resizable()
+                    .padding(.bottom, 10)
+                      .frame(width: 190, height: 200)
             
-                }
-                .padding()
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 210, height: 100)
-                .background(Color.yellow)
-                .cornerRadius(15.0)
-                    
-                Button("Logout"){
-                    
-                    let firebaseAuth = Auth.auth()
-                do {
-                  try firebaseAuth.signOut()
-                } catch let signOutError as NSError {
-                  print("Error signing out: %@", signOutError)
-                }
-                    loggingIn = false;
-                                        
-        
-                }
-                    
-                .padding()
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 190, height: 100)
-                .background(Color.pink)
-                .cornerRadius(15.0)
-                
-                
-            }
+            LabelledDivider(label: "")
             
             
+            List{
+                
+                Section(header: Text("User Information")){
+                    
+                    HStack{
+                        Text("Username: ")
+                        Text(userName)
+                            .foregroundColor(.pink)
+
+                    }
+                        .padding(5)
+                    HStack{
+                        Text("Email: ")
+                        Text((Auth.auth().currentUser?.email ?? " "))
+                            .foregroundColor(.pink)
+                    }
+                        .padding(5)
+                    Button(action: {
+                        showingSettingSheet = .changePass
+                    }, label: {
+                        Text("Change Password")
+                            .foregroundColor(.black)
+
+
+                    })
+                        .padding(5)
+                }
+                   
+               
+                Section(header: Text("Other")){
+                    
+                    Button(action: {
+                        showingSettingSheet = .stremServ
+                    }, label: {
+                        Text("Streaming Services")
+                            .foregroundColor(.black)
+
+
+                    })
+                        .padding(5)
+                    
+                    HStack{
+                        Toggle("Notifications", isOn: $notificationTogggle)
+                            .toggleStyle(SwitchToggleStyle(tint: .pink))
+                            .padding(5)
+                            .disabled(true)
+
+
+                    }
+                    
+                }
+              
+            }.listStyle(InsetGroupedListStyle())
+                
+                
             Spacer()
 
-        }
-    }
-}
-
-struct ChangePasswordView : View{
-    
-    @Binding var backButton : Bool
-    
-    @State private var password = "";
-    @State private var passwordVerify = "";
-    @State private var passVerifyFail = false;
-    @State private var passChangeSuccess = false;
-    @State private var passWhiteSpace = false;
-
-
-
-    var body: some View{
-        
-        ZStack {
+                    
+            HStack{
+                Button{
+                        
+                        let firebaseAuth = Auth.auth()
+                    do {
+                      try firebaseAuth.signOut()
+                    } catch let signOutError as NSError {
+                      print("Error signing out: %@", signOutError)
+                    }
+                        loggingIn = false;
+                                            
             
-            VStack {
-                
-                HStack {
-                    
-                    Button(action: {
-                        
-                        backButton = true;
-                        
-                                          
-                    }) {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.purple)
-                        }
-                    
-                    Spacer()
-
-                
-                    Text("Change Password")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
-                        
-                
-                } //HSTACK
-                .padding()
-                
-               
-                
-                SecureField("Enter New Password:", text: $password)
-                    .padding()
-                    .cornerRadius(20.0)
-                    .overlay(
-                         RoundedRectangle(cornerRadius: 8)
-                             .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                     )
-                    .shadow(radius:1)
-                
-                SecureField("Verify New Password:", text: $passwordVerify)
-                    .padding()
-                    .cornerRadius(20.0)
-                    .overlay(
-                         RoundedRectangle(cornerRadius: 8)
-                             .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                     )
-                    .shadow(radius:1)
-                
-                
-                Button("Change Password"){
-                    
-            
+                } label: {
+                    Text("Logout")
+                        .frame(width: 350, height: 50)
                 }
-                .padding()
+                        
                 .font(.headline)
                 .foregroundColor(.white)
-                .padding()
-                .frame(width: 300, height: 50)
-                .background(Color.blue)
+                .frame(width: 350, height: 50)
+                .background(Color.pink)
                 .cornerRadius(15.0)
-  
-                
-                Spacer()
+            }
+            .padding()
+            
+            
+            
+            .sheet(item: $showingSettingSheet) { item in
+                switch item {
+                case .stremServ:
+                    StreamingServiceSettingsView()
+                case .changePass:
+                    ChangePasswordView()
+
+                }
 
             }
+         
+          
+
+        }
+        .background(Image("whitePinkGradient"))
+
+        .onAppear(){
+            
+            self.user.fetchData()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+            }
+            
+
         }
     }
 }
-struct NotificationView : View{
-    
-    @Binding var backButton : Bool
 
+struct StreamingServiceSettingsView : View{
     
+    @State private var trueToggle = true
+    @State private var falseToggle = false
+
     var body: some View{
         
-        
-        ZStack {
+        VStack{
             
-            VStack {
-                
-                HStack {
-                    
-                    Button(action: {
-                        
-                        backButton = true;
-                        
-                                          
-                    }) {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.purple)
-                        }
-                    
-                    Spacer()
-
-                
-                    Text("Notification Settings")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
-                        
-                    
-                    
-                
-                }
+            HStack{
+                Text("Streaming Services")
+                    .font(.system(size: 35, weight: .black, design: .rounded))
+            }
+            .padding(.top, 60)
+            
+            
+            
+            LabelledDivider(label: "")
                 .padding()
+            
+            List{
+                                    
+                Toggle("HBO Max", isOn: $trueToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Netflix", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Disney Plus", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Hulu", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Prime Video", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Peacock", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
+                Toggle("Paramount Plus", isOn: $falseToggle)
+                    .toggleStyle(SwitchToggleStyle(tint: .pink))
+                    .padding(5)
+                    .disabled(true)
                 
             }
-        }
-    }
-}
-struct StreamingServiceView : View{
-    
-    @Binding var backButton : Bool
-
-    
-    var body: some View{
-    
-        
-        ZStack {
+            .padding()
+            .foregroundColor(.gray)
+     
             
-            VStack {
-                
-                HStack {
-                    
-                    Button(action: {
-                        
-                        backButton = true;
-                        
-                                          
-                    }) {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.purple)
-                        }
-                    
-                    Spacer()
-
-                
-                    Text("Select Streaming Services")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
-                        
-                    
-                    
-                
-                }
-                .padding()
-                
-            }
         }
-    }
+        .background(Image("whitePinkGradient"))
 
+        
+    }
+    
+    
 }

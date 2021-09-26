@@ -14,7 +14,6 @@ import FirebaseAuth
 
 private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
-private var currentUserUID = Auth.auth().currentUser?.uid
 
 //Used for switch case for sheets 
 enum ActiveSheet: Identifiable {
@@ -27,22 +26,12 @@ enum ActiveSheet: Identifiable {
 
 struct addFriendsView: View {
     
-    //@State var notFriendsList = ["Loading Data"]
-
-
     @State private var searchText = ""
     
-    @Binding var backButton : Bool
-    @Binding var friendsViewSelected : Bool;
-    @Binding var profileViewSelected : Bool
-    @Binding var addFriendsSelected : Bool;
     
     
     @ObservedObject private var viewModel = UserViewModel()
     @State var showingSheet: ActiveSheet?
-    //@State private var showingSelfSheet = false
-    //@State private var showingFriendSheet = false
-
 
     
     @State private var passingUserName = ""
@@ -61,20 +50,6 @@ struct addFriendsView: View {
                 
                 HStack {
                     
-                    Button(action: {
-                        
-                        backButton = true;
-                        
-                                          
-                    }) {
-                        Image(systemName: "chevron.left.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.purple)
-                        }
-                    
-                    Spacer()
-
-                
                     Text("Find Friends")
                         .font(.system(size: 40, weight: .black, design: .rounded))
                         
@@ -82,14 +57,15 @@ struct addFriendsView: View {
                     
                 
                 } //HStack
-                .padding()
+                .padding(.top, 50)
                 
                 
                 SearchBar(text: $searchText)
-                    .padding(.top, 10)
+                    .padding(.top, 20)
                 
                 
-                List(viewModel.users) { user in
+                
+                List(viewModel.users.filter({ searchText.isEmpty ? true : $0.userName.contains(searchText) })) { user in
                     
                     VStack(alignment: .leading) {
                         HStack{
@@ -97,7 +73,7 @@ struct addFriendsView: View {
                             Button(action: {
                                 
                                 //Crappy way to solve a crappy problem
-                                let listHandler = UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)
+                                let listHandler = UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), userName: user.userName)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                     passingUserName = user.userName
@@ -106,10 +82,10 @@ struct addFriendsView: View {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now()){
 
-                                    if(user.uid == currentUserUID){
+                                    if(user.uid == (Auth.auth().currentUser?.uid)!){
                                         showingSheet = .own
                                         
-                                    }else if(UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: user.userName)){
+                                    }else if(UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), userName: user.userName)){
                                         showingSheet = .friend
 
                                     }else{
@@ -121,11 +97,13 @@ struct addFriendsView: View {
                                
                             }, label: {
                                 Text(user.userName)
+                                    .foregroundColor(.pink)
                             })
                         }
                         
                     }
                 }
+                .listStyle(InsetGroupedListStyle())
                 
                 
                 
@@ -145,8 +123,6 @@ struct addFriendsView: View {
 
                     }
                 
-            
-            
                 
             } //VStack
     
@@ -155,7 +131,8 @@ struct addFriendsView: View {
         .onAppear(){
             self.viewModel.fetchData()
         }
-        
+        .background(Image("whitePinkGradient"))
+
         
     }
 

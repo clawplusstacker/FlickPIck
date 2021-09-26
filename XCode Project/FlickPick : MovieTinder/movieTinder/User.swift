@@ -69,6 +69,20 @@ class UserStoreFunctions{
         return x
     }
     
+    func getUsername(index: Int) -> String{
+        
+        self.UserView.fetchData()
+
+        if(self.UserView.users.count > 0){
+            
+            return UserView.users[index].userName
+
+        }
+        
+        return ""
+
+    }
+    
     
 
     func getMovieNum(index : Int) -> Int {
@@ -76,10 +90,15 @@ class UserStoreFunctions{
         self.UserView.fetchData()
         
         if(self.UserView.users.count > 0){
+            
+            if(self.UserView.users.count > index){
+            
+                let currentUser = UserView.users[index]
+                return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
 
-            let currentUser = UserView.users[index]
+            }
 
-            return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
+
         }
 
 

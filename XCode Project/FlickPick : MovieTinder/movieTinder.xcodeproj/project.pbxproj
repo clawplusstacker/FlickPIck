@@ -24,15 +24,16 @@
 		0F3B9FBD26B49AD600AFC2B4 /* DividerWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */; };
 		0F519AF12630A4300005B845 /* MoviePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F519AF02630A4300005B845 /* MoviePreviewView.swift */; };
 		0F6677ED26113B0F00114612 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6677EC26113B0F00114612 /* MainContentView.swift */; };
+		0F72111B26FB6F8400D7B746 /* WelcomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F72111A26FB6F8400D7B746 /* WelcomeSheet.swift */; };
 		0F8CFEC1260FA84B006D5B8C /* AddFreindsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8CFEC0260FA84B006D5B8C /* AddFreindsView.swift */; };
 		0FA5D16726124CB1003EFE22 /* FriendsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D16626124CB1003EFE22 /* FriendsContentView.swift */; };
 		0FA5D16C26125829003EFE22 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D16B26125829003EFE22 /* MatchView.swift */; };
 		0FA5D17126126503003EFE22 /* LikedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D17026126503003EFE22 /* LikedContentView.swift */; };
 		0FA5D1762612651B003EFE22 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D1752612651B003EFE22 /* SearchBar.swift */; };
 		0FA798DD26F5885F004D7EFB /* UserSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA798DC26F5885E004D7EFB /* UserSheets.swift */; };
+		0FDAF57026FE9B8C006942C6 /* ChangePasswordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */; };
 		0FE76D85260BB89A00C23170 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE76D84260BB89A00C23170 /* User.swift */; };
 		0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */; };
-		0FF19D94264F715700B085A3 /* AddMoviesFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF19D93264F715700B085A3 /* AddMoviesFunc.swift */; };
 		E69B4DE61692AC7900A2CFB2 /* Pods_movieTinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C46FD4020090F753DF8D03 /* Pods_movieTinderTests.framework */; };
 		FD2AC179D5D3634FF8691F3D /* Pods_movieTinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9F17F5E5B2C2871BB2C30 /* Pods_movieTinder.framework */; };
 /* End PBXBuildFile section */
@@ -75,15 +76,16 @@
 		0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerWithText.swift; sourceTree = "<group>"; };
 		0F519AF02630A4300005B845 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
 		0F6677EC26113B0F00114612 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		0F72111A26FB6F8400D7B746 /* WelcomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSheet.swift; sourceTree = "<group>"; };
 		0F8CFEC0260FA84B006D5B8C /* AddFreindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFreindsView.swift; sourceTree = "<group>"; };
 		0FA5D16626124CB1003EFE22 /* FriendsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsContentView.swift; sourceTree = "<group>"; };
 		0FA5D16B26125829003EFE22 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		0FA5D17026126503003EFE22 /* LikedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedContentView.swift; sourceTree = "<group>"; };
 		0FA5D1752612651B003EFE22 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0FA798DC26F5885E004D7EFB /* UserSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheets.swift; sourceTree = "<group>"; };
+		0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordContentView.swift; sourceTree = "<group>"; };
 		0FE76D84260BB89A00C23170 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
-		0FF19D93264F715700B085A3 /* AddMoviesFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoviesFunc.swift; sourceTree = "<group>"; };
 		1AF9F17F5E5B2C2871BB2C30 /* Pods_movieTinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movieTinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582AEB83752656B2F3D5EE3D /* Pods-movieTinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieTinderTests.debug.xcconfig"; path = "Target Support Files/Pods-movieTinderTests/Pods-movieTinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6832DE4DA4F600068143C058 /* Pods-movieTinder-movieTinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieTinder-movieTinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-movieTinder-movieTinderUITests/Pods-movieTinder-movieTinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 				0F1F723F26057A8A00EA07C4 /* movieTinderApp.swift */,
 				0F1F724126057A8A00EA07C4 /* MovieView.swift */,
 				0FE76D84260BB89A00C23170 /* User.swift */,
-				0FF19D93264F715700B085A3 /* AddMoviesFunc.swift */,
+				0F72111A26FB6F8400D7B746 /* WelcomeSheet.swift */,
 				0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */,
 				0FA798DC26F5885E004D7EFB /* UserSheets.swift */,
 				0F02117E260667F300D94701 /* LoginView.swift */,
@@ -160,6 +162,7 @@
 				0F20BE7B26576B3A007C8765 /* HBOfulldata.json */,
 				0F0211832606680300D94701 /* Launch Screen.storyboard */,
 				0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */,
+				0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */,
 				0FA5D16626124CB1003EFE22 /* FriendsContentView.swift */,
 				0FA5D17026126503003EFE22 /* LikedContentView.swift */,
 				0FA5D1752612651B003EFE22 /* SearchBar.swift */,
@@ -472,15 +475,16 @@
 				0F6677ED26113B0F00114612 /* MainContentView.swift in Sources */,
 				0FA5D16726124CB1003EFE22 /* FriendsContentView.swift in Sources */,
 				0FA798DD26F5885F004D7EFB /* UserSheets.swift in Sources */,
-				0FF19D94264F715700B085A3 /* AddMoviesFunc.swift in Sources */,
 				0FA5D1762612651B003EFE22 /* SearchBar.swift in Sources */,
 				0F1F724226057A8A00EA07C4 /* MovieView.swift in Sources */,
 				0FA5D16C26125829003EFE22 /* MatchView.swift in Sources */,
 				0F519AF12630A4300005B845 /* MoviePreviewView.swift in Sources */,
 				0F02117F260667F300D94701 /* LoginView.swift in Sources */,
+				0F72111B26FB6F8400D7B746 /* WelcomeSheet.swift in Sources */,
 				0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */,
 				0FA5D17126126503003EFE22 /* LikedContentView.swift in Sources */,
 				0F1F724026057A8A00EA07C4 /* movieTinderApp.swift in Sources */,
+				0FDAF57026FE9B8C006942C6 /* ChangePasswordContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +576,7 @@
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = FlickPIck;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -627,6 +632,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
+				PRODUCT_NAME = FlickPIck;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

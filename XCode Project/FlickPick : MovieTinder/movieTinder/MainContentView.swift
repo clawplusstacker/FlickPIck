@@ -41,7 +41,7 @@ struct MainContentView: View {
                     }
                 }.tag(1)
             NavigationView{
-                FriendsContentView()
+                FriendsView()
 
             }
                 .tabItem {
@@ -52,7 +52,7 @@ struct MainContentView: View {
                 }.tag(2)
             
             NavigationView{
-                SettingsContentView(logIn: $loggedIn)
+                SettingsMainView(loggingIn: $loggedIn)
             }
                 .tabItem {
                     VStack{
@@ -61,6 +61,7 @@ struct MainContentView: View {
                     }
                 }.tag(3)
         }
+        .accentColor(.pink)
 
     }
 }

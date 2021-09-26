@@ -18,10 +18,11 @@ import Firebase
 
 
 struct movieTinderApp: App {
-    
-    
+
+
     init() {
         FirebaseApp.configure()
+        
       }
 
     var body: some Scene {

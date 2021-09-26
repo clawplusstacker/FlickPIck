@@ -65,27 +65,30 @@ struct HomeScreenView: View{
         ZStack{
             
             //Background image
-            Image("moviecollage")
+            Image("moviecollage-1")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-                .blur(radius: 2)
             
             VStack{
                 
+                
+                Text("FlickPick")
+                    .foregroundColor(.white)
+                    .italic()
+                    .font(.system(size: 70, weight: .black))
+                    .padding(.top, 220)
+                    .shadow(radius: 3)
+                
                 Spacer()
                 
-                Button("Login"){
-                    
+                Button {
                     showingSignIn.toggle()
-                    
+
+                } label: {
+                    Text("Login")
+                        .frame(width: 350, height: 20)
                 }
-                .sheet(isPresented: $showingSignIn){
-                    
-                    LoginFormView(signInSuccess: $signInSuccess)
-                    
-                }
-                
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
@@ -93,20 +96,22 @@ struct HomeScreenView: View{
                     .frame(width: 350, height: 50)
                     .background(Color.blue)
                     .cornerRadius(15.0)
-            
-                
-                
-                
-                Button("Sign Up"){
+
+                .sheet(isPresented: $showingSignIn){
                     
-                    showingSignUp.toggle()
+                    LoginFormView(signInSuccess: $signInSuccess)
                     
                 }
+                    
+               
+ 
                 
-                .sheet(isPresented: $showingSignUp){
-                    
-                    SignUpView(signInSuccess: $signInSuccess)
-                    
+                Button {
+                    showingSignUp.toggle()
+
+                } label: {
+                    Text("Sign Up")
+                        .frame(width: 325, height: 20)
                 }
                     .padding()
                     .font(.headline)
@@ -115,6 +120,13 @@ struct HomeScreenView: View{
                     .frame(width: 350, height: 50)
                     .background(Color.pink)
                     .cornerRadius(15.0)
+                    
+                .sheet(isPresented: $showingSignUp){
+                    
+                    SignUpView(signInSuccess: $signInSuccess)
+                    
+                }
+                  
                 
                 
             } //VStack
@@ -128,6 +140,8 @@ struct LoginFormView: View{
 
     @Binding var signInSuccess : Bool
     
+    @State var changePasswordView = false
+    
     @State private var email = "";
     @State private var password = "";
     
@@ -140,26 +154,31 @@ struct LoginFormView: View{
         
         Spacer()
         
+        ScrollView {
+            
         ZStack {
                             
             VStack{
                 
                 Text("WE DON'T POST ANYTHING TO FACEBOOK")
                     .foregroundColor(Color.gray)
+                    .padding(.top, 150)
+
                 
-                    
-                Button("Login with Facebook"){
-                   
-            
-                    
+                
+                Button {
+
+                } label: {
+                    Text("Login With Facebook")
+                        .frame(width: 325, height: 20)
                 }
+                    .padding()
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 350, height: 50)
                     .background(Color.blue)
                     .cornerRadius(15.0)
-                    .padding()
                 
                 
                 LabelledDivider(label: "OR")
@@ -168,7 +187,8 @@ struct LoginFormView: View{
                 
                 if(showingError){
                     Text(errorMessage)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.pink)
+                        .padding()
                 }
                 
                 
@@ -197,7 +217,7 @@ struct LoginFormView: View{
                     .padding(.horizontal, 15)
                 
                 
-                Button("Login With Email"){
+                Button{
                     
                     let checkFields = validateSignIn(email: email, password: password)
                     
@@ -223,15 +243,27 @@ struct LoginFormView: View{
                         }   //Sign in Auth
                         
                     }  // Check Fields
-                }   //Button
-                .padding()
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 350, height: 50)
-                .background(Color.pink)
-                .cornerRadius(15.0)
-                .padding()
+                } label: {
+                    Text("Login With Email")
+                        .frame(width: 325, height: 20)
+                }
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.pink)
+                    .cornerRadius(15.0)
+                    .padding()
+                
+                Button("Forgot Password?"){
+                    changePasswordView.toggle()
+                }
+                    .padding()
+                    .foregroundColor(.blue)
+                .sheet(isPresented: $changePasswordView) {
+                    ChangePasswordView()
+                }
                 
             
             }   //VStack
@@ -246,6 +278,9 @@ struct LoginFormView: View{
                 .padding(.horizontal, 100)
 
         }   //HStack
+    }//ScrollView
+        .background(Image("whitePinkGradient"))
+
      
     }   //View
         
@@ -272,19 +307,23 @@ struct SignUpView: View{
         
         Spacer()
         
-        ZStack {
+        ScrollView {
             
             VStack{
                 
                 
                 Text("WE DON'T POST ANYTHING TO FACEBOOK")
                     .foregroundColor(Color.gray)
-                
+                    .padding(.top, 120)
+
                     
-                Button("Sign Up with Facebook"){
+                Button(){
                    
             
                     
+                }label: {
+                    Text("Sign Up with Facebook")
+                        .frame(width: 350, height: 50)
                 }
                     .font(.headline)
                     .foregroundColor(.white)
@@ -302,7 +341,8 @@ struct SignUpView: View{
                 
                 if(showingError){
                     Text(errorMessage)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.pink)
+                        .padding()
                 }
                 
                 
@@ -350,7 +390,9 @@ struct SignUpView: View{
                 
                 
 
-                Button("Sign Up With Email"){
+                Button {
+                    //Dismisses Keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     
                     let checkFields = validateSignUp(email: email, userName: userName, password: password, passVerify: passwordVerify)
                     
@@ -390,7 +432,11 @@ struct SignUpView: View{
                             }   //Error create user
                         }   //Create user
                     }   //if else check fields
-                }   //Button
+                } label: {
+                    Text("Sign Up With Email")
+                        .frame(width: 350, height: 50)
+
+                }
                 .padding()
                 .font(.headline)
                 .foregroundColor(.white)
@@ -401,16 +447,20 @@ struct SignUpView: View{
                 .padding()
                     
             }//End of VStack
-        } //End of ZStack
         
-        Spacer()
-        
-        HStack(){
-            Text("By continuing, you agree to our Terms of Use & Privacy Policy")
-                .foregroundColor(Color.gray)
-                .font(.system(size: 14))
-                .padding(.horizontal, 100)
-        }   //End of HStack
+            Spacer()
+            
+            HStack(){
+                Text("By continuing, you agree to our Terms of Use & Privacy Policy")
+                    .foregroundColor(Color.gray)
+                    .font(.system(size: 14))
+                    .padding(.horizontal, 100)
+            }   //End of HStack
+            
+        } //End of ScrollView
+        .background(Image("whitePinkGradient"))
+
+
         
     }//End of var: some body
 }//End of view

@@ -12,8 +12,6 @@ import FirebaseFirestore
 
 
 private var db = Firestore.firestore()
-private var currentUserUID = Auth.auth().currentUser?.uid
-
 private var userStore = UserStoreFunctions()
 
 struct MovieView: View {
@@ -22,6 +20,7 @@ struct MovieView: View {
         
     @ObservedObject var movieList = MovieViewModel()
     @State var updater = ""
+    @State var showingSheet = true
     
     
     
@@ -29,24 +28,31 @@ struct MovieView: View {
     func getCurrentMovie() -> Dictionary<String, String>{
         
         
-        let movieNum = userStore.getMovieNum(index: userStore.getFireStoreUserIndex(uid: currentUserUID!))
+        let movieNum = userStore.getMovieNum(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+        
             
         
         var title = ""
         var desc = ""
-        var poster = "https://cdn.theatlantic.com/thumbor/X3e6dgwG1vDBxRUBA8AY6nwIDJQ=/0x102:1400x831/960x500/media/img/mt/2013/12/wallstreet/original.jpg"
+        var poster = "https://i.ibb.co/yRrfLwf/Flick-Pick-logos-transparent.png"
         var rating = ""
         var year = ""
         
         //Handles beginning exception
         if movieList.movies.count > 0 {
             
-            title = movieList.movies[movieNum].Title
-            desc = movieList.movies[movieNum].Plot
-            poster = movieList.movies[movieNum].Poster
-            rating = movieList.movies[movieNum].imdbRating
-            year = movieList.movies[movieNum].Year!
-            
+            if(movieList.movies.count-1 >= movieNum){
+                
+                title = movieList.movies[movieNum].Title
+                desc = movieList.movies[movieNum].Plot
+                poster = movieList.movies[movieNum].Poster
+                rating = movieList.movies[movieNum].imdbRating
+                year = "(" + movieList.movies[movieNum].Year! + ")"
+            }else{
+                title = "No More Movies Left!!"
+                desc = "Check Back Later!"
+            }
+         
         }
         
         let dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
@@ -64,10 +70,11 @@ struct MovieView: View {
 
         ZStack{
             
-            ScrollView{
+            
 
             
                 VStack{
+                    
                     
                     let url = URL(string: currentMovie["poster"]!)
                     let data = try? Data(contentsOf: url!)
@@ -83,7 +90,7 @@ struct MovieView: View {
                                 .clipped()
                     } //Image URL
 
-                    
+                    ScrollView{
 
                         VStack{
                             
@@ -95,13 +102,14 @@ struct MovieView: View {
                                     
                                     Text(currentMovie["title"]!)
                                         
-                                        .font(.system(size: 23).bold())
+                                        .font(.system(size: 30).bold())
+                                        
                                         .foregroundColor(.pink)
                                       
 
                                     
                                         
-                                    Text("(" + currentMovie["year"]! + ")")
+                                    Text(currentMovie["year"]!)
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
                                     
@@ -119,15 +127,19 @@ struct MovieView: View {
                             
                             HStack{
                                 
-                                Text("IMDB Rating: " + currentMovie["rating"]! + "/10")
+                                Text("IMDB Rating: ")
+                                    .font(.subheadline)
+                                    .foregroundColor(.primary)
+                                
+                                Text(currentMovie["rating"]! + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
-                                    .padding()
-                                    .padding(.horizontal, 90)
-                            
+                                
                                 Spacer()
 
                             }
+                            .padding()
+                            .padding(.horizontal, 85)
 
                             
                             
@@ -176,13 +188,14 @@ struct MovieView: View {
                                     .font(.system(size: 70))
                                     .padding(.horizontal, 50)
                                     .padding(.bottom, 20)
+                                    .shadow(color: .blue, radius: 5, x: 0, y: 3)
+
 
                                 }
                         
                         //Main Button Pressed
                         Button(action: {
-              
-                            userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: currentUserUID!), title: currentMovie["title"]!)
+                            userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: currentMovie["title"]!)
                             
 
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -213,6 +226,8 @@ struct MovieView: View {
                                     .font(.system(size: 70))
                                     .padding(.horizontal, 50)
                                     .padding(.bottom, 20)
+                                    .shadow(color: .pink, radius: 5, x: 0, y: 3)
+
                                     
                                 }
                         
@@ -222,7 +237,7 @@ struct MovieView: View {
                             
 
                             
-                            userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: currentUserUID!), title: currentMovie["title"]!)
+                            userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: currentMovie["title"]!)
                             
 
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -240,6 +255,7 @@ struct MovieView: View {
                                     .padding(.horizontal, 50)
                                     .padding(.bottom, 20)
 
+
                                 }
                     }//ZStack
                     
@@ -247,8 +263,13 @@ struct MovieView: View {
                 }//Hs stack
             
             }//VStack for like buttons
-                                    
+            
+            .sheet(isPresented: $showingSheet) {
+                WelcomeSheetView()
+            }
+           
         } //ZStack
+        .background(Image("whitePinkGradient"))
         .onAppear() {
             
             self.movieList.fetchData()

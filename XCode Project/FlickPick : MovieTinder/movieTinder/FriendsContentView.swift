@@ -12,51 +12,21 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-
-struct FriendsContentView: View {
-    
-    @State var friendsViewSelected = true
-    @State var profileViewSelected = false
-    @State var addFriendsSelected = false
-    
-
-    
-    
-
-    var body: some View {
-        
-        return Group{
-            
-            if(friendsViewSelected){
-                
-                FriendsView(friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected)
-                
-            }else if(profileViewSelected){
-//                FriendSheetView(backButton: $friendsViewSelected, userName: passingUserName, matchList: passingMatchList)
-
-            }else if(addFriendsSelected){
-                addFriendsView(backButton: $friendsViewSelected, friendsViewSelected: $friendsViewSelected, profileViewSelected: $profileViewSelected, addFriendsSelected: $addFriendsSelected)
-            }
-        
-        }
-    }
-}
-
 private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
-private var currentUserUID = Auth.auth().currentUser?.uid
 
 struct FriendsView: View {
         
 
 
     @State private var searchText = ""
-    @Binding var friendsViewSelected : Bool;
-    @Binding var profileViewSelected : Bool
-    @Binding var addFriendsSelected : Bool;
+
     
     
-    @State var friendsList = ["Loading Data..."]
+    @State var showingAddSheet = false
+    
+    @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ??
+    ""))
 
     @State var passingProfilePicture = ""
     @State var passingUserName  = ""
@@ -81,24 +51,24 @@ struct FriendsView: View {
                     
                     Button(action: {
                         
-                        addFriendsSelected = true;
-                        profileViewSelected = false;
-                        friendsViewSelected = false;
+                        showingAddSheet = true
+                        
                                           
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.largeTitle)
-                            .foregroundColor(.purple)
+                            .foregroundColor(.pink)
                         }
+                    .sheet(isPresented: $showingAddSheet){
+                        addFriendsView()
+                    }
                 
                 } //HStack
                 .padding()
                 
+                               
                 
-                SearchBar(text: $searchText)
-                    .padding(.top, 10)
-
-               
+                
                     List(friendsList, id: \.self) { friends in
                         VStack(alignment: .leading){
                             HStack{
@@ -111,7 +81,7 @@ struct FriendsView: View {
                                         
                                         
                                         passingUserName = friends
-                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userNameOfOther: friends)
+                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), userNameOfOther: friends)
                                         
 
                                         showingSheet = true
@@ -125,9 +95,10 @@ struct FriendsView: View {
                                     Text(friends)
                                 })
                             }
-                                                    }
+                        }
 
                     }
+                    .listStyle(InsetGroupedListStyle())
                 
                 
                 Spacer()
@@ -148,10 +119,12 @@ struct FriendsView: View {
             UserViewModel().fetchData()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
+                friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                 
             }
         }
+        .background(Image("whitePinkGradient"))
+
 
     } // View
     
