@@ -81,7 +81,7 @@ struct FriendsView: View {
                                         
                                         
                                         passingUserName = friends
-                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), userNameOfOther: friends)
+                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), userNameOfOther: friends)
                                         
 
                                         showingSheet = true

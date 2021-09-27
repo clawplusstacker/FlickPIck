@@ -100,11 +100,11 @@ struct LikedView: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                    UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
-                                    UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
+                                    UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                    UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                        likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+                                        likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                                     }
 
                                     
@@ -149,7 +149,7 @@ struct DislikedView: View {
 
     
     @ObservedObject private var user = UserViewModel()
-    @State private var dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+    @State private var dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
     
     @State private var addedOrRemoved = false;
     @Binding var likedSelected : Bool;
@@ -224,11 +224,11 @@ struct DislikedView: View {
                             Spacer()
                             
                             Button(action: {
-                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
-                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), title: movies)
+                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                                 }
                                 
                             }, label: {
@@ -257,7 +257,7 @@ struct DislikedView: View {
             UserViewModel().fetchData()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+                dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                 
             }
         }

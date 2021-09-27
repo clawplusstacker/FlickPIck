@@ -172,7 +172,7 @@ struct SettingsMainView : View{
             self.user.fetchData()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!))
+                userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
             }
             
 
