@@ -11,24 +11,53 @@ import FirebaseFirestore
 
 private var db = Firestore.firestore()
 private var userStore = UserStoreFunctions()
+private let amtOfMovies = 1968
 
+
+
+
+/**
+ 
+ Movie View is the View that is first shown when opening the app.
+ 
+ Has a first function to get the current movie needed.
+ 
+ Shows movie picture, title, description, and other related data.
+ 
+ Users are then able to like and dislike the movie, which the app will then
+    move on to the next movie after a decision is made
+ 
+ Paramaters: None
+ Return: View Model
+ 
+ **/
 
 struct MovieView: View {
     
         
     @ObservedObject var movieList = MovieViewModel()
     @State var updater = ""
-    @State var showingSheet = true
     
     @State var showingMoviePoster = false
     @State var moviePoster = ""
+    @State var randomNum = Int.random(in: 0..<amtOfMovies)
+
     
-    func getCurrentMovie() -> Dictionary<String, String>{
+    
+    /**
+     Function that will retrieve movie data for a new movie to be displayed.
+     
+     Param: Takes a random integer (based off of how many movies the user has avaiable)
+     
+     If the random integer has not already been liked or disliked by the current user it will be shown
+        if it has been then it will add numbers to the random num until it finds a movie that hasn't
+        If this reaches the end of the movie count, it will go back to the beginning.
+     */
+    func getCurrentMovie(randomNum : Int) -> Dictionary<String, String>{
                 
 
         let likedList = userStore.getLikedList(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
         let dislikedList = userStore.getDislikedList(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-
         
         var title = ""
         var desc = ""
@@ -39,21 +68,18 @@ struct MovieView: View {
         //Handles beginning exception
         if movieList.movies.count > 0 {
             
-            var x = 0;
+            var x = randomNum;
             
             while x < movieList.movies.count {
-                
-                let randomMovieNum = Int.random(in: 0..<movieList.movies.count)
-
-                
-                if(!likedList.contains(movieList.movies[randomMovieNum].Title)){
+                                
+                if(!likedList.contains(movieList.movies[x].Title)){
                     
-                    if(!dislikedList.contains(movieList.movies[randomMovieNum].Title)){
-                        title = movieList.movies[randomMovieNum].Title
-                        desc = movieList.movies[randomMovieNum].Plot
-                        poster = movieList.movies[randomMovieNum].Poster
-                        rating = movieList.movies[randomMovieNum].imdbRating
-                        year = "(" + movieList.movies[randomMovieNum].Year! + ")"
+                    if(!dislikedList.contains(movieList.movies[x].Title)){
+                        title = movieList.movies[x].Title
+                        desc = movieList.movies[x].Plot
+                        poster = movieList.movies[x].Poster
+                        rating = movieList.movies[x].imdbRating
+                        year = "(" + movieList.movies[x].Year! + ")"
                         
                         break;
                     }
@@ -62,26 +88,47 @@ struct MovieView: View {
                 x += 1
                 
                 if(x >= movieList.movies.count){
-                    title = "No More Movies Left!!"
-                    desc = "Check Back Later!"
-                }
+                    
+                    for movies in movieList.movies {
+                        
+                        if(!likedList.contains(movies.Title)){
+                            
+                            if(!dislikedList.contains(movies.Title)){
+                                title = movies.Title
+                                desc = movies.Plot
+                                poster = movies.Poster
+                                rating = movies.imdbRating
+                                year = "(" + movies.Year! + ")"
+                                
+                                break;
+                            }
+                        }
+                        else{
+                            title = "No More Movies Left!!"
+                            desc = "Check Back Later!"
+                        }
+                        
+                    }//For Loop
+                } //if statement
                 
-            }
+            }  //while loop
+        } //Original exception if statement
         
-        }
+
         
         let dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
         
         return dict
         
-
-    }
+        
+    } //Function End
     
     
-   
+    
     var body: some View {
         
-        var currentMovie = getCurrentMovie()
+        var currentMovie = getCurrentMovie(randomNum: randomNum)
+    
         
         ZStack{
             
@@ -89,12 +136,12 @@ struct MovieView: View {
                     
                     Button {
                         
-                        moviePoster = currentMovie["poster"]!
+                        moviePoster = currentMovie["poster"] ?? ""
                         showingMoviePoster.toggle()
                         
                         
                     } label: {
-                        let url = URL(string: currentMovie["poster"]!)
+                        let url = URL(string: currentMovie["poster"] ?? "")
                         let data = try? Data(contentsOf: url!)
 
                         if let imageData = data {
@@ -103,10 +150,11 @@ struct MovieView: View {
                                     
                             Image(uiImage: moviePoster!)
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 600, height: 400)
                                     .clipped()
                         } //Image URL
-                    }
+                    } //Button
                     
                     .sheet(isPresented: $showingMoviePoster) {
                         MoviePosterView(moviePosterSend: $moviePoster)
@@ -125,7 +173,7 @@ struct MovieView: View {
                                 HStack{
   
                                     
-                                    Text(currentMovie["title"]!)
+                                    Text(currentMovie["title"] ?? "")
                                         
                                         .font(.system(size: 30).bold())
                                         
@@ -134,7 +182,7 @@ struct MovieView: View {
 
                                     
                                         
-                                    Text(currentMovie["year"]!)
+                                    Text(currentMovie["year"] ?? "")
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
                                     
@@ -156,7 +204,7 @@ struct MovieView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
                                 
-                                Text(currentMovie["rating"]! + "/10")
+                                Text(currentMovie["rating"] ?? "" + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                                 
@@ -165,13 +213,11 @@ struct MovieView: View {
                             }
                             .padding()
                             .padding(.horizontal, 85)
-
                             
                             
                             Divider()
                                 .padding()
-                            
-                            
+                                                        
                             
                             HStack{
                                 
@@ -183,7 +229,7 @@ struct MovieView: View {
                                 Spacer()
                             }
                             
-                            Text(currentMovie["desc"]!)
+                            Text(currentMovie["desc"] ?? "")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 130)
@@ -197,7 +243,6 @@ struct MovieView: View {
                     
             }//VStack for Pics/Text
            
-            
             
             VStack{
                 
@@ -225,7 +270,8 @@ struct MovieView: View {
                             userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: currentMovie["title"]!)
                             
 
-                                currentMovie = getCurrentMovie()
+                                randomNum = Int.random(in: 0..<amtOfMovies)
+                                currentMovie = getCurrentMovie(randomNum: randomNum)
                                 updater =  ""
                                 updater =  " "
                             
@@ -262,7 +308,8 @@ struct MovieView: View {
                             userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: currentMovie["title"]!)
                             
                             
-                            currentMovie = getCurrentMovie()
+                            randomNum = Int.random(in: 0..<amtOfMovies)
+                            currentMovie = getCurrentMovie(randomNum: randomNum)
                             updater =  ""
                             updater =  " "
 
@@ -283,12 +330,10 @@ struct MovieView: View {
                 }//Hs stack
             
             }//VStack for like buttons
-            
-            .sheet(isPresented: $showingSheet) {
-                WelcomeSheetView()
-            }
-           
+
         } //ZStack
+        
+        
         .background(Image("whitePinkGradient"))
         
         .onAppear() {
@@ -296,12 +341,9 @@ struct MovieView: View {
           
         }
         
-       
-    }
-   
-}
-
-
+        
+    } //Var body : some View
+} //Struct
 
 
 

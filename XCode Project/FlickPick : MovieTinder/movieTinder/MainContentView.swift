@@ -11,11 +11,11 @@ import SwiftUI
 struct MainContentView: View {
     
     @Binding var loggedIn : Bool
+    
+    //To fill values that need to be passed for binding views
     @State var string1 = ""
     @State var array1 = [String]()
 
-    
-    
     @State var selectedTab = 0;
 
 
@@ -62,6 +62,9 @@ struct MainContentView: View {
                 }.tag(3)
         }
         .accentColor(.pink)
+        .onAppear(){
+
+        }
 
     }
 }

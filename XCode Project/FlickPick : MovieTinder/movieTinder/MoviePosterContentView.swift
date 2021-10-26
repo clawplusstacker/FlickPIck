@@ -24,7 +24,7 @@ struct MoviePosterView: View{
                     
             Image(uiImage: moviePoster!)
                     .resizable()
-                    .clipped()
+                    .scaledToFit()
         } //Image URL
         
     }

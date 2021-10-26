@@ -18,15 +18,9 @@ private var db = Firestore.firestore()
 struct FriendsView: View {
         
 
-
     @State private var searchText = ""
-
-    
-    
     @State var showingAddSheet = false
-    
-    @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ??
-    ""))
+    @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
 
     @State var passingProfilePicture = ""
     @State var passingUserName  = ""
@@ -123,8 +117,6 @@ struct FriendsView: View {
                 
             }
         }
-        .background(Image("whitePinkGradient"))
-
 
     } // View
     

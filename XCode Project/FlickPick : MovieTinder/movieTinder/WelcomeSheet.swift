@@ -15,13 +15,8 @@ import FirebaseFirestore
 
 struct WelcomeSheetView : View{
     
-
-    
-
     var body: some View {
-        
-       
-
+    
         VStack{
             
             Image(systemName: "chevron.down")

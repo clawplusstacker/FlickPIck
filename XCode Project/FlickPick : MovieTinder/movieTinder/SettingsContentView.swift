@@ -165,7 +165,6 @@ struct SettingsMainView : View{
           
 
         }
-        .background(Image("whitePinkGradient"))
 
         .onAppear(){
             
@@ -237,8 +236,6 @@ struct StreamingServiceSettingsView : View{
      
             
         }
-        .background(Image("whitePinkGradient"))
-
         
     }
     

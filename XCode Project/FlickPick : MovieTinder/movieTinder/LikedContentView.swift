@@ -138,8 +138,6 @@ struct LikedView: View {
                     
                 }
             }
-            .background(Image("whitePinkGradient"))
-
     
     }
 
@@ -262,8 +260,6 @@ struct DislikedView: View {
             }
         }
         
-        .background(Image("whitePinkGradient"))
-
     }
 
 }
