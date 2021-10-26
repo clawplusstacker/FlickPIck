@@ -22,14 +22,15 @@ struct movieTinderApp: App {
 
     init() {
         FirebaseApp.configure()
-        
       }
+    
 
     var body: some Scene {
         
         WindowGroup {
             
-            LoginContentView()
+            LoadingScreenContentView()
+            //LoginContentView()
             
                    
         }

@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 
 
+/**
+ MoviePreviewView is a view that will show a Movie poster, title, desc, etc
+ when needed. This is different from MovieView as it has no like buttons, but
+ everything else is similar. Used when looking at liked/disliked movies, or a users
+ matches with another person.
+ */
+
 struct MoviePreviewView: View {
     
     @ObservedObject var movieList = MovieViewModel()
@@ -18,8 +25,12 @@ struct MoviePreviewView: View {
     @State var showingMoviePoster = false
     @State var moviePoster = ""
     
+    
+    /**
+        Function that will get the current movie data based off of the title that is passed
+        into the MoviePreviewView struct when called upon.
+     */
     func getCurrentMovie() -> Dictionary<String, String> {
-        
         
         var title = movieTitle
         var desc = ""
@@ -54,17 +65,13 @@ struct MoviePreviewView: View {
                     }
                     x += 1;
                 }
-                            
         
-        }
+        } //Beginning exception if statement
         
         return dict
-        
-        
-    }
+    } //Function
 
 
-    
     var body: some View {
         
         var currentMovie = getCurrentMovie()
@@ -93,22 +100,20 @@ struct MoviePreviewView: View {
                                 
                                     
                             Image(uiImage: moviePoster!)
-                                    .resizable()
-                                    .frame(width: 600, height: 400)
-                                    .clipped()
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 600, height: 400)
+                                .clipped()
                         } //Image URL
-                    }
+                    } //Button
                     
                     .sheet(isPresented: $showingMoviePoster) {
                         MoviePosterView(moviePosterSend: $moviePoster)
                     }
                     
 
-        
-
                         VStack{
-                            
-                            
+                
                             HStack{
                                 
                                 HStack{
@@ -118,9 +123,7 @@ struct MoviePreviewView: View {
                                         
                                         .font(.system(size: 23).bold())
                                         .foregroundColor(.pink)
-                                      
-
-                                    
+        
                                         
                                     Text("(" + currentMovie["year"]! + ")")
                                         .font(.system(size: 17).bold())
@@ -192,7 +195,6 @@ struct MoviePreviewView: View {
 
         }
         .background(Image("whitePinkGradient"))
-
                
     }
 }
