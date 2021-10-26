@@ -15,6 +15,9 @@ struct MoviePreviewView: View {
     @Binding var movieTitle : String
     @State var handler = ""
     
+    @State var showingMoviePoster = false
+    @State var moviePoster = ""
+    
     func getCurrentMovie() -> Dictionary<String, String> {
         
         
@@ -73,20 +76,32 @@ struct MoviePreviewView: View {
             
                 VStack{
                     
-                    let url = URL(string: currentMovie["poster"]!)
-                    let data = try? Data(contentsOf: url!)
+                    Button {
+                        moviePoster = currentMovie["poster"]!
+                        
+                        print(moviePoster)
 
-                    if let imageData = data {
-                        let moviePoster = UIImage(data: imageData)
-                            
+                        showingMoviePoster.toggle()
+                        
+                        
+                    } label: {
+                        let url = URL(string: currentMovie["poster"]!)
+                        let data = try? Data(contentsOf: url!)
+
+                        if let imageData = data {
+                            let moviePoster = UIImage(data: imageData)
                                 
-                        Image(uiImage: moviePoster!)
-                                .resizable()
-                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                .frame(width: 600, height: 400)
-                                .clipped()
-                    } //Image URL
+                                    
+                            Image(uiImage: moviePoster!)
+                                    .resizable()
+                                    .frame(width: 600, height: 400)
+                                    .clipped()
+                        } //Image URL
+                    }
                     
+                    .sheet(isPresented: $showingMoviePoster) {
+                        MoviePosterView(moviePosterSend: $moviePoster)
+                    }
                     
 
         

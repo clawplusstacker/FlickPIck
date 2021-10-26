@@ -114,7 +114,7 @@ struct FriendsView: View {
             
 
         } //ZStack
-    
+       
         .onAppear(){
             UserViewModel().fetchData()
 

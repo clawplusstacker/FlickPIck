@@ -31,6 +31,7 @@
 		0FA5D17126126503003EFE22 /* LikedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D17026126503003EFE22 /* LikedContentView.swift */; };
 		0FA5D1762612651B003EFE22 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5D1752612651B003EFE22 /* SearchBar.swift */; };
 		0FA798DD26F5885F004D7EFB /* UserSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA798DC26F5885E004D7EFB /* UserSheets.swift */; };
+		0FC2C4A82715EE3700DB575D /* MoviePosterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2C4A72715EE3700DB575D /* MoviePosterContentView.swift */; };
 		0FDAF57026FE9B8C006942C6 /* ChangePasswordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */; };
 		0FE76D85260BB89A00C23170 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE76D84260BB89A00C23170 /* User.swift */; };
 		0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */; };
@@ -83,6 +84,7 @@
 		0FA5D17026126503003EFE22 /* LikedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedContentView.swift; sourceTree = "<group>"; };
 		0FA5D1752612651B003EFE22 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0FA798DC26F5885E004D7EFB /* UserSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheets.swift; sourceTree = "<group>"; };
+		0FC2C4A72715EE3700DB575D /* MoviePosterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterContentView.swift; sourceTree = "<group>"; };
 		0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordContentView.swift; sourceTree = "<group>"; };
 		0FE76D84260BB89A00C23170 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */,
 				0FA798DC26F5885E004D7EFB /* UserSheets.swift */,
 				0F02117E260667F300D94701 /* LoginView.swift */,
+				0FC2C4A72715EE3700DB575D /* MoviePosterContentView.swift */,
 				0F8CFEC0260FA84B006D5B8C /* AddFreindsView.swift */,
 				0F6677EC26113B0F00114612 /* MainContentView.swift */,
 				0F20BE7B26576B3A007C8765 /* HBOfulldata.json */,
@@ -480,6 +483,7 @@
 				0FA5D16C26125829003EFE22 /* MatchView.swift in Sources */,
 				0F519AF12630A4300005B845 /* MoviePreviewView.swift in Sources */,
 				0F02117F260667F300D94701 /* LoginView.swift in Sources */,
+				0FC2C4A82715EE3700DB575D /* MoviePosterContentView.swift in Sources */,
 				0F72111B26FB6F8400D7B746 /* WelcomeSheet.swift in Sources */,
 				0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */,
 				0FA5D17126126503003EFE22 /* LikedContentView.swift in Sources */,

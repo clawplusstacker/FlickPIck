@@ -25,7 +25,7 @@ struct UserStore: Identifiable {
 }
 
 class UserStoreFunctions{
-    
+        
     
     private var UserView = UserViewModel()
     
@@ -109,6 +109,7 @@ class UserStoreFunctions{
     
     
     func addToMoviesLiked(index: Int, title: String){
+        
         
         let currentUserUID = UserView.users[index].id
 
