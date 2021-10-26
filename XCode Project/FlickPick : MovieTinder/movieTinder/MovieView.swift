@@ -160,9 +160,7 @@ struct MovieView: View {
                         MoviePosterView(moviePosterSend: $moviePoster)
                     }
 
-
                    
-
                     ScrollView{
 
                         VStack{
