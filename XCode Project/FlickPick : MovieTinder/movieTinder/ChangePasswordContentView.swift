@@ -54,7 +54,7 @@ struct ChangePasswordView : View{
                             .stroke(Color.gray, lineWidth: 0.2)
                      )
                     .shadow(radius:1)
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 30)
                 
 
                 

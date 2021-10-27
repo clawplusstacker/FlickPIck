@@ -7,17 +7,28 @@
 
 import Foundation
 import SwiftUI
-
+import FirebaseAuth
 
 struct LoadingScreenContentView : View {
     
     @State var splashScreenShow = true
     @State var loginContentViewShow = false
     
+    
+    @State var testBool = false
+    
     var body: some View {
         
         if(splashScreenShow == true){
-            SplashScreenView(splashScreenShow: $splashScreenShow)
+            
+            ZStack{
+                MovieView()
+                LikedContentView()
+                FriendsView()
+                SettingsMainView(loggingIn: $testBool)
+                SplashScreenView(splashScreenShow: $splashScreenShow)
+            }
+          
       
         }else{
             LoginContentView()
@@ -31,6 +42,7 @@ struct SplashScreenView : View {
     @Binding var splashScreenShow : Bool
     
     @State private var isLoading = false
+    @ObservedObject var movieList = MovieViewModel()
 
     
     var body: some View {
@@ -80,13 +92,17 @@ struct SplashScreenView : View {
         
         .onAppear(){
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                
-                splashScreenShow = false
-                
+            var timeToLoad = 3.0
+            
+            if(Auth.auth().currentUser == nil){
+                timeToLoad = 0.5
             }
-        }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeToLoad){
+                splashScreenShow = false
+            }
+                
+        }//On Appear
       
-        
     }
 }
