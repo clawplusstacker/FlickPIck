@@ -92,7 +92,7 @@ struct SplashScreenView : View {
         
         .onAppear(){
             
-            var timeToLoad = 3.0
+            var timeToLoad = 1.0
             
             if(Auth.auth().currentUser == nil){
                 timeToLoad = 0.5

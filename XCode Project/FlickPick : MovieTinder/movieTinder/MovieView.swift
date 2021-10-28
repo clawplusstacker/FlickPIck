@@ -142,18 +142,33 @@ struct MovieView: View {
                         
                     } label: {
                         let url = URL(string: currentMovie["poster"] ?? "")
-                        let data = try? Data(contentsOf: url!)
+//                        let data = try? Data(contentsOf: url!)
+//
+//                        if let imageData = data {
+//                            let moviePoster = UIImage(data: imageData)
+                            
+                       
+                        if #available(iOS 15.0, *) {
+                            AsyncImage(url: url) { phase in
+                                if let image = phase.image {
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 600, height: 400)
+                                        .clipped()
 
-                        if let imageData = data {
-                            let moviePoster = UIImage(data: imageData)
-                                
-                                    
-                            Image(uiImage: moviePoster!)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 600, height: 400)
-                                    .clipped()
-                        } //Image URL
+                                } else if phase.error != nil {
+                                    Text("Network Error!")
+                                        .frame(width: 600, height: 400)
+
+                                } else {
+                                    ProgressView()
+                                        .frame(width: 600, height: 400)
+                                }
+                            }
+                        } else {
+                            
+                        } //If statement for iOS 15
                     } //Button
                     
                     .sheet(isPresented: $showingMoviePoster) {
