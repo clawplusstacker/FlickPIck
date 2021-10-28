@@ -43,7 +43,6 @@ struct MovieView: View {
     @State var randomNum = Int.random(in: 0..<amtOfMovies)
 
     
-    
     /**
      Function that will retrieve movie data for a new movie to be displayed.
      

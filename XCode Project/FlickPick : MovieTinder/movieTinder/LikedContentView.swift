@@ -85,6 +85,7 @@ struct LikedView: View {
                 
                 
                     
+                if #available(iOS 15.0, *) {
                     List(likedList, id: \.self) { movies in
                         VStack(alignment: .leading){
                             
@@ -92,7 +93,7 @@ struct LikedView: View {
                                 Button(action: {
                                     movieTitle = movies
                                     showingMovieSheet.toggle()
-
+                                    
                                 }, label: {
                                     Text(movies)
                                 })
@@ -106,7 +107,7 @@ struct LikedView: View {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                         likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                                     }
-
+                                    
                                     
                                 }, label: {
                                     Image(systemName: "minus.circle.fill")
@@ -115,10 +116,16 @@ struct LikedView: View {
                                 
                             }//Hstack
                             .buttonStyle(BorderlessButtonStyle())
-
+                            
                         }
                     }
+                    .refreshable {
+                        likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                    }
                     .listStyle(InsetGroupedListStyle())
+                } else {
+                    // Fallback on earlier versions
+                }
                     
                     Spacer()
                    
@@ -203,42 +210,50 @@ struct DislikedView: View {
                 
                 Spacer()
                 
-                List(dislikedList, id: \.self) { movies in
-                    VStack(alignment: .leading){
+                if #available(iOS 15.0, *) {
+                    List(dislikedList, id: \.self) { movies in
+                        VStack(alignment: .leading){
+                            
+                            HStack{
+                                Button(action: {
+                                    
+                                    movieTitle = movies
+                                    showingMovieSheet.toggle()
+                                    
+                                    
+                                }, label: {
+                                    Text(movies)
+                                    
+                                })
+                                
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                    UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                        dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                                    }
+                                    
+                                }, label: {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(.pink)
+                                })
+                            }//HStack
+                            .buttonStyle(BorderlessButtonStyle())
+                            
+                        }//VStack
+                    }//List
+                    .refreshable {
+                        dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                         
-                        HStack{
-                            Button(action: {
-                                
-                                movieTitle = movies
-                                showingMovieSheet.toggle()
-                                
-
-                            }, label: {
-                                Text(movies)
-
-                            })
-                            
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-                                }
-                                
-                            }, label: {
-                                Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(.pink)
-                            })
-                        }//HStack
-                        .buttonStyle(BorderlessButtonStyle())
-                      
-                    }//VStack
-                }//List
-                .listStyle(InsetGroupedListStyle())
+                    }
+                    .listStyle(InsetGroupedListStyle())
+                } else {
+                    // Fallback on earlier versions
+                }
          
                
                                     

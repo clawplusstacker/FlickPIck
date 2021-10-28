@@ -129,10 +129,8 @@ struct FriendSheetView : View {
                         
                         Button(action: {
                             
-                          
                                 movieTitle = movies
                                 showingMovieSheet.toggle()
-                                        
                           
                             
                         }, label: {

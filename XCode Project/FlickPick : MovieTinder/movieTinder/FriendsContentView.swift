@@ -47,7 +47,6 @@ struct FriendsView: View {
                         
                         showingAddSheet = true
                         
-                                          
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.largeTitle)
@@ -60,15 +59,14 @@ struct FriendsView: View {
                 } //HStack
                 .padding()
                 
-                               
                 
-                
+                if #available(iOS 15.0, *) {
                     List(friendsList, id: \.self) { friends in
                         VStack(alignment: .leading){
                             HStack{
-                                                            
+                                
                                 Button(action: {
-                              
+                                    
                                     
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
@@ -77,22 +75,28 @@ struct FriendsView: View {
                                         passingUserName = friends
                                         passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), userNameOfOther: friends)
                                         
-
+                                        
                                         showingSheet = true
                                         
-
+                                        
                                     }
-
-                                   
-                                   
+                                    
+                                    
+                                    
                                 }, label: {
                                     Text(friends)
                                 })
                             }
                         }
-
+                        
+                    }
+                    .refreshable {
+                        friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                     }
                     .listStyle(InsetGroupedListStyle())
+                } else {
+                    // Fallback on earlier versions
+                }
                 
                 
                 Spacer()
