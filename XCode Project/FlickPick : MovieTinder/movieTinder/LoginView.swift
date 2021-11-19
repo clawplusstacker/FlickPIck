@@ -415,7 +415,7 @@ struct SignUpView: View{
                             } else{
                                 
                                 let dataBase = Firestore.firestore()
-                                dataBase.collection("users").addDocument(data: ["userName":  userName, "uid": result!.user.uid, "moviesLiked": [], "moviesDisliked": [], "friends": [] ]) { error in
+                                dataBase.collection("users").addDocument(data: ["userName":  userName, "uid": result!.user.uid, "moviesLiked": [], "moviesDisliked": [], "friends": [], "profilePicture": ""]) { error in
                                     
                                     if  error != nil{
                                         showingError = false

@@ -11,6 +11,7 @@ import FirebaseAuth
 
 struct LoadingScreenContentView : View {
     
+
     @State var splashScreenShow = true
     @State var loginContentViewShow = false
     
@@ -22,10 +23,12 @@ struct LoadingScreenContentView : View {
         if(splashScreenShow == true){
             
             ZStack{
+    
                 MovieView()
                 LikedContentView()
                 FriendsView()
                 SettingsMainView(loggingIn: $testBool)
+                    
                 SplashScreenView(splashScreenShow: $splashScreenShow)
             }
           

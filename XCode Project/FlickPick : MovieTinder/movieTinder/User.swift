@@ -75,7 +75,12 @@ class UserStoreFunctions{
 
         if(self.UserView.users.count > 0){
             
-            return UserView.users[index].userName
+            if(self.UserView.users.count >= index+1){
+                
+                return UserView.users[index].userName
+                
+            }
+            
 
         }
         
@@ -89,19 +94,13 @@ class UserStoreFunctions{
         
         self.UserView.fetchData()
         
-        if(self.UserView.users.count > 0){
+        if(self.UserView.users.count >= index + 1){
             
-            if(self.UserView.users.count > index){
-            
-                let currentUser = UserView.users[index]
-                return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
-
-            }
+            let currentUser = UserView.users[index]
+            return currentUser.moviesDisliked.count + currentUser.moviesLiked.count
 
 
         }
-
-
 
         return 0
         
@@ -175,7 +174,7 @@ class UserStoreFunctions{
         self.UserView.fetchData()
         
         
-        if(self.UserView.users.count > 0){
+        if(self.UserView.users.count >= index + 1){
 
             let currentUserFriends = UserView.users[index].friends
 
@@ -191,11 +190,13 @@ class UserStoreFunctions{
         self.UserView.fetchData()
         
         
-        if(self.UserView.users.count > 0){
-
+        if(self.UserView.users.count >= index + 1){
+                            
             let likedList = UserView.users[index].moviesLiked
 
             return likedList
+
+       
         }
         
         return ["Loading Movies"]
@@ -207,7 +208,7 @@ class UserStoreFunctions{
         self.UserView.fetchData()
         
         
-        if(self.UserView.users.count > 0){
+        if(self.UserView.users.count >= index + 1){
 
             let dislikedList = UserView.users[index].moviesDisliked
 
