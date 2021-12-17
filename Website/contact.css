@@ -1,0 +1,76 @@
+.pageBannerContainer{
+
+  background-image: url("");
+    filter: blur(2px);
+
+}
+
+#bodyContainer{
+  height: 100%;
+  width: 100%;
+}
+
+#bannerText{
+  font-size: 75px;
+  color:white;
+  position: absolute;
+  top: 20%;
+  left: 60%;
+
+}
+#formContainer {
+  margin: auto;
+  height: 90%;
+  width: 50%; 
+  /*background-color: red;*/
+
+}
+#formHeader{
+  font-size: 200%;
+  top: 25%;
+}
+#contactForm{
+  font-size: 120%;
+  position: absolute;
+  top: 32%;
+  width: 50%;
+}
+#subButton{
+  text-align: center;
+  padding-top: 5%;
+}
+#messageForm{
+  height: 100px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: 1s;
+
+}
+button[type=submit] {
+  width: 100px;
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+button[type=submit]:hover {
+  background-color: grey;
+}

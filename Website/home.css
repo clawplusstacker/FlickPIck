@@ -1,0 +1,78 @@
+.navBarNew a{
+  color: white;
+}
+.navBarScroll a{
+  color: black;
+}
+
+.bannerContainer{
+
+  background-image: url("banner.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+
+}
+
+
+#bannerLeft{
+  z-index: 10;
+  position: absolute;
+  float: left;
+  width: 50%;
+  height: 100%;
+
+}
+#bannerLeftText{
+  text-align: center;
+  color:white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 70px;
+  padding-top: 25%;
+}
+
+
+#demoButton{
+  width: 150px;
+  height: 60px;
+  color: rgb(225, 56, 255);
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  transition: 0.3s;
+  margin-top: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#demoButton:hover{
+  background-color: rgb(225, 56, 255);
+  box-shadow: 0px 15px 20px rgb(140, 40, 158);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#bannerRight{
+  position: absolute;
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+
+#homeBody1{
+  height: 600px;
+  width: 100%;
+  background-color: white;
+  color:black;
+  
+}
+#homeBody2{
+  height: 600px;
+  width: 100%;
+  background-color: #1A1A1A;
+  color:white;
+
+}
