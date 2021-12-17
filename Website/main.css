@@ -4,52 +4,52 @@ body{
 
 }
 
-.navbar-toggle .icon-bar {
-  background-color: white;
-}
-.navBarScroll .navbar-toggle .icon-bar{
-  background-color: black;
-}
+
 
 .navBarNew{
   z-index: 9999;
-  position:fixed;
+  position: absolute;
   height: 80px;
   width: 100%;
   font-size: 17px;
-  transition: 0.3s;
-  border: none;
-  border-radius: 13px;
 }
 .navBarNew a{
   color: black;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 .navBarNew a:hover{
-  color:black;
-  transition: 0.3s;
-}
-.navBarScroll{
-
-  height: 50px;
-  background-color: rgb(255, 255, 255);
-  transition: 0.3s;
+  color:rgb(225, 56, 255) !important;
   border: none;
-
+  border-radius: 30px;
+  transition: 0.3s;
 }
-.navBarScroll a{
-  color: black;
+.navBarLogoText{
+  margin-left: 90%;
+  margin-top: 20px;
+  font-size: 24px !important;
+  font-style: italic;
 }
-.navBarScroll .container-fluid{
+.navBarContact{
+  margin-right: 90px !important;
+  margin-top: 15px;
+}
+.navBarOtherLinks{
+  margin-top: 15px;
+  width: 100px;
+  text-align: center;
+  margin-right: 10px;
+}
+.navBarSelected{
+  margin-top: 15px;
+  width: 100px;
+  text-align: center;
+  margin-right: 10px;
+  border: none;
+  border-radius: 30px;
   background-color: white;
-  transition: 0.3s;
-  border: none;
+  color:rgb(225, 56, 255) !important;
 }
-
-.navBarText{
-  margin-left: 100%;
-  margin-top: 20%;
-}
-
 
 .pageBannerContainer{
 
