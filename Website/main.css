@@ -4,8 +4,6 @@ body{
 
 }
 
-
-
 .navBarNew{
   z-index: 9999;
   position: absolute;
@@ -22,7 +20,7 @@ body{
   color:rgb(225, 56, 255) !important;
   border: none;
   border-radius: 30px;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 .navBarLogoText{
   margin-left: 90%;
@@ -62,8 +60,14 @@ body{
 }
 
 .footer{
-    height: 300px;
+    height: 150px;
     width: 100%;
     background-color: #282828;
-
+}
+.footerCopyRight{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 60px;
+  
 }
