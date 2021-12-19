@@ -22,18 +22,19 @@
   margin: auto;
   height: 90%;
   width: 50%; 
-  /*background-color: red;*/
-
 }
 #formHeader{
   font-size: 200%;
   top: 25%;
+  color: 313391;
 }
 #contactForm{
   font-size: 120%;
   position: absolute;
   top: 32%;
   width: 50%;
+  color: 313391;
+
 }
 #subButton{
   text-align: center;
@@ -63,14 +64,18 @@ input[type=text], select {
 
 }
 button[type=submit] {
-  width: 100px;
-  background-color: black;
+  width: 150px;
+  background-color: rgb(225, 56, 255);;
+  box-shadow: 0px 8px 15px rgb(140, 40, 158);
   color: white;
   padding: 14px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 40px;
   transition: 0.3s;
 }
 button[type=submit]:hover {
-  background-color: grey;
+  background-color: white;
+  box-shadow: 0px 15px 20px rgb(0,0,0,0.1);
+  color: rgb(225, 56, 255);
+  transform: translateY(-7px);
 }
