@@ -1,0 +1,11 @@
+.pageBannerContainer{
+
+    background-image: url("");
+    filter: blur(2px);
+}
+#bodyContainer{
+    height: 100%;
+    width: 100%;
+}
+
+  

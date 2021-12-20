@@ -72,7 +72,7 @@
 
 }
 .homeBody1{
-  height: 800px;
+  height: 1000px;
   width: 100%;
   background-color: white;
   color:black;
@@ -85,30 +85,29 @@
   font-weight: 300;
 }
 #homeBody1SSGrid{
+  margin-top: 40px;
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: 550px;
 }
 .ssBox{
-  border: darkblue;
-  border-style: dotted;
+  margin: auto;
 }
 .ssPic{
-
+  width: 300px;
 }
 .ssDesc{
-  
-}
+  text-align: center;
+  font-weight: 300;
+  font-size: 15px;
 
+}
 
 .homeBody2{
   height: 500px;
   width: 100%;
   background-color: #313391
 }
-
-
-
 
 .homeBody2Header{
   font-size: 50px;
@@ -126,7 +125,8 @@
 iframe{
   position: relative;
   bottom: 87%;
-  left: 35%;
+  left: 40%;
+  z-index: 1;
 }
 
 .halfLeft{
@@ -155,15 +155,15 @@ iframe{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 200px;
+  
 }
 .pictureBox{
-  border: none;
+  margin: auto;
 }
 .teamPic{
   border: none;
   border-radius: 50%;
-  width: 60%;
-  margin-left: 20%;
+  width: 150px;
   transition: 0.3s;
 }
 .teamPic:hover{
