@@ -22,11 +22,11 @@ function scrollChange() {
 
 
       if(scroll >= 1900){
-        aboutUsText.css("margin-top", "100px")
+        aboutUsText.css("margin-top", "90px")
         teamPic.css("margin-top", "40px")
 
       }else{
-        aboutUsText.css("margin-top", "130px")
+        aboutUsText.css("margin-top", "120px")
         teamPic.css("margin-top", "80px")
       }
 
