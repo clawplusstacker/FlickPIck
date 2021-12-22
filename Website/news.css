@@ -1,11 +1,56 @@
+body {
+    color: #313391 !important
+}
 .pageBannerContainer{
 
     background-image: url("");
     filter: blur(2px);
 }
 #bodyContainer{
-    height: 100%;
+    min-height: 100%;
     width: 100%;
 }
+#headerTitle{
+    text-align: center;
+    font-weight: 300;
+    padding-bottom: 60px;
+}
+.newsBox{
+    margin: auto;
+    margin-bottom: 100px;
+    width: 800px; 
+    height: 350px;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-areas: 
+    "pic pic title title title"
+    "pic pic sub sub sub"
+    "pic pic sub sub sub";
+    transition: 0.3s;
+}
+.newsBox:hover{
+    transform: translateY(-7px);
+    box-shadow: 0px 50px 70px rgba(0, 0, 0, 0.1);
 
+}
+.newsBoxPic{
+    grid-area: pic;
+    width: 80%;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+}
+.newsBoxTitle{
+    grid-area: title;
+    font-size: 30px;
+    font-weight: 300;
+}
+.newsBoxArticle{
   
+    grid-area: sub;
+    font-size: 15px;
+    font-weight: 300;
+    margin-right: 10px;
+}

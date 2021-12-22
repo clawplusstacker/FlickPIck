@@ -1,4 +1,6 @@
-
+body {
+  color: #313391 !important
+}
 .pageBannerContainer{
 
   background-image: url("");
@@ -26,12 +28,10 @@
 #formHeader{
   font-size: 200%;
   top: 25%;
-  color: 313391;
   font-weight: 300;
 }
 #formDesc{
   font-size: 100%;
-  color: 313391;
   font-weight: 300;
 }
 #contactForm{
