@@ -85,7 +85,8 @@
   font-weight: 300;
 }
 #homeBody1SSGrid{
-  margin-top: 40px;
+  transition: 0.3s;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: 550px;
@@ -100,7 +101,9 @@
   text-align: center;
   font-weight: 300;
   font-size: 15px;
-
+}
+#pickMovie{
+  margin-top: 80px;
 }
 
 .homeBody2{
@@ -138,8 +141,9 @@ iframe{
   color: black;
   font-size: 19px;
   margin: 40px;
-  margin-top: 100px;
+  margin-top: 180px;
   font-weight: 300;
+  transition: 0.3s;
 }
 .halfRight{
   height: 80%;
@@ -156,7 +160,7 @@ iframe{
 #teamPic{
   display: block;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 80px;
   border: none;
   border-radius: 50%;
   width: 300px;

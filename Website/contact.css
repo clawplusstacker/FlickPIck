@@ -79,6 +79,7 @@ button[type=submit] {
   border: none;
   border-radius: 40px;
   transition: 0.3s;
+  font-weight: normal;
 }
 button[type=submit]:hover {
   background-color: white;

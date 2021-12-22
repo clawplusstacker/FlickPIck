@@ -3,53 +3,33 @@ $(function() {
   scrollChange()
  
 })
+
+
 function scrollChange() {
-  var header = $(".navBarNew");
-  var readmore = $(".readmore");
+  var ssGrid = $("#homeBody1SSGrid");
+  var aboutUsText = $("#aboutUsText");
+  var teamPic = $("#teamPic")
 
   $(window).scroll(function() {
 
       var scroll = $(window).scrollTop();
 
-      if (scroll >= 100) {
-          header.addClass("navBarScroll");
+      if (scroll >= 250) {
+        ssGrid.css("margin-top", "40px")
       } else {
-          header.removeClass("navBarScroll");
+        ssGrid.css("margin-top", "80px")
       }
 
-      if(scroll >= 150){
-          readmore.addClass("scrollFade");
 
-      }else {
-        readmore.removeClass("scrollFade");
+      if(scroll >= 1900){
+        aboutUsText.css("margin-top", "100px")
+        teamPic.css("margin-top", "40px")
+
+      }else{
+        aboutUsText.css("margin-top", "130px")
+        teamPic.css("margin-top", "80px")
       }
+
+
     });
-}
-
-function widthAndScroll(){
-  var win = $(this);
-  var header = $(".navBarNew");
-
-
-  $(window).on('resize', function(){
-
-    if (win.width() > 750) {
-      scrollChange();
-      header.removeClass("navBarScroll")
-    }else{
-      header.addClass("navBarScroll")
-    }
-
-  });
-
-  $(document).ready(function() {
-  
-    if (win.width() > 750) {
-      scrollChange();
-    }else{
-      header.addClass("navBarScroll")
-    }
-
-  });  
-
 }
