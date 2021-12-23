@@ -41,7 +41,9 @@ struct MovieView: View {
     @State var showingMoviePoster = false
     @State var moviePoster = ""
     @State var randomNum = Int.random(in: 0..<amtOfMovies)
-
+    
+    @State var showingProfilePicAdd = true
+    
     
     /**
      Function that will retrieve movie data for a new movie to be displayed.
@@ -127,6 +129,7 @@ struct MovieView: View {
     var body: some View {
         
         var currentMovie = getCurrentMovie(randomNum: randomNum)
+        
     
         
         ZStack{
@@ -173,7 +176,7 @@ struct MovieView: View {
                     .sheet(isPresented: $showingMoviePoster) {
                         MoviePosterView(moviePosterSend: $moviePoster)
                     }
-
+                    
                    
                     ScrollView{
 
@@ -186,13 +189,9 @@ struct MovieView: View {
   
                                     
                                     Text(currentMovie["title"] ?? "")
-                                        
                                         .font(.system(size: 30).bold())
-                                        
                                         .foregroundColor(.pink)
                                       
-
-                                    
                                         
                                     Text(currentMovie["year"] ?? "")
                                         .font(.system(size: 17).bold())
@@ -338,12 +337,12 @@ struct MovieView: View {
                                 }
                     }//ZStack
                     
-                    
                 }//Hs stack
             
             }//VStack for like buttons
 
         } //ZStack
+
         
         
         .background(Image("whitePinkGradient"))
