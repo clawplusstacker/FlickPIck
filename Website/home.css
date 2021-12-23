@@ -1,9 +1,6 @@
 .navBarNew a{
   color: white;
 }
-.navBarScroll a{
-  color: black;
-}
 
 .bannerContainer{
 
@@ -130,6 +127,13 @@ iframe{
   bottom: 63%;
   left: 40%;
   z-index: 1;
+}
+
+.homeBody3{
+  height: 650px;
+  width: 100%;
+  background-color: white;
+  color:black;
 }
 
 .halfLeft{

@@ -1,6 +1,9 @@
 body {
     color: #313391 !important
 }
+.navbar-toggle .icon-bar {
+  background-color: black;
+}
 .pageBannerContainer{
 
     background-image: url("");
