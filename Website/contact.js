@@ -8,12 +8,8 @@ function originalCSS(){
     $(".navBarContact").css("margin-right", "90px")
     $(".navBarContact").css("margin-top", "15px")
 
-    $(".newsBox").css("width", "800px")
-    $(".newsBoxPic").css("width", "80%")
-    $(".newsBoxTitle").css("font-size", "30px")
-    $(".newsBoxTitle").css("padding-top", "0")
-    $(".newsBoxArticle").show()
-  
+    $("#formDesc").show()
+
   
   }
   
@@ -26,13 +22,8 @@ function originalCSS(){
     $(".navBarContact").css("margin-right", "0px")
     $(".navBarContact").css("margin-top", "0px")
 
+    $("#formDesc").hide()
 
-    $(".newsBox").css("width", "350px")
-    $(".newsBoxPic").css("width", "150%")
-    $(".newsBoxTitle").css("font-size", "20px")
-    $(".newsBoxTitle").css("padding-top", "100%")
-    $(".newsBoxArticle").hide()
-  
   
   }
   

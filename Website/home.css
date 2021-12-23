@@ -1,6 +1,9 @@
 .navBarNew a{
   color: white;
 }
+.navbar-toggle .icon-bar {
+  background-color: white;
+}
 
 .bannerContainer{
 
