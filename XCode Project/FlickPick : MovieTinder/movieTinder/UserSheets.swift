@@ -34,6 +34,7 @@ struct UserSheetView : View {
         VStack{
             
             Image(profilePicture)
+                .cornerRadius(150.0)
                 .padding(.top, 40)
                     
             
@@ -113,7 +114,8 @@ struct FriendSheetView : View {
                    
                 
                 Image("defaultUser")
-                    .padding()
+                    .cornerRadius(150.0)
+
                 
                 LabelledDivider(label: "")
                 
@@ -235,7 +237,7 @@ struct FriendSheetView : View {
             VStack{
                 
                 Image(profilePicture)
-                    .padding(.top, 40)
+                    .cornerRadius(150.0)
                         
                 
                 Text(userName)
@@ -279,7 +281,10 @@ struct SelfSheetView : View {
         VStack{
             
             Image(profilePicture)
+                .cornerRadius(150.0)
                 .padding(.top, 40)
+
+
                     
             
             Text(userName)

@@ -57,15 +57,16 @@ struct SettingsMainView : View{
             .padding()
               
 
-                
+            Button {
+                Alert(title: SwiftUI.Text("Hi"))
+            } label: {
                 Image("defaultUser")
-                    .resizable()
-                    .padding(.bottom, 10)
-                      .frame(width: 190, height: 200)
-            
-            LabelledDivider(label: "")
-            
-            
+                    .cornerRadius(150.0)
+                    .frame(width: 200, height: 200)
+            }
+                   
+            .padding(.bottom, 40)
+
             List{
                 
                 Section(header: Text("User Information")){
