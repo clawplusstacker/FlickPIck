@@ -114,9 +114,7 @@ struct SettingsMainView : View{
                         Toggle("Notifications", isOn: $notificationTogggle)
                             .toggleStyle(SwitchToggleStyle(tint: .pink))
                             .padding(5)
-                            .disabled(true)
-
-
+                            .disabled(false)
                     }
                     
                 }

@@ -17,7 +17,9 @@ private var userStore = UserStoreFunctions()
 
 struct AddProfilePicView: View {
     
-    @State var showingImagePicker = false
+    @State private var showingImagePicker = false
+    @State private var image: UIImage?
+
     
     var body: some View {
         
@@ -28,9 +30,21 @@ struct AddProfilePicView: View {
                 .padding(.top, 60)
 
             
-            Image("defaultUser")
-                .cornerRadius(150.0)
-                .padding(.top, 40)
+            VStack{
+                
+                if let image = self.image{
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                        .scaledToFit()
+                        .cornerRadius(150)
+                }else{
+                    Image("defaultUser")
+                        .cornerRadius(150.0)
+                        .padding(.top, 40)
+                }
+            }
+       
 
             
             
@@ -75,12 +89,10 @@ struct AddProfilePicView: View {
         
         //ImagePicker
         .sheet(isPresented: $showingImagePicker){
-            ImagePicker(sourceType: .photoLibrary)
+            ImagePicker(image: $image)
         }
         
-        
-        
-        
+
         
         
     }//Var body

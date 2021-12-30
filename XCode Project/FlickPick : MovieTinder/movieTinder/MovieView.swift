@@ -41,9 +41,7 @@ struct MovieView: View {
     @State var showingMoviePoster = false
     @State var moviePoster = ""
     @State var randomNum = Int.random(in: 0..<amtOfMovies)
-    
-    @State var showingProfilePicAdd = true
-    
+        
     
     /**
      Function that will retrieve movie data for a new movie to be displayed.
