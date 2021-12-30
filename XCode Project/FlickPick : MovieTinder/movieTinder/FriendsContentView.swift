@@ -33,111 +33,90 @@ struct FriendsView: View {
     
         
 
-        ZStack {
             
-            VStack {
-                
-                HStack {
-                    Text("Friends")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
-                        
-                    Spacer()
+        VStack {
+            
+            HStack {
+                Text("Friends")
+                    .font(.system(size: 40, weight: .black, design: .rounded))
                     
-                    Button(action: {
-                        
-                        showingAddSheet = true
-                        
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.pink)
-                        }
-                    .sheet(isPresented: $showingAddSheet){
-                        addFriendsView()
-                    }
-                
-                } //HStack
-                .padding()
-                
-                
-                if #available(iOS 15.0, *) {
-                    List(friendsList, id: \.self) { friends in
-                        VStack(alignment: .leading){
-                            HStack{
-                                
-                                Button(action: {
-                                    
-                                    
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                        
-                                        
-                                        passingUserName = friends
-                                        passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), userNameOfOther: friends)
-                                        
-                                        
-                                        showingSheet = true
-                                        
-                                        
-                                    }
-                                    
-                                    
-                                    
-                                }, label: {
-                                    Text(friends)
-                                })
-                            }
-                        }
-                        
-                    }
-                    .refreshable {
-                        friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-                    }
-                    .listStyle(InsetGroupedListStyle())
-                } else {
-                    // Fallback on earlier versions
-                }
-                
-                
                 Spacer()
                 
+                Button(action: {
                     
-                    .sheet(isPresented: $showingSheet){
-                        FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
+                    showingAddSheet = true
+                    
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.pink)
+                    }
+                .sheet(isPresented: $showingAddSheet){
+                    addFriendsView()
+                }
+            
+            } //HStack
+            .padding()
+            
+            
+            if #available(iOS 15.0, *) {
+                List(friendsList, id: \.self) { friends in
+                    VStack(alignment: .leading){
+                        HStack{
+                            
+                            Button(action: {
+                                
+                                
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                    
+                                    
+                                    passingUserName = friends
+                                    passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), userNameOfOther: friends)
+                                    
+                                    
+                                    showingSheet = true
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                            }, label: {
+                                Text(friends)
+                            })
+                        }
                     }
                     
-                    
-  
-            } //VStack
+                }
+                .refreshable {
+                    friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                }
+                .listStyle(InsetGroupedListStyle())
+            }
+        
+            Spacer()
             
+                
+            .sheet(isPresented: $showingSheet){
+                FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
+            }
+                
+                
 
-        } //ZStack
+        } //VStack
+            
+        .navigationBarHidden(true)
        
         .onAppear(){
             UserViewModel().fetchData()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-                
             }
-        }
+        } //Onappear
 
-    } // View
-    
+        
+    } // Var Body
+} //View
 
-}
-
-
-
-
-//
-//struct Friends: PreviewProvider  {
-//
-//
-//    static var previews: some View {
-//
-//        FriendsContentView()
-//        //DislikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
-//
-//    }
-//}

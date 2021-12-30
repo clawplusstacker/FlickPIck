@@ -137,6 +137,7 @@ struct FriendSheetView : View {
                             
                         }, label: {
                             Text(movies)
+                                .foregroundColor(.pink)
                         })
                         
                     }
@@ -238,6 +239,7 @@ struct FriendSheetView : View {
                 
                 Image(profilePicture)
                     .cornerRadius(150.0)
+                    .padding(.top, 40)
                         
                 
                 Text(userName)

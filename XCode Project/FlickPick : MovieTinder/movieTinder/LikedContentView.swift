@@ -123,14 +123,15 @@ struct LikedView: View {
                         likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
                     }
                     .listStyle(InsetGroupedListStyle())
-                } else {
-                    // Fallback on earlier versions
                 }
                     
-                    Spacer()
+                Spacer()
                    
                                         
-                }   //VStack
+            }   //VStack
+        
+            .navigationBarHidden(true)
+
      
             .sheet(isPresented: $showingMovieSheet, content: {
                 MoviePreviewView(movieTitle: $movieTitle)
@@ -142,7 +143,6 @@ struct LikedView: View {
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                     likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-                    
                 }
             }
     
@@ -169,97 +169,97 @@ struct DislikedView: View {
     var body: some View {
         
 
-        ZStack {
             
-            VStack {
-                
-                HStack {
-                                 
-                    Button(action: {
-                        likedSelected = true;
-                        dislikedSelected = false;
-                        
-                    }, label: {
-                        Text("Liked Movies")
-                            .padding()
-                            .foregroundColor(.black)
-                            .font(.system(size: 20, weight: .medium, design: .default))
-
-                    })
-                        
-
-                    Divider()
-                        .padding()
+        VStack {
+            
+            HStack {
+                             
+                Button(action: {
+                    likedSelected = true;
+                    dislikedSelected = false;
                     
-                    Button(action: {
-                        likedSelected = false;
-                        dislikedSelected = true;
-                        
-                    }, label: {
-                        Text("Disliked Movies")
-                            .padding()
-                            .foregroundColor(.pink)
-                            .font(.system(size: 20, weight: .medium, design: .default))
-                    })
-       
-                }   //Hstack
-                .frame(height: 60)
-                
+                }, label: {
+                    Text("Liked Movies")
+                        .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .medium, design: .default))
+
+                })
+                    
+
                 Divider()
-                    .padding(.horizontal, 30)
+                    .padding()
                 
-                Spacer()
-                
-                if #available(iOS 15.0, *) {
-                    List(dislikedList, id: \.self) { movies in
-                        VStack(alignment: .leading){
-                            
-                            HStack{
-                                Button(action: {
-                                    
-                                    movieTitle = movies
-                                    showingMovieSheet.toggle()
-                                    
-                                    
-                                }, label: {
-                                    Text(movies)
-                                    
-                                })
-                                
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                    UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
-                                        dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-                                    }
-                                    
-                                }, label: {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.pink)
-                                })
-                            }//HStack
-                            .buttonStyle(BorderlessButtonStyle())
-                            
-                        }//VStack
-                    }//List
-                    .refreshable {
-                        dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                Button(action: {
+                    likedSelected = false;
+                    dislikedSelected = true;
+                    
+                }, label: {
+                    Text("Disliked Movies")
+                        .padding()
+                        .foregroundColor(.pink)
+                        .font(.system(size: 20, weight: .medium, design: .default))
+                })
+   
+            }   //Hstack
+            .frame(height: 60)
+            
+            Divider()
+                .padding(.horizontal, 30)
+            
+            Spacer()
+            
+            if #available(iOS 15.0, *) {
+                List(dislikedList, id: \.self) { movies in
+                    VStack(alignment: .leading){
                         
-                    }
-                    .listStyle(InsetGroupedListStyle())
-                } else {
-                    // Fallback on earlier versions
+                        HStack{
+                            Button(action: {
+                                
+                                movieTitle = movies
+                                showingMovieSheet.toggle()
+                                
+                                
+                            }, label: {
+                                Text(movies)
+                                
+                            })
+                            
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                                }
+                                
+                            }, label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(.pink)
+                            })
+                        }//HStack
+                        .buttonStyle(BorderlessButtonStyle())
+                        
+                    }//VStack
+                }//List
+                .refreshable {
+                    dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                    
                 }
-         
-               
-                                    
-            } //VStack
+                .listStyle(InsetGroupedListStyle())
+            } else {
+                // Fallback on earlier versions
+            }
+     
+           
+                                
+        } //VStack
+        
+        .navigationBarHidden(true)
     
-        }   //ZStack
         
         .sheet(isPresented: $showingMovieSheet, content: {
             MoviePreviewView(movieTitle: $movieTitle)
@@ -278,15 +278,3 @@ struct DislikedView: View {
     }
 
 }
-
-
-//struct LikedPreview: PreviewProvider  {
-//
-//
-//    static var previews: some View {
-//
-//        LikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
-//        //DislikedView(likedSelected: .constant(true), dislikedSelected: .constant(false))
-//
-//    }
-//}

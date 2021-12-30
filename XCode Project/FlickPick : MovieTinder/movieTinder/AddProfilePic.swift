@@ -22,17 +22,13 @@ struct AddProfilePicView: View {
         VStack{
             
             Text("Change Profile Picture")
-                .font(.system(size: 30).bold())
+                .font(.system(size: 33, weight: .black, design: .rounded))
                 .padding(.top, 60)
 
             
-            Button {
-                Alert(title: SwiftUI.Text("Hi"))
-            } label: {
-                Image("defaultUser")
-                    .cornerRadius(150.0)
-            }
-            .padding(.top, 40)
+            Image("defaultUser")
+                .cornerRadius(150.0)
+                .padding(.top, 40)
 
             
             Button {

@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 //Used for switch case for sheets
 enum ActiveSheetSettings: Identifiable {
-    case changePass, stremServ
+    case profilePic, changePass, stremServ
     
     var id: Int {
         hashValue
@@ -37,7 +37,7 @@ struct SettingsMainView : View{
     @State var showingSettingSheet: ActiveSheetSettings?
     
     @State var notificationTogggle = false
-    
+
 
     
 
@@ -55,10 +55,11 @@ struct SettingsMainView : View{
             }
             
             .padding()
+            .padding(.bottom, 30)
               
 
             Button {
-                Alert(title: SwiftUI.Text("Hi"))
+                showingSettingSheet = .profilePic
             } label: {
                 Image("defaultUser")
                     .cornerRadius(150.0)
@@ -84,6 +85,7 @@ struct SettingsMainView : View{
                             .foregroundColor(.pink)
                     }
                         .padding(5)
+                    
                     Button(action: {
                         showingSettingSheet = .changePass
                     }, label: {
@@ -154,11 +156,12 @@ struct SettingsMainView : View{
             
             .sheet(item: $showingSettingSheet) { item in
                 switch item {
+                case .profilePic:
+                    AddProfilePicView()
                 case .stremServ:
                     StreamingServiceSettingsView()
                 case .changePass:
                     ChangePasswordView()
-
                 }
 
             }
@@ -166,6 +169,7 @@ struct SettingsMainView : View{
           
 
         }
+        .navigationBarHidden(true)
 
         .onAppear(){
             
