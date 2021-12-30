@@ -271,9 +271,8 @@ struct MovieView: View {
                                     .padding(.horizontal, 50)
                                     .padding(.bottom, 20)
                                     .shadow(color: .blue, radius: 5, x: 0, y: 3)
-
-
                                 }
+                        
                         
                         //Main Button Pressed
                         Button(action: {
@@ -309,8 +308,6 @@ struct MovieView: View {
                                     .padding(.horizontal, 50)
                                     .padding(.bottom, 20)
                                     .shadow(color: .pink, radius: 5, x: 0, y: 3)
-
-                                    
                                 }
                         
                         //Main Button Pressed

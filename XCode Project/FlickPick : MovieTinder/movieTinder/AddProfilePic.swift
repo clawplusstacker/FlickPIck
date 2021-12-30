@@ -17,6 +17,8 @@ private var userStore = UserStoreFunctions()
 
 struct AddProfilePicView: View {
     
+    @State var showingImagePicker = false
+    
     var body: some View {
         
         VStack{
@@ -31,8 +33,12 @@ struct AddProfilePicView: View {
                 .padding(.top, 40)
 
             
+            
+            //Uploading New Image
             Button {
-                Alert(title: SwiftUI.Text("Hi"))
+                
+                showingImagePicker.toggle()
+                
             } label: {
                 Text("Upload New Profile Picture")
                     .frame(width: 325, height: 20)
@@ -44,6 +50,9 @@ struct AddProfilePicView: View {
                 .cornerRadius(15.0)
                 .padding(.top, 40)
             
+            
+            
+            //Editing Current Image
             Button {
                 Alert(title: SwiftUI.Text("Hi"))
             } label: {
@@ -60,7 +69,19 @@ struct AddProfilePicView: View {
             Spacer()
             
         } //VStack
+        
         .background(Image("whitePinkGradient"))
+        
+        
+        //ImagePicker
+        .sheet(isPresented: $showingImagePicker){
+            ImagePicker(sourceType: .photoLibrary)
+        }
+        
+        
+        
+        
+        
         
     }//Var body
 }//Struct
