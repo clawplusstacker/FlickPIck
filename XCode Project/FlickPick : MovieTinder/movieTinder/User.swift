@@ -21,6 +21,7 @@ struct UserStore: Identifiable {
     var moviesLiked : Array<String>
     var moviesDisliked : Array<String>
     var friends : Array<String>
+    var profilePicture: String
         
 }
 
@@ -28,6 +29,7 @@ class UserStoreFunctions{
         
     
     private var UserView = UserViewModel()
+    
     
     
     
@@ -69,6 +71,7 @@ class UserStoreFunctions{
         return x
     }
     
+    
     func getUsername(index: Int) -> String{
         
         self.UserView.fetchData()
@@ -106,10 +109,29 @@ class UserStoreFunctions{
         
     }
     
+    func addProfilePicture(index: Int, pictureURL: URL){
+        
+        self.UserView.fetchData()
+        
+        if(self.UserView.users.count >= index + 1){
+            
+            print("HI!")
+            
+            let currentUserUID = UserView.users[index].id
+
+            let userDoc = db.collection("users").document(currentUserUID)
+
+            userDoc.updateData([
+                "profilePicture": FieldValue.arrayUnion([pictureURL])
+            ])
+        }
+        
+    }
+    
     
     func addToMoviesLiked(index: Int, title: String){
         
-        
+
         let currentUserUID = UserView.users[index].id
 
         self.UserView.fetchData()
@@ -167,6 +189,20 @@ class UserStoreFunctions{
             "moviesDisliked": FieldValue.arrayRemove([title])
         ])
         
+    }
+    
+    func getProfilePicture(index: Int) -> String{
+        
+        self.UserView.fetchData()
+        
+        if(self.UserView.users.count >= index + 1){
+
+            let profilePicture = UserView.users[index].profilePicture
+
+            return profilePicture
+        }
+        
+        return "defaultImage"
     }
     
     func getFreindsList(index: Int)-> Array<String>{
@@ -319,8 +355,10 @@ class UserViewModel:  ObservableObject{
                 let moviesLiked = data["moviesLiked"] as? Array<String> ?? []
                 let moviesDisliked = data["moviesDisliked"] as? Array<String> ?? []
                 let friends = data["friends"] as? Array<String> ?? []
+                let profilePicture = data["profilePicture"] as? String ?? ""
+
                 
-                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends)
+                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends, profilePicture: profilePicture)
               
             }
         }

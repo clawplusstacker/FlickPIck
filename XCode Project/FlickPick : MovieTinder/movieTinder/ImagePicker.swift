@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 /**
- Not my code!!! Thanks to AppCoda.com for the Picker.
+ Not my code!!! Thanks to letsbuildthatapp.com for the Picker.
  */
 
 struct ImagePicker: UIViewControllerRepresentable {

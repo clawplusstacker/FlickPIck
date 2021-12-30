@@ -344,7 +344,6 @@ struct MovieView: View {
         
         .onAppear() {
             self.movieList.fetchData()
-          
         }
         
         

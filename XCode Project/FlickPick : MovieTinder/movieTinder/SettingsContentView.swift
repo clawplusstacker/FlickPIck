@@ -33,6 +33,8 @@ struct SettingsMainView : View{
     @Binding var loggingIn : Bool
     
     @State var userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+    
+    @State var userIndex = UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? "")
 
     @State var showingSettingSheet: ActiveSheetSettings?
     
@@ -60,11 +62,29 @@ struct SettingsMainView : View{
 
             Button {
                 showingSettingSheet = .profilePic
+                
             } label: {
-                Image("defaultUser")
-                    .cornerRadius(150.0)
-                    .frame(width: 200, height: 200)
-            }
+                
+                let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: userIndex))
+                
+                if #available(iOS 15.0, *) {
+                    AsyncImage(url: profilePicUrl) { phase in
+                        if let image = phase.image {
+                            image
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)
+
+                        } else if phase.error != nil {
+                            Text("Network Error!")
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)
+                        } else {
+                            ProgressView()
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)                        }
+                        }
+                    }
+                } //Picture/Button
                    
             .padding(.bottom, 40)
 

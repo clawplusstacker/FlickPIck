@@ -10,6 +10,7 @@ target 'movieTinder' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
