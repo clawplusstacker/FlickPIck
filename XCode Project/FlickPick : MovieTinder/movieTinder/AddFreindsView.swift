@@ -96,13 +96,35 @@ struct addFriendsView: View {
                             
                                
                             }, label: {
-                                Text(user.userName)
-                                    .foregroundColor(.pink)
-                            })
-                        }
+                                
+                                   
+                                HStack{
+                                    let profilePicUrl = URL(string: user.profilePicture)
+                                    
+                                    if #available(iOS 15.0, *) {
+                                        AsyncImage(url: profilePicUrl) { phase in
+                                            if let image = phase.image {
+                                                image
+                                                    .resizable()
+                                                    .frame(width: 16, height: 16)
+                                                    .scaledToFit()
+                                                    .cornerRadius(150)
+                                            } else {
+                                                ProgressView()
+                                                    .frame(width: 16, height: 16)
+                                                }
+                                            }
+                                        }
+                                    
+                                    Text(user.userName)
+                                        .foregroundColor(.pink)
+                                } //HStack
+                             
+                            }) //Button (username)
+                        } //HStack
                         
-                    }
-                }
+                    } //VSTACK
+                } // List
                 .listStyle(InsetGroupedListStyle())
                 
                 
@@ -113,7 +135,7 @@ struct addFriendsView: View {
                     .sheet(item: $showingSheet) { item in
                         switch item {
                         case .own:
-                            SelfSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                            SelfSheetView(userName: passingUserName)
                         case .friend:
                             FriendSheetViewAdd(userName: passingUserName, moviesLiked: passingMoviesLiked)
                         case .user:

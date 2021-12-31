@@ -113,19 +113,23 @@ class UserStoreFunctions{
         
         self.UserView.fetchData()
         
-        if(self.UserView.users.count >= index + 1){
-            
-            print("HI!")
-            
-            let currentUserUID = UserView.users[index].id
+        let pictureURLString = pictureURL.absoluteString
+    
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+        
+            let currentUserUID = self.UserView.users[index].id
 
+            print(currentUserUID)
+            
             let userDoc = db.collection("users").document(currentUserUID)
 
             userDoc.updateData([
-                "profilePicture": FieldValue.arrayUnion([pictureURL])
+                "profilePicture": pictureURLString
             ])
+      
+            
         }
-        
+     
     }
     
     
@@ -196,9 +200,9 @@ class UserStoreFunctions{
         self.UserView.fetchData()
         
         if(self.UserView.users.count >= index + 1){
-
+        
             let profilePicture = UserView.users[index].profilePicture
-
+            
             return profilePicture
         }
         

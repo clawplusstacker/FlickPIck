@@ -71,22 +71,26 @@ struct SettingsMainView : View{
                     AsyncImage(url: profilePicUrl) { phase in
                         if let image = phase.image {
                             image
-                                .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)
+                                .resizable()
+                                .frame(width: 220, height: 220)
+                                .scaledToFit()
+                                .cornerRadius(150)
 
                         } else if phase.error != nil {
                             Text("Network Error!")
                                 .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)
+                                .frame(width: 220, height: 220)
                         } else {
                             ProgressView()
                                 .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)                        }
-                        }
-                    }
+                                .frame(width: 220, height: 220)
+                            
+                            } //else
+                        }//async image
+                    } //if aviablae
                 } //Picture/Button
                    
-            .padding(.bottom, 40)
+            .padding(.bottom, 20)
 
             List{
                 

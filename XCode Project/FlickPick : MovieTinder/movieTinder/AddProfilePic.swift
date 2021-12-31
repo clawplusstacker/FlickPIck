@@ -21,10 +21,14 @@ private var userStore = UserStoreFunctions()
 
 struct AddProfilePicView: View {
     
+    
+    @ObservedObject var userData = UserViewModel()
+
+    
+    
     @Environment(\.presentationMode) var presentationMode
     @State private var showingImagePicker = false
     @State private var image: UIImage?
-    @ObservedObject var userData = UserViewModel()
     @State var userIndex = userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? "")
 
 
@@ -53,7 +57,10 @@ struct AddProfilePicView: View {
                         AsyncImage(url: profilePicUrl) { phase in
                             if let image = phase.image {
                                 image
-                                    .cornerRadius(150.0)
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .scaledToFit()
+                                    .cornerRadius(150)
                                     .padding(.top, 40)
 
                             } else if phase.error != nil {
@@ -79,7 +86,7 @@ struct AddProfilePicView: View {
                 showingImagePicker.toggle()
                 
             } label: {
-                Text("Upload New Profile Picture")
+                Text("Choose New Profile Picture")
                     .frame(width: 325, height: 20)
             }
                 .font(.headline)
@@ -137,7 +144,7 @@ struct AddProfilePicView: View {
         let storageRef = storage.reference()
         let picRef = storageRef.child(fileName)
         
-        guard let imageData = image?.jpegData(compressionQuality: 0.5) else { return }
+        guard let imageData = image?.fixOrientation()?.jpegData(compressionQuality: 0.5) else { return }
         
         
         picRef.putData(imageData, metadata: nil) { metadata, err in

@@ -83,7 +83,25 @@ struct FriendsView: View {
                                 
                                 
                             }, label: {
-                                Text(friends)
+                                HStack{
+                                    let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(userName: friends)))
+                                    
+                                    AsyncImage(url: profilePicUrl) { phase in
+                                        if let image = phase.image {
+                                            image
+                                                .resizable()
+                                                .frame(width: 16, height: 16)
+                                                .scaledToFit()
+                                                .cornerRadius(150)
+                                        } else {
+                                            ProgressView()
+                                                .frame(width: 16, height: 16)
+                                            }
+                                        }
+                                    
+                                    Text(friends)
+
+                                }
                             })
                         }
                     }

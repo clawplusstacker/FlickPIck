@@ -4,6 +4,12 @@
 //
 //  Created by Colby Beach on 9/17/21.
 //
+//
+// Yes I understand the progress view in the if statements is redudent. Simply there to make
+// bug solving easier if picture will ever not load, while still making it look better to
+// the user. Thanks for reading!
+//
+//
 
 import Foundation
 import SwiftUI
@@ -33,9 +39,29 @@ struct UserSheetView : View {
         
         VStack{
             
-            Image(profilePicture)
-                .cornerRadius(150.0)
-                .padding(.top, 40)
+            let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+            
+            if #available(iOS 15.0, *) {
+                AsyncImage(url: profilePicUrl) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .scaledToFit()
+                            .cornerRadius(150)
+                            .padding(.top, 40)
+
+                    } else if phase.error != nil {
+                        ProgressView()
+                            .cornerRadius(150.0)
+                            .frame(width: 200, height: 200)
+                    } else {
+                        ProgressView()
+                            .cornerRadius(150.0)
+                            .frame(width: 200, height: 200)                        }
+                    }
+                }
+
                     
             
             Text(userName)
@@ -92,7 +118,7 @@ struct FriendSheetView : View {
     @State private var showingMovieSheet = false
     
     @State var movieTitle = ""
-    
+        
     
     
     
@@ -113,8 +139,27 @@ struct FriendSheetView : View {
                 Spacer()
                    
                 
-                Image("defaultUser")
-                    .cornerRadius(150.0)
+                let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                
+                if #available(iOS 15.0, *) {
+                    AsyncImage(url: profilePicUrl) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .scaledToFit()
+                                .cornerRadius(150)
+
+                        } else if phase.error != nil {
+                            ProgressView()
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)
+                        } else {
+                            ProgressView()
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)                        }
+                        }
+                    }
 
                 
                 LabelledDivider(label: "")
@@ -237,9 +282,29 @@ struct FriendSheetView : View {
             
             VStack{
                 
-                Image(profilePicture)
-                    .cornerRadius(150.0)
-                    .padding(.top, 40)
+                let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                
+                if #available(iOS 15.0, *) {
+                    AsyncImage(url: profilePicUrl) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .scaledToFit()
+                                .cornerRadius(150)
+                                .padding(.top, 40)
+
+                        } else if phase.error != nil {
+                            ProgressView()
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)
+                        } else {
+                            ProgressView()
+                                .cornerRadius(150.0)
+                                .frame(width: 200, height: 200)                        }
+                        }
+                    }
+
                         
                 
                 Text(userName)
@@ -272,20 +337,35 @@ struct SelfSheetView : View {
     
     @ObservedObject var user = UserViewModel()
 
-    
-    var profilePicture = "defaultUser"
     var userName = "defaultUser"
-    var moviesLiked = [""]
     
     
     var body: some View{
         
         VStack{
             
-            Image(profilePicture)
-                .cornerRadius(150.0)
-                .padding(.top, 40)
+            let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? "")))
+            
+            if #available(iOS 15.0, *) {
+                AsyncImage(url: profilePicUrl) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .scaledToFit()
+                            .cornerRadius(150)
+                            .padding(.top, 40)
 
+                    } else if phase.error != nil {
+                        ProgressView()
+                            .cornerRadius(150.0)
+                            .frame(width: 200, height: 200)
+                    } else {
+                        ProgressView()
+                            .cornerRadius(150.0)
+                            .frame(width: 200, height: 200)                        }
+                    }
+                }
 
                     
             
