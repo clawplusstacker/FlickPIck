@@ -22,6 +22,7 @@ struct UserStore: Identifiable {
     var moviesDisliked : Array<String>
     var friends : Array<String>
     var profilePicture: String
+    var notifications : Bool
         
 }
 
@@ -106,6 +107,19 @@ class UserStoreFunctions{
         }
 
         return 0
+        
+    }
+    
+    func changeNotifications(index: Int, newBool : Bool){
+        self.UserView.fetchData()
+        
+        let currentUserUID = self.UserView.users[index].id
+        
+        let userDoc = db.collection("users").document(currentUserUID)
+
+        userDoc.updateData([
+            "notifications": newBool
+        ])
         
     }
     
@@ -195,6 +209,20 @@ class UserStoreFunctions{
         
     }
     
+    func getNotificationBool(index: Int) -> Bool {
+        
+        self.UserView.fetchData()
+        
+        if(self.UserView.users.count >= index + 1){
+        
+            let notif = UserView.users[index].notifications
+            
+            return notif
+        }
+        
+        return false
+    }
+        
     func getProfilePicture(index: Int) -> String{
         
         self.UserView.fetchData()
@@ -360,9 +388,10 @@ class UserViewModel:  ObservableObject{
                 let moviesDisliked = data["moviesDisliked"] as? Array<String> ?? []
                 let friends = data["friends"] as? Array<String> ?? []
                 let profilePicture = data["profilePicture"] as? String ?? ""
+                let notifications = data["notifications"] as? Bool ?? false
 
                 
-                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends, profilePicture: profilePicture)
+                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends, profilePicture: profilePicture, notifications: notifications)
               
             }
         }

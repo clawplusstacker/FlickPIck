@@ -38,7 +38,7 @@ struct SettingsMainView : View{
 
     @State var showingSettingSheet: ActiveSheetSettings?
     
-    @State var notificationTogggle = false
+    @State var notificationTogggle = UserFunctions.getNotificationBool(index: UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? ""))
 
 
     
@@ -136,12 +136,15 @@ struct SettingsMainView : View{
                     
                     HStack{
                         Toggle("Notifications", isOn: $notificationTogggle)
+                            .onChange(of: $notificationTogggle) { value in
+                                UserFunctions.changeNotifications(index: userIndex, newBool: notificationTogggle)
+                            }
                             .toggleStyle(SwitchToggleStyle(tint: .pink))
                             .padding(5)
-                            .disabled(false)
-                    }
+                            
+                    } //Hstack
                     
-                }
+                } //Section
               
             }.listStyle(InsetGroupedListStyle())
                 
