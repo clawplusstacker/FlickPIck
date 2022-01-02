@@ -51,10 +51,11 @@ struct addFriendsView: View {
                 HStack {
                     
                     Text("Find Friends")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
-                        
+                        .font(.system(size: 25, weight: .medium, design: .default))
+                        .foregroundColor(.pink)
+                        .padding(.horizontal, 15)
                     
-                    
+                    Spacer()
                 
                 } //HStack
                 .padding(.top, 50)
@@ -122,6 +123,7 @@ struct addFriendsView: View {
                                     
                                     Text(user.userName)
                                         .foregroundColor(.pink)
+                                        .textCase(.lowercase)
                                         .padding(.horizontal, 5)
                                 } //HStack
                              

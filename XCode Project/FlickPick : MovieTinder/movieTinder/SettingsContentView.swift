@@ -49,13 +49,15 @@ struct SettingsMainView : View{
             HStack {
                 
                 Text("Settings")
-                    .font(.system(size: 40, weight: .black, design: .rounded))
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .foregroundColor(.pink)
+
+                
                 Spacer()
-                    
             }
             
             .padding()
-            .padding(.bottom, 30)
+            .padding(.bottom, 10)
               
 
             Button {
@@ -84,9 +86,11 @@ struct SettingsMainView : View{
                         }//async image
                     } //if aviablae
                 } //Picture/Button
-                   
-            .padding(.bottom, 20)
+            
+            LabelledDivider(label: "")
+                .padding()
 
+                   
             List{
                 
                 Section(header: Text("User Information")){
@@ -95,6 +99,7 @@ struct SettingsMainView : View{
                         Text("Username: ")
                         Text(userName)
                             .foregroundColor(.pink)
+                            .textCase(.lowercase)
 
                     }
                         .padding(5)

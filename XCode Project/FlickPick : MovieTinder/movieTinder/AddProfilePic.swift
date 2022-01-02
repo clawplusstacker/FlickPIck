@@ -38,8 +38,8 @@ struct AddProfilePicView: View {
         VStack{
             
             Text("Change Profile Picture")
-                .font(.system(size: 33, weight: .black, design: .rounded))
-                .padding(.top, 60)
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .padding(.top, 40)
 
             
             VStack{
@@ -61,7 +61,7 @@ struct AddProfilePicView: View {
                                     .frame(width: 200, height: 200)
                                     .scaledToFit()
                                     .cornerRadius(150)
-                                    .padding(.top, 40)
+                                    .padding(.top, 30)
 
                             } else {
                                 Rectangle()
@@ -69,6 +69,8 @@ struct AddProfilePicView: View {
                                     .frame(width: 200, height: 200)
                                     .scaledToFit()
                                     .cornerRadius(150)
+                                    .padding(.top, 30)
+
                             }
                         }
                     }

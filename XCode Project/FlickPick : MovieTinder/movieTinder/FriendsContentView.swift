@@ -38,8 +38,9 @@ struct FriendsView: View {
             
             HStack {
                 Text("Friends")
-                    .font(.system(size: 40, weight: .black, design: .rounded))
-                    
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .foregroundColor(.pink)
+
                 Spacer()
                 
                 Button(action: {
@@ -105,6 +106,7 @@ struct FriendsView: View {
                                     
                                     Text(friends)
                                         .padding(.horizontal, 5)
+                                        .textCase(.lowercase)
 
                                 }
                             })

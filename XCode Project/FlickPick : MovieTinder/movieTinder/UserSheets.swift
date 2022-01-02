@@ -59,9 +59,10 @@ struct UserSheetView : View {
                     
             
             Text(userName)
-                .font(.system(size: 40))
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .textCase(.lowercase)
                 .padding()
-            
+                        
             Spacer()
              
             Button(action: {
@@ -79,6 +80,7 @@ struct UserSheetView : View {
                 
             }, label: {
                 Text(buttonText)
+                    .frame(width: 400, height: 50)
             })
                 .padding()
                 .font(.headline)
@@ -125,10 +127,12 @@ struct FriendSheetView : View {
                     HStack{
                         
                         Text(userName)
-                            .font(.system(size: 40, weight: .black, design: .rounded))
-                            .padding(.top, 40)
+                            .font(.system(size: 25, weight: .medium, design: .default))
+                            .textCase(.lowercase)
+                            .padding(.top, 10)
                       
                     }//Hstack
+                    .padding()
                 
                 Spacer()
                    
@@ -200,6 +204,7 @@ struct FriendSheetView : View {
                     
                 }, label: {
                     Text("Shuffle!")
+                        .frame(width: 200, height: 50)
                 })
                 .padding()
                 .padding()
@@ -228,6 +233,7 @@ struct FriendSheetView : View {
                     
                 }, label: {
                     Text(buttonText)
+                        .frame(width: 200, height: 50)
                 })
                     .padding()
                     .font(.headline)
@@ -300,7 +306,8 @@ struct FriendSheetView : View {
                         
                 
                 Text(userName)
-                    .font(.system(size: 40))
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .textCase(.lowercase)
                     .padding()
                 
                 Spacer()
@@ -362,7 +369,8 @@ struct SelfSheetView : View {
                     
             
             Text(userName)
-                .font(.system(size: 40))
+                .font(.system(size: 25, weight: .medium, design: .default))
+                .textCase(.lowercase)
                 .padding()
             
             Spacer()
