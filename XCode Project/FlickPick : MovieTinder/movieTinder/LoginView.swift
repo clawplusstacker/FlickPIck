@@ -415,7 +415,7 @@ struct SignUpView: View{
                             } else{
                                 
                                 let dataBase = Firestore.firestore()
-                                dataBase.collection("users").addDocument(data: ["userName":  userName, "uid": result!.user.uid, "moviesLiked": [], "moviesDisliked": [], "friends": [], "notifications" : false, "profilePicture": "https://firebasestorage.googleapis.com/v0/b/flickpick-65318.appspot.com/o/defaultUser.png?alt=media&token=7d6663ac-daa4-4e71-b319-1b7c6e3d56cb"]) { error in
+                                dataBase.collection("users").addDocument(data: ["userName":  userName, "uid": result!.user.uid, "moviesLiked": [], "moviesDisliked": [], "friends": [], "profilePicture": "https://firebasestorage.googleapis.com/v0/b/flickpick-65318.appspot.com/o/defaultUser.png?alt=media&token=7d6663ac-daa4-4e71-b319-1b7c6e3d56cb"]) { error in
                                     
                                     if  error != nil{
                                         showingError = false

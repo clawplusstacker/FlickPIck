@@ -90,16 +90,21 @@ struct FriendsView: View {
                                         if let image = phase.image {
                                             image
                                                 .resizable()
-                                                .frame(width: 16, height: 16)
+                                                .frame(width: 45, height: 45)
                                                 .scaledToFit()
                                                 .cornerRadius(150)
                                         } else {
-                                            ProgressView()
-                                                .frame(width: 16, height: 16)
+                                            Rectangle()
+                                                .fill(Color("lightgray"))
+                                                .frame(width: 45, height: 45)
+                                                .scaledToFit()
+                                                .cornerRadius(150)
+                                            
                                             }
                                         }
                                     
                                     Text(friends)
+                                        .padding(.horizontal, 5)
 
                                 }
                             })

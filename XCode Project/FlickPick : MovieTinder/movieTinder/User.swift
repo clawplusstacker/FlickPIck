@@ -110,19 +110,6 @@ class UserStoreFunctions{
         
     }
     
-    func changeNotifications(index: Int, newBool : Bool){
-        self.UserView.fetchData()
-        
-        let currentUserUID = self.UserView.users[index].id
-        
-        let userDoc = db.collection("users").document(currentUserUID)
-
-        userDoc.updateData([
-            "notifications": newBool
-        ])
-        
-    }
-    
     func addProfilePicture(index: Int, pictureURL: URL){
         
         self.UserView.fetchData()
@@ -208,21 +195,6 @@ class UserStoreFunctions{
         ])
         
     }
-    
-    func getNotificationBool(index: Int) -> Bool {
-        
-        self.UserView.fetchData()
-        
-        if(self.UserView.users.count >= index + 1){
-        
-            let notif = UserView.users[index].notifications
-            
-            return notif
-        }
-        
-        return false
-    }
-        
     func getProfilePicture(index: Int) -> String{
         
         self.UserView.fetchData()

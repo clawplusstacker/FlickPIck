@@ -63,14 +63,12 @@ struct AddProfilePicView: View {
                                     .cornerRadius(150)
                                     .padding(.top, 40)
 
-                            } else if phase.error != nil {
-                                Text("Network Error!")
-                                    .cornerRadius(150.0)
-                                    .padding(.top, 40)
                             } else {
-                                ProgressView()
-                                    .cornerRadius(150.0)
-                                    .padding(.top, 40)
+                                Rectangle()
+                                    .fill(Color("lightgray"))
+                                    .frame(width: 200, height: 200)
+                                    .scaledToFit()
+                                    .cornerRadius(150)
                             }
                         }
                     }

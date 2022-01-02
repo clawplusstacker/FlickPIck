@@ -38,8 +38,6 @@ struct SettingsMainView : View{
 
     @State var showingSettingSheet: ActiveSheetSettings?
     
-    @State var notificationTogggle = UserFunctions.getNotificationBool(index: UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? ""))
-
 
     
 
@@ -75,15 +73,12 @@ struct SettingsMainView : View{
                                 .frame(width: 220, height: 220)
                                 .scaledToFit()
                                 .cornerRadius(150)
-
-                        } else if phase.error != nil {
-                            Text("Network Error!")
-                                .cornerRadius(150.0)
-                                .frame(width: 220, height: 220)
                         } else {
-                            ProgressView()
-                                .cornerRadius(150.0)
+                            Rectangle()
+                                .fill(Color("lightgray"))
                                 .frame(width: 220, height: 220)
+                                .scaledToFit()
+                                .cornerRadius(150)
                             
                             } //else
                         }//async image
@@ -129,20 +124,9 @@ struct SettingsMainView : View{
                     }, label: {
                         Text("Streaming Services")
                             .foregroundColor(.black)
-
-
                     })
                         .padding(5)
                     
-                    HStack{
-                        Toggle("Notifications", isOn: $notificationTogggle)
-                            .onChange(of: $notificationTogggle) { value in
-                                UserFunctions.changeNotifications(index: userIndex, newBool: notificationTogggle)
-                            }
-                            .toggleStyle(SwitchToggleStyle(tint: .pink))
-                            .padding(5)
-                            
-                    } //Hstack
                     
                 } //Section
               

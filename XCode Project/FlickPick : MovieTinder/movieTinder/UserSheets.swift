@@ -4,12 +4,7 @@
 //
 //  Created by Colby Beach on 9/17/21.
 //
-//
-// Yes I understand the progress view in the if statements is redudent. Simply there to make
-// bug solving easier if picture will ever not load, while still making it look better to
-// the user. Thanks for reading!
-//
-//
+
 
 import Foundation
 import SwiftUI
@@ -50,15 +45,14 @@ struct UserSheetView : View {
                             .scaledToFit()
                             .cornerRadius(150)
                             .padding(.top, 40)
-
-                    } else if phase.error != nil {
-                        ProgressView()
-                            .cornerRadius(150.0)
-                            .frame(width: 200, height: 200)
                     } else {
-                        ProgressView()
-                            .cornerRadius(150.0)
-                            .frame(width: 200, height: 200)                        }
+                        Rectangle()
+                            .fill(Color("lightgray"))
+                            .frame(width: 200, height: 200)
+                            .scaledToFit()
+                            .cornerRadius(150)
+                            .padding(.top, 40)
+                        }
                     }
                 }
 
@@ -149,15 +143,13 @@ struct FriendSheetView : View {
                                 .frame(width: 200, height: 200)
                                 .scaledToFit()
                                 .cornerRadius(150)
-
-                        } else if phase.error != nil {
-                            ProgressView()
-                                .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)
                         } else {
-                            ProgressView()
-                                .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)                        }
+                            Rectangle()
+                                .fill(Color("lightgray"))
+                                .frame(width: 200, height: 200)
+                                .scaledToFit()
+                                .cornerRadius(150)
+                            }
                         }
                     }
 
@@ -293,15 +285,15 @@ struct FriendSheetView : View {
                                 .scaledToFit()
                                 .cornerRadius(150)
                                 .padding(.top, 40)
-
-                        } else if phase.error != nil {
-                            ProgressView()
-                                .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)
                         } else {
-                            ProgressView()
-                                .cornerRadius(150.0)
-                                .frame(width: 200, height: 200)                        }
+                            Rectangle()
+                                .fill(Color("lightgray"))
+                                .frame(width: 200, height: 200)
+                                .scaledToFit()
+                                .cornerRadius(150)
+                                .padding(.top, 40)
+
+                            }
                         }
                     }
 
@@ -356,14 +348,14 @@ struct SelfSheetView : View {
                             .cornerRadius(150)
                             .padding(.top, 40)
 
-                    } else if phase.error != nil {
-                        ProgressView()
-                            .cornerRadius(150.0)
-                            .frame(width: 200, height: 200)
                     } else {
-                        ProgressView()
-                            .cornerRadius(150.0)
-                            .frame(width: 200, height: 200)                        }
+                        Rectangle()
+                            .fill(Color("lightgray"))
+                            .frame(width: 200, height: 200)
+                            .scaledToFit()
+                            .cornerRadius(150)
+                            .padding(.top, 40)
+                        }
                     }
                 }
 
