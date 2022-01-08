@@ -314,7 +314,7 @@ class UserStoreFunctions{
         
         var result = [String]()
 
-        if(self.UserView.users.count > 0){
+        if(self.UserView.users.count >= indexOfSelf + 1){
 
             let currentUserMovies = UserView.users[indexOfSelf].moviesLiked
             

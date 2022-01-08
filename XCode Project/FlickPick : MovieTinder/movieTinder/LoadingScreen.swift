@@ -11,7 +11,6 @@ import FirebaseAuth
 
 struct LoadingScreenContentView : View {
     
-
     @State var splashScreenShow = true
     @State var loginContentViewShow = false
     

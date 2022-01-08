@@ -15,18 +15,25 @@ import FirebaseAuth
 private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
 
+enum FriendsSheetsSettings: Identifiable  {
+    case add, friend
+    
+    var id: Int{
+        hashValue
+    }
+}
+
 struct FriendsView: View {
         
 
     @State private var searchText = ""
-    @State var showingAddSheet = false
     @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
 
     @State var passingProfilePicture = ""
     @State var passingUserName  = ""
     @State var passingMatchList = [String]()
     
-    @State var showingSheet = false
+    @State var showingSheet : FriendsSheetsSettings?
 
  
     var body: some View {
@@ -45,16 +52,13 @@ struct FriendsView: View {
                 
                 Button(action: {
                     
-                    showingAddSheet = true
+                    showingSheet = .add
                     
                 }) {
                     Image(systemName: "plus.circle.fill")
                         .font(.largeTitle)
                         .foregroundColor(.pink)
                     }
-                .sheet(isPresented: $showingAddSheet){
-                    addFriendsView()
-                }
             
             } //HStack
             .padding()
@@ -76,7 +80,7 @@ struct FriendsView: View {
                                     passingMatchList = UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), userNameOfOther: friends)
                                     
                                     
-                                    showingSheet = true
+                                    showingSheet = .friend
                                     
                                     
                                 }
@@ -104,10 +108,19 @@ struct FriendsView: View {
                                             }
                                         }
                                     
-                                    Text(friends)
+                                    VStack(alignment: .leading){
+                                        
+                                        Text(friends)
+                                            .textCase(.lowercase)
+                                        
+                                        Text("Matches: " + String(UserFunctions.getMatches(indexOfSelf: UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? ""), userNameOfOther: friends).count))
+                                            .font(.system(size: 8))
+                                        
+                                    }//Vstack
                                         .padding(.horizontal, 5)
-                                        .textCase(.lowercase)
-
+                                    
+                                    
+                                    
                                 }
                             })
                         }
@@ -121,16 +134,18 @@ struct FriendsView: View {
             }
         
             Spacer()
-            
-                
-            .sheet(isPresented: $showingSheet){
-                FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
-            }
-                
-                
 
         } //VStack
             
+        .sheet(item: $showingSheet){ item in
+            switch item {
+            case .add:
+                addFriendsView()
+            case .friend:
+                FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
+            }
+        }
+        
         .navigationBarHidden(true)
        
         .onAppear(){
