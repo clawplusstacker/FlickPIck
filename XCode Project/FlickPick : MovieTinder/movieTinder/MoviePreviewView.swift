@@ -143,42 +143,48 @@ struct MoviePreviewView: View {
                             
                             HStack{
                                 
-                                Text("IMDB Rating: ")
+                                Image("imdb")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                
+                                Text("IMDB Rating: " + (currentMovie["rating"] ?? "") + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
-                                
-                                Text(currentMovie["rating"]! + "/10")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                              
                                 
                                 Spacer()
 
                             }
                             .padding()
                             .padding(.horizontal, 85)
-
                             
                             
                             Divider()
                                 .padding()
-                            
-                            
+                                                        
                             
                             HStack{
                                 
+                                Image(systemName: "text.bubble").foregroundColor(Color.black)
+                                    .font(.system(size: 20))
+                                
                                 Text("Description:")
                                     .font(.headline)
-                                    .padding()
-                                    .padding(.horizontal, 90)
                                 
                                 Spacer()
+                                
                             }
+                            .padding(.horizontal, 85)
+                            .padding()
                             
-                            Text(currentMovie["desc"]!)
+                            Text(currentMovie["desc"] ?? "")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 130)
-
+                            
+                            
+                            Text("\n \n \n \n \n \n \n")
                             
                         }   //Vstack For text
                     
