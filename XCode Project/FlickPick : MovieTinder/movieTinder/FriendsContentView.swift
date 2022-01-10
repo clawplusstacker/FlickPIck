@@ -14,6 +14,7 @@ import FirebaseAuth
 
 private var UserFunctions = UserStoreFunctions()
 private var db = Firestore.firestore()
+private var currentUserUID = Auth.auth().currentUser?.uid
 
 enum FriendsSheetsSettings: Identifiable  {
     case add, friend
@@ -34,6 +35,8 @@ struct FriendsView: View {
     @State var passingMatchList = [String]()
     
     @State var showingSheet : FriendsSheetsSettings?
+    
+    @State var removeButtonText = "Remove"
 
  
     var body: some View {
@@ -120,8 +123,41 @@ struct FriendsView: View {
                                         .padding(.horizontal, 5)
                                     
                                     
+                                    Spacer()
                                     
-                                }
+                                    
+                                    Button {
+                                        
+                                        removeButtonText = "Removed!"
+                                        
+                                        
+                                        //This is a really bad way to fix a pretty bad bug in my code
+                                        UserFunctions.addUserToFriends(index: 0, userName: "handler")
+                                        //
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+
+                                            UserFunctions.removeUserFromFriends(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: friends)
+
+                                        }
+                                        
+                                    } label: {
+                                        Text(removeButtonText)
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 5)
+                                            .background(
+                                               RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.pink)
+                                                
+                                           )
+                                    }
+
+                                    
+                                    
+                                    
+                                    
+                                } //HStack
                             })
                         }
                     }

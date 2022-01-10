@@ -125,6 +125,26 @@ struct addFriendsView: View {
                                         .foregroundColor(.pink)
                                         .textCase(.lowercase)
                                         .padding(.horizontal, 5)
+                                    
+                                    Spacer()
+                                    
+                                    
+                                    Button {
+                                        
+                                        Alert(title: Text("Hi"))
+                                        
+                                    } label: {
+                                        Text("Add Friend")
+                                            .foregroundColor(.white)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 5)
+                                            .background(
+                                               RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.pink)
+                                                
+                                           )
+                                    }
+                                    
                                 } //HStack
                              
                             }) //Button (username)

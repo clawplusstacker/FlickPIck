@@ -222,6 +222,7 @@ struct DislikedView: View {
                                 
                             }, label: {
                                 Text(movies)
+                                    .foregroundColor(.blue)
                                 
                             })
                             
