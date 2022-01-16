@@ -22,7 +22,7 @@ struct UserStore: Identifiable {
     var moviesDisliked : Array<String>
     var friends : Array<String>
     var profilePicture: String
-    var notifications : Bool
+    var bio : String
         
 }
 
@@ -92,6 +92,23 @@ class UserStoreFunctions{
 
     }
     
+    func getBio(index: Int) -> String{
+        
+        self.UserView.fetchData()
+
+        if(self.UserView.users.count > 0){
+            
+            if(self.UserView.users.count >= index+1){
+                
+                return UserView.users[index].bio
+                
+            }
+            
+        }
+        
+        return ""
+
+    }
     
 
     func getMovieNum(index : Int) -> Int {
@@ -130,7 +147,20 @@ class UserStoreFunctions{
       
             
         }
-     
+    }
+    
+    func addBio(index: Int, bio: String){
+
+        let currentUserUID = UserView.users[index].id
+
+        self.UserView.fetchData()
+
+        let userDoc = db.collection("users").document(currentUserUID)
+
+        userDoc.updateData([
+            "bio": bio
+        ])
+        
     }
     
     
@@ -356,14 +386,14 @@ class UserViewModel:  ObservableObject{
                 let id = QueryDocumentSnapshot.documentID
                 let userName = data["userName"] as? String ?? ""
                 let uid = data["uid"] as? String ?? ""
+                let bio = data["bio"] as? String ?? ""
                 let moviesLiked = data["moviesLiked"] as? Array<String> ?? []
                 let moviesDisliked = data["moviesDisliked"] as? Array<String> ?? []
                 let friends = data["friends"] as? Array<String> ?? []
                 let profilePicture = data["profilePicture"] as? String ?? ""
-                let notifications = data["notifications"] as? Bool ?? false
 
                 
-                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends, profilePicture: profilePicture, notifications: notifications)
+                return UserStore(id: id, userName: userName, uid: uid, moviesLiked: moviesLiked, moviesDisliked: moviesDisliked, friends: friends, profilePicture: profilePicture, bio: bio)
               
             }
         }

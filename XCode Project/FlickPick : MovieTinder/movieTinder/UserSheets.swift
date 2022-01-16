@@ -63,6 +63,9 @@ struct UserSheetView : View {
                 .textCase(.lowercase)
                 .padding()
                         
+            Text(UserFunctions.getBio(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                .font(.system(size: 15, weight: .light, design: .default))
+            
             Spacer()
              
             Button(action: {
@@ -123,19 +126,6 @@ struct FriendSheetView : View {
         VStack{
         
             VStack{
-                                    
-                    HStack{
-                        
-                        Text(userName)
-                            .font(.system(size: 25, weight: .medium, design: .default))
-                            .textCase(.lowercase)
-                            .padding(.top, 10)
-                      
-                    }//Hstack
-                    .padding()
-                
-                Spacer()
-                   
                 
                 let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
                 
@@ -155,8 +145,18 @@ struct FriendSheetView : View {
                                 .cornerRadius(150)
                             }
                         }
+                        .padding(.top, 30)
                     }
 
+                
+                Text(userName)
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .textCase(.lowercase)
+                    .padding()
+                  
+                Text(UserFunctions.getBio(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                    .font(.system(size: 15, weight: .light, design: .default))
+                
                 
                 LabelledDivider(label: "")
                 
@@ -310,6 +310,9 @@ struct FriendSheetView : View {
                     .textCase(.lowercase)
                     .padding()
                 
+                Text(UserFunctions.getBio(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                    .font(.system(size: 15, weight: .light, design: .default))
+                
                 Spacer()
                  
               
@@ -372,6 +375,9 @@ struct SelfSheetView : View {
                 .font(.system(size: 25, weight: .medium, design: .default))
                 .textCase(.lowercase)
                 .padding()
+            
+            Text(UserFunctions.getBio(index: UserFunctions.getFireStoreUserIndex(userName: userName)))
+                .font(.system(size: 15, weight: .light, design: .default))
             
             Spacer()
              

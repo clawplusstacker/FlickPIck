@@ -30,10 +30,16 @@ struct ChangePasswordView : View{
             VStack {
                 
                 
-                HStack{
-                    Text("Reset Password")
-                        .font(.system(size: 35, weight: .black, design: .rounded))
-                }
+                HStack {
+                    
+                    Text("Change Password")
+                        .font(.system(size: 25, weight: .medium, design: .default))
+                        .foregroundColor(.pink)
+                        .padding(.horizontal, 15)
+                    
+                    Spacer()
+                
+                } //HStack
                 .padding(.top, 60)
                 
                 

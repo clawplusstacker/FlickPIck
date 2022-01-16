@@ -148,7 +148,7 @@ struct FriendsView: View {
                                             .padding(.vertical, 5)
                                             .background(
                                                RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.pink)
+                                                .fill(Color.blue)
                                                 
                                            )
                                     }

@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 //Used for switch case for sheets
 enum ActiveSheetSettings: Identifiable {
-    case profilePic, changePass, stremServ
+    case profilePic, changePass, stremServ, bio
     
     var id: Int {
         hashValue
@@ -86,9 +86,13 @@ struct SettingsMainView : View{
                         }//async image
                     } //if aviablae
                 } //Picture/Button
+                    .padding(.vertical, 10)
+            
+            Text(UserFunctions.getBio(index: userIndex))
+                .foregroundColor(Color.gray)
+                .padding(.vertical)
             
             LabelledDivider(label: "")
-                .padding()
 
                    
             List{
@@ -107,6 +111,19 @@ struct SettingsMainView : View{
                         Text("Email: ")
                         Text((Auth.auth().currentUser?.email ?? " "))
                             .foregroundColor(.pink)
+                    }
+                        .padding(5)
+                    
+                    Button {
+                        showingSettingSheet = .bio
+                    } label: {
+                        HStack{
+                            Text("Bio: ")
+                                .foregroundColor(.black)
+                            Text(UserFunctions.getBio(index: userIndex))
+                                .lineLimit(1)
+                                .foregroundColor(.pink)
+                        }
                     }
                         .padding(5)
                     
@@ -176,6 +193,8 @@ struct SettingsMainView : View{
                     StreamingServiceSettingsView()
                 case .changePass:
                     ChangePasswordView()
+                case .bio:
+                    ChangeBioView()
                 }
 
             }
@@ -207,12 +226,17 @@ struct StreamingServiceSettingsView : View{
         
         VStack{
             
-            HStack{
+            HStack {
+                
                 Text("Streaming Services")
-                    .font(.system(size: 35, weight: .black, design: .rounded))
-            }
-            .padding(.top, 60)
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .foregroundColor(.pink)
+                    .padding(.horizontal, 15)
+                
+                Spacer()
             
+            } //HStack
+            .padding(.top, 60)
             
             
             LabelledDivider(label: "")
@@ -257,6 +281,85 @@ struct StreamingServiceSettingsView : View{
         }
         
     }
+}
+
+struct ChangeBioView: View{
     
+    @Environment(\.presentationMode) var presentationMode
+
+    @State var userIndex = UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? "")
     
+    @State var newBio = ""
+    @State var errText = ""
+    @State var totalChars = 0
+    
+    var body: some View{
+        
+        VStack{
+            
+            HStack {
+        
+                Text("Change Bio")
+                    .font(.system(size: 25, weight: .medium, design: .default))
+                    .foregroundColor(.pink)
+                    .padding(.horizontal, 15)
+                
+                Spacer()
+            
+            } //HStack
+            .padding(.top, 50)
+            
+            Text(errText)
+                .foregroundColor(.pink)
+                .padding(.top, 20)
+
+            
+            TextEditor(text: $newBio)
+                .overlay(
+                     RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.gray, lineWidth: 0.2)
+                 )
+                .frame(width: 350, height: 130)
+                .padding(.top, 40)
+                .onChange(of: newBio, perform: { text in
+                    totalChars = text.count
+                })
+            
+            ProgressView("\(totalChars) / 60", value: Double(totalChars), total: 60)
+                .frame(width: 150)
+                .padding()
+                .accentColor(.pink)
+                .onAppear(){
+                }
+                        
+            Button {
+           
+                if(totalChars > 60){
+                    errText = "Bio has to be less than 60 characters!"
+                }else{
+                    UserFunctions.addBio(index: userIndex, bio: newBio)
+                    presentationMode.wrappedValue.dismiss()
+                }
+
+
+            } label: {
+                Text("Change Bio")
+                    .frame(width: 325, height: 20)
+            }
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(width: 350, height: 50)
+                .background(Color.pink)
+                .cornerRadius(15.0)
+                .padding(.top, 40)
+            
+            Spacer()
+        }
+        .onAppear(){
+            newBio = UserFunctions.getBio(index: userIndex)
+            totalChars = newBio.count
+        }
+        
+    
+    }
 }
