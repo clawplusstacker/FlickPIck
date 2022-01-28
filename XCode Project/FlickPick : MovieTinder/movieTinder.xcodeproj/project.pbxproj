@@ -17,7 +17,6 @@
 		0F1F725226057A8B00EA07C4 /* movieTinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F725126057A8B00EA07C4 /* movieTinderTests.swift */; };
 		0F1F725D26057A8B00EA07C4 /* movieTinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F725C26057A8B00EA07C4 /* movieTinderUITests.swift */; };
 		0F1F72712605812800EA07C4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F72702605812800EA07C4 /* Movie.swift */; };
-		0F20BE7C26576B3A007C8765 /* HBOfulldata.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F20BE7B26576B3A007C8765 /* HBOfulldata.json */; };
 		0F3B9FB926B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */; };
 		0F3B9FBA26B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */; };
 		0F3B9FBB26B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */; };
@@ -74,7 +73,6 @@
 		0F1F725C26057A8B00EA07C4 /* movieTinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieTinderUITests.swift; sourceTree = "<group>"; };
 		0F1F725E26057A8B00EA07C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F1F72702605812800EA07C4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		0F20BE7B26576B3A007C8765 /* HBOfulldata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HBOfulldata.json; sourceTree = "<group>"; };
 		0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerWithText.swift; sourceTree = "<group>"; };
 		0F519AF02630A4300005B845 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				0FC2C4A72715EE3700DB575D /* MoviePosterContentView.swift */,
 				0F8CFEC0260FA84B006D5B8C /* AddFreindsView.swift */,
 				0F6677EC26113B0F00114612 /* MainContentView.swift */,
-				0F20BE7B26576B3A007C8765 /* HBOfulldata.json */,
 				0F0211832606680300D94701 /* Launch Screen.storyboard */,
 				0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */,
 				0FDAF56F26FE9B8C006942C6 /* ChangePasswordContentView.swift */,
@@ -346,7 +343,6 @@
 				0F0211842606680300D94701 /* Launch Screen.storyboard in Resources */,
 				0F1F724726057A8B00EA07C4 /* Preview Assets.xcassets in Resources */,
 				0F3B9FB926B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */,
-				0F20BE7C26576B3A007C8765 /* HBOfulldata.json in Resources */,
 				0F1F724426057A8B00EA07C4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

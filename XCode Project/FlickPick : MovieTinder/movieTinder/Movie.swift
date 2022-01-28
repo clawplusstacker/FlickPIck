@@ -7,91 +7,101 @@
 
 
 import Foundation
-import FirebaseFirestore
 
-struct Movie {
-        
-    var Plot: String = ""
-    var Poster: String = ""
-    var Title: String = ""
-    var Year: String? = nil
-    var imdbRating: String = ""
-
-
-}
-
-struct MovieStoreFunctions{
-    
-    private var MovieView = MovieViewModel()
-    
-    
-    
-    func getMovieData(title: String) -> Movie{
-        
-        self.MovieView.fetchData()
-
-        var result = Movie(Plot: "Loading", Poster: "https://cdn.theatlantic.com/thumbor/X3e6dgwG1vDBxRUBA8AY6nwIDJQ=/0x102:1400x831/960x500/media/img/mt/2013/12/wallstreet/original.jpg", Title: "Loading", Year: "", imdbRating: "")
-                
-        var x = 0
-             
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            while x < MovieView.movies.count{
-                
-                if(MovieView.movies[x].Title == title){
-                                
-                    result =  MovieView.movies[x]
-                    print(result)
-                    break;
-    
-                }
-                x += 1;
-            }
-        }
-            
-        print(result)
-        return result
-    }
-    
-    
-}
-
-/*
- I wish I knew how this class actually worked
+/**
+ Structure for movies
+ 
+ Based on:
+ Json Data Structure For Movies in the Movie Database API
  */
-class MovieViewModel:  ObservableObject{
-    
-    @Published var movies = [Movie]()
-    
-    private var db = Firestore.firestore()
-    
-    func fetchData() {
-        
-        db.collection("HBOMaxMovies").addSnapshotListener{ (QuerySnapshot, Error) in
-            guard  let documents = QuerySnapshot?.documents else{
-                print("No Documents")
-                return
-            }
-                        
-            
-            self.movies = documents.map {  (QueryDocumentSnapshot) -> Movie in
-                
-                let data = QueryDocumentSnapshot.data()
-                
-                let title = data["Title"] as? String ?? ""
-                let desc = data["Plot"] as? String ?? ""
-                let rating = data["imdbRating"] as? String ?? ""
-                let year = data["Year"] as? String ?? ""
-                let poster = data["Poster"] as? String ?? ""
-                
-                return Movie(Plot: desc, Poster: poster, Title: title, Year: year, imdbRating: rating)
+struct Movie: Hashable, Codable {
 
-              
-            } 
-        }
-
-    }
-
+    
+    let adult: Bool
+    let backdrop_path: String
+    let belongs_to_collection: String
+    let budget: Int
+    let genres: [String]
+    let homepage: String
+    let id: Int
+    let imdb_id: String
+    let original_language: String
+    let overview: String
+    let popularity: Int
+    let poster_path: String
+    let production_companies: [String]
+    let production_countries: [String]
+    let release_date: String
+    let revenue: Int
+    let runtime: Int
+    let spoken_languages: [String]
+    let status: String
+    let tagline: String
+    let video : Bool
+    let vote_average: Int
+    let vote_count: Int
+    
 }
 
 
+class MovieViewModel : ObservableObject {
+    
+    let popularMin = 50
+    let urlFirst = "https://api.themoviedb.org/3/"
+    let urlLast = "?api_key=63d93b08a5c17f9bbb9d8205524f892f"
+    
+    /**
+        Fetches A Movie With A Random Movie_ID
+     */
+    func fetchMovie(){
+        
+    }
+    
+    
+    /**
+        Fetches Movie Data With A Given Movie_ID
+     */
+    func fetchMovie(movie_id: Int){
+        
+    }
+    
+    
+    
+    /**
+        Checks if Movie confers with current popular minimum
+     */
+    func isPopular(movie_id: Int){
+        
+    }
+    
+    
+    
+    /**
+        Compares movie given to the current user and if it passes their current data
+            Such as : not already liked / disliked, matches their streaming service preference
+     */
+    func compareMovieToUser(movie_id: Int){
+        
+        
+    }
+    
+    /**
+     Returns the given movies streaming services
+     */
+    func streamingServiceCheck(movie_id : Int){
+        
+        
+        
+    }
+    
 
+    /**
+        Function that will get the current movie needed for the currently logged in user.
+        Uses the previous helper functions to acheive this and get what movie would
+        be best.
+     */
+    func getCurrentMovie(){
+        
+    }
+    
+}

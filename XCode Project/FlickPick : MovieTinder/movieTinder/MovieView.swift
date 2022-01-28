@@ -10,8 +10,6 @@ import FirebaseFirestore
 
 private var db = Firestore.firestore()
 private var userStore = UserStoreFunctions()
-private let amtOfMovies = 1968
-
 
 
 
@@ -33,101 +31,17 @@ private let amtOfMovies = 1968
 
 struct MovieView: View {
     
-        
-    @ObservedObject var movieList = MovieViewModel()
+    
     @State var updater = ""
     
     @State var showingMoviePoster = false
     @State var moviePoster = ""
-    @State var randomNum = Int.random(in: 0..<amtOfMovies)
-        
-    
-    /**
-     Function that will retrieve movie data for a new movie to be displayed.
-     
-     Param: Takes a random integer (based off of how many movies the user has avaiable)
-     
-     If the random integer has not already been liked or disliked by the current user it will be shown
-        if it has been then it will add numbers to the random num until it finds a movie that hasn't
-        If this reaches the end of the movie count, it will go back to the beginning.
-     */
-    func getCurrentMovie(randomNum : Int) -> Dictionary<String, String>{
-                
-
-        let likedList = userStore.getLikedList(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-        let dislikedList = userStore.getDislikedList(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
-        
-        var title = ""
-        var desc = ""
-        var poster = "https://i.ibb.co/yRrfLwf/Flick-Pick-logos-transparent.png"
-        var rating = ""
-        var year = ""
-        
-        //Handles beginning exception
-        if movieList.movies.count > 0 {
-            
-            var x = randomNum;
-            
-            while x < movieList.movies.count {
-                                
-                if(!likedList.contains(movieList.movies[x].Title)){
-                    
-                    if(!dislikedList.contains(movieList.movies[x].Title)){
-                        title = movieList.movies[x].Title
-                        desc = movieList.movies[x].Plot
-                        poster = movieList.movies[x].Poster
-                        rating = movieList.movies[x].imdbRating
-                        year = "(" + movieList.movies[x].Year! + ")"
-                        
-                        break;
-                    }
-                }
-                
-                x += 1
-                
-                if(x >= movieList.movies.count){
-                    
-                    for movies in movieList.movies {
-                        
-                        if(!likedList.contains(movies.Title)){
-                            
-                            if(!dislikedList.contains(movies.Title)){
-                                title = movies.Title
-                                desc = movies.Plot
-                                poster = movies.Poster
-                                rating = movies.imdbRating
-                                year = "(" + movies.Year! + ")"
-                                
-                                break;
-                            }
-                        }
-                        else{
-                            title = "No More Movies Left!!"
-                            desc = "Check Back Later!"
-                        }
-                        
-                    }//For Loop
-                } //if statement
-                
-            }  //while loop
-        } //Original exception if statement
         
 
-        
-        let dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
-        
-        return dict
-        
-        
-    } //Function End
-    
-    
     
     var body: some View {
         
-        var currentMovie = getCurrentMovie(randomNum: randomNum)
-        
-    
+
         
         ZStack{
             
@@ -135,12 +49,12 @@ struct MovieView: View {
                     
                     Button {
                         
-                        moviePoster = currentMovie["poster"] ?? ""
+                        moviePoster = ""
                         showingMoviePoster.toggle()
                         
                         
                     } label: {
-                        let url = URL(string: currentMovie["poster"] ?? "")
+                        let url = URL(string: "")
 
                        
                         if #available(iOS 15.0, *) {
@@ -177,12 +91,12 @@ struct MovieView: View {
                                 HStack{
   
                                     
-                                    Text(currentMovie["title"] ?? "")
+                                    Text("Title")
                                         .font(.system(size: 30).bold())
                                         .foregroundColor(.pink)
                                       
                                         
-                                    Text(currentMovie["year"] ?? "")
+                                    Text("Year")
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
                                     
@@ -205,7 +119,7 @@ struct MovieView: View {
                                     .scaledToFit()
                                     .frame(width: 20, height: 20)
                                 
-                                Text("IMDB Rating: " + (currentMovie["rating"] ?? "") + "/10")
+                                Text("IMDB Rating: " + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
                               
@@ -235,7 +149,7 @@ struct MovieView: View {
                             .padding(.horizontal, 85)
                             .padding()
                             
-                            Text(currentMovie["desc"] ?? "")
+                            Text("Desc")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 130)
@@ -273,14 +187,12 @@ struct MovieView: View {
                         //Main Button Pressed
                         Button(action: {
                             
-                            userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: currentMovie["title"]!)
+                            userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: "")
                             
-
-                                randomNum = Int.random(in: 0..<amtOfMovies)
-                                currentMovie = getCurrentMovie(randomNum: randomNum)
-                                updater =  ""
-                                updater =  " "
-                            
+                            //currentMovie = getCurrentMovie(randomNum: randomNum)
+                            updater =  ""
+                            updater =  " "
+                        
 
 
                         }) {
@@ -309,15 +221,12 @@ struct MovieView: View {
                         //Main Button Pressed
                         Button(action: {
                             
-                            userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: currentMovie["title"]!)
+                            userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: "")
                             
                             
-                            randomNum = Int.random(in: 0..<amtOfMovies)
-                            currentMovie = getCurrentMovie(randomNum: randomNum)
+                            //currentMovie = getCurrentMovie(randomNum: randomNum)
                             updater =  ""
                             updater =  " "
-
-                                
 
                         }) {
                                 Image(systemName: "heart.circle.fill")
@@ -345,12 +254,14 @@ struct MovieView: View {
         .background(Image("whitePinkGradient"))
         
         .onAppear() {
-            self.movieList.fetchData()
+            //self.movieList.fetchData()
         }
         
         
     } //Var body : some View
 } //Struct
+
+
 
 
 //

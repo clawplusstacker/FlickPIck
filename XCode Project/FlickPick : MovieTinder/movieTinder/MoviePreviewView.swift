@@ -18,64 +18,18 @@ import SwiftUI
 
 struct MoviePreviewView: View {
     
-    @ObservedObject var movieList = MovieViewModel()
+    //@ObservedObject var movieList = MovieViewModel()
     @Binding var movieTitle : String
     @State var handler = ""
     
     @State var showingMoviePoster = false
     @State var moviePoster = ""
     
-    
-    /**
-        Function that will get the current movie data based off of the title that is passed
-        into the MoviePreviewView struct when called upon.
-     */
-    func getCurrentMovie() -> Dictionary<String, String> {
-        
-        var title = movieTitle
-        var desc = ""
-        var poster = "https://i.ibb.co/yRrfLwf/Flick-Pick-logos-transparent.png"
-        var rating = ""
-        var year = ""
-        
-        var x = 0
-        
-        var dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
 
-        
-        //Handles beginning exception
-        if movieTitle != "" {
-                        
-                while x < movieList.movies.count{
-                                        
-                    
-                    if(movieList.movies[x].Title == movieTitle){
-                                    
-                        title = movieList.movies[x].Title
-                        desc = movieList.movies[x].Plot
-                        poster = movieList.movies[x].Poster
-                        rating = movieList.movies[x].imdbRating
-                        year = movieList.movies[x].Year!
-                        
-                        dict = ["title": title, "desc": desc, "rating": rating, "year": year, "poster": poster]
-                        
-                        break;
-                        
-        
-                    }
-                    x += 1;
-                }
-        
-        } //Beginning exception if statement
-        
-        return dict
-    } //Function
 
 
     var body: some View {
         
-        var currentMovie = getCurrentMovie()
-
         ZStack{
             
             ScrollView{
@@ -84,15 +38,12 @@ struct MoviePreviewView: View {
                 VStack{
                     
                     Button {
-                        moviePoster = currentMovie["poster"]!
-                        
-                        print(moviePoster)
-
+                        moviePoster = ""
                         showingMoviePoster.toggle()
                         
                         
                     } label: {
-                        let url = URL(string: currentMovie["poster"]!)
+                        let url = URL(string: "")
                         let data = try? Data(contentsOf: url!)
 
                         if let imageData = data {
@@ -119,13 +70,13 @@ struct MoviePreviewView: View {
                                 HStack{
   
                                     
-                                    Text(currentMovie["title"]!)
+                                    Text("Title")
                                         
                                         .font(.system(size: 23).bold())
                                         .foregroundColor(.pink)
         
                                         
-                                    Text("(" + currentMovie["year"]! + ")")
+                                    Text("()")
                                         .font(.system(size: 17).bold())
                                         .foregroundColor(.secondary)
                                     
@@ -148,7 +99,7 @@ struct MoviePreviewView: View {
                                     .scaledToFit()
                                     .frame(width: 20, height: 20)
                                 
-                                Text("IMDB Rating: " + (currentMovie["rating"] ?? "") + "/10")
+                                Text("IMDB Rating: " + "/10")
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
                               
@@ -178,7 +129,7 @@ struct MoviePreviewView: View {
                             .padding(.horizontal, 85)
                             .padding()
                             
-                            Text(currentMovie["desc"] ?? "")
+                            Text("Desc")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 130)
@@ -196,8 +147,8 @@ struct MoviePreviewView: View {
                             
         } //ZStack
         .onAppear(){
-            self.movieList.fetchData()
-
+            
+            //self.movieList.fetchData()
 
         }
         .background(Image("whitePinkGradient"))
