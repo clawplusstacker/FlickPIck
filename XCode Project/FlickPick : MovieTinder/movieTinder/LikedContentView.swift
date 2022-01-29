@@ -101,8 +101,8 @@ struct LikedView: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                    UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                    UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                    UserFunctions.removeFromLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: movies)
+                                    UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: movies)
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                         likedList = UserFunctions.getLikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
@@ -134,7 +134,7 @@ struct LikedView: View {
 
      
             .sheet(isPresented: $showingMovieSheet, content: {
-                MoviePreviewView(movieTitle: $movieTitle)
+                //MoviePreviewView(movieTitle: $movieTitle)
             })
             
             .onAppear(){
@@ -230,8 +230,8 @@ struct DislikedView: View {
                             Spacer()
                             
                             Button(action: {
-                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
-                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), title: movies)
+                                UserFunctions.removeFromDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: movies)
+                                UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: movies)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                     dislikedList = UserFunctions.getDislikedList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
@@ -263,7 +263,7 @@ struct DislikedView: View {
     
         
         .sheet(isPresented: $showingMovieSheet, content: {
-            MoviePreviewView(movieTitle: $movieTitle)
+            //MoviePreviewView(movieTitle: $movieTitle)
         })
         
         

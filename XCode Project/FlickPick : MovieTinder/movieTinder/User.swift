@@ -164,7 +164,7 @@ class UserStoreFunctions{
     }
     
     
-    func addToMoviesLiked(index: Int, title: String){
+    func addToMoviesLiked(index: Int, movie_id: String){
         
 
         let currentUserUID = UserView.users[index].id
@@ -175,12 +175,12 @@ class UserStoreFunctions{
         let userDoc = db.collection("users").document(currentUserUID)
 
         userDoc.updateData([
-            "moviesLiked": FieldValue.arrayUnion([title])
+            "moviesLiked": FieldValue.arrayUnion([movie_id])
         ])
         
     }
     
-    func addToMoviesDisliked(index: Int, title: String){
+    func addToMoviesDisliked(index: Int, movie_id: String){
         
         
         let currentUserUID = UserView.users[index].id
@@ -191,11 +191,11 @@ class UserStoreFunctions{
         let userDoc = db.collection("users").document(currentUserUID)
         
         userDoc.updateData([
-            "moviesDisliked": FieldValue.arrayUnion([title])
+            "moviesDisliked": FieldValue.arrayUnion([movie_id])
         ])
         
     }
-    func removeFromLiked(index: Int, title: String){
+    func removeFromLiked(index: Int, movie_id: String){
         
         let currentUserUID = UserView.users[index].id
 
@@ -205,12 +205,12 @@ class UserStoreFunctions{
         let userDoc = db.collection("users").document(currentUserUID)
 
         userDoc.updateData([
-            "moviesLiked": FieldValue.arrayRemove([title])
+            "moviesLiked": FieldValue.arrayRemove([movie_id])
         ])
         
     }
     
-    func removeFromDisliked(index: Int, title: String){
+    func removeFromDisliked(index: Int, movie_id: String){
         
         
         let currentUserUID = UserView.users[index].id
@@ -221,7 +221,7 @@ class UserStoreFunctions{
         let userDoc = db.collection("users").document(currentUserUID)
         
         userDoc.updateData([
-            "moviesDisliked": FieldValue.arrayRemove([title])
+            "moviesDisliked": FieldValue.arrayRemove([movie_id])
         ])
         
     }

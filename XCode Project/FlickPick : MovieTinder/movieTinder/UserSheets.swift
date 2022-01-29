@@ -250,7 +250,7 @@ struct FriendSheetView : View {
                     
             .sheet(isPresented: $showingMovieSheet, content: {
                 
-                MoviePreviewView(movieTitle: $movieTitle)
+               // MoviePreviewView(movieTitle: $movieTitle)
                 
             })
             

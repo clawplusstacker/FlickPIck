@@ -8,13 +8,10 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
-/**
- Structure for movies
- 
- Based on:
- Json Data Structure For Movies in the Movie Database API
- */
+
 /**
  Structure for movies
  
@@ -112,16 +109,14 @@ struct SpokenLanguage: Hashable, Codable {
 
 
 
-
+/**
+View Model to Fetch a Movie from the MovieDB API and convert into a Movie Object using JSON
+ */
 class MovieViewModel : ObservableObject {
     
     let popularMin = 50
     let urlFirst = "https://api.themoviedb.org/3/"
     let urlLast = "?api_key=63d93b08a5c17f9bbb9d8205524f892f"
-    let boolean1 = false;
-    let String1 = "";
-    let int1 = 0;
-    let double2 = 0.1
     @Published var returnMovie : Movie = Movie(adult: false, backdropPath: "", belongsToCollection: BelongsToCollection(id: 2, name: "", posterPath: "", backdropPath: ""), budget: 0, genres: [Genre(id: 0, name: "")], homepage: "", id: -1, imdbID: "", originalLanguage: "", originalTitle: "", overview: "", popularity: 0.0, posterPath: "", productionCompanies: [ProductionCompany(id: 0, logoPath: "", name: "", originCountry: "")], productionCountries: [ProductionCountry(iso3166_1: "", name: "")], releaseDate: "", revenue: 2, runtime: 1, spokenLanguages: [SpokenLanguage(englishName: "", iso639_1: "", name: "")], status: "", tagline: "", title: "", video: false, voteAverage: 2.0, voteCount: 0)
     
     
@@ -160,18 +155,25 @@ class MovieViewModel : ObservableObject {
 }
 
 
-class CompareMovie {
+/**
+ Functions to help compare a movie to a set of parameters
+ */
+class CompareMovieFunctions {
     
+    let userUID = Auth.auth().currentUser?.uid
+    let userFunctions = UserStoreFunctions()
     @StateObject var viewModel = MovieViewModel()
+    
+    
     
     /**
         Checks if Movie confers with current popular minimum
      */
-    func isPopular(movie_id: Int) -> Bool{
+    private func isPopular(movie_id: Int) -> Bool{
         
         viewModel.fetchMovie(movie_id: movie_id)
         
-        var movie = viewModel.returnMovie
+        let movie = viewModel.returnMovie
         
         if(movie.popularity ?? 0 > 50){
             return true
@@ -179,25 +181,31 @@ class CompareMovie {
         return false
         
     }
-    
+
     
     /**
         Compares movie given to the current user and if it passes their current data
             Such as : not already liked / disliked, matches their streaming service preference
      */
-    func compareMovieToUser(movie_id: Int){
+    private func compareMovieToUser(movie_id: Int) -> Bool{
         
+        let likedList = userFunctions.getLikedList(index: userFunctions.getFireStoreUserIndex(uid: userUID ?? ""))
         
+        let dislikedList = userFunctions.getDislikedList(index: userFunctions.getFireStoreUserIndex(uid: userUID ?? ""))
         
-        
+        if(likedList.contains(String(movie_id)) && dislikedList.contains(String(movie_id))){
+            return false
+        }
+        return true
     }
+    
     
     /**
      Returns the given movies streaming services
      */
-    func streamingServiceCheck(movie_id : Int){
+    private func streamingServiceCheck(movie_id : Int) -> Bool{
         
-        
+        return true
         
     }
     
@@ -207,8 +215,7 @@ class CompareMovie {
         Uses the previous helper functions to acheive this and get what movie would
         be best.
      */
-    func getCurrentMovie(){
-        
+    public func getCurrentMovie(movie_id: Int) -> Bool{
+        return isPopular(movie_id: movie_id) && compareMovieToUser(movie_id: movie_id) && streamingServiceCheck(movie_id: movie_id)
     }
-    
 }
