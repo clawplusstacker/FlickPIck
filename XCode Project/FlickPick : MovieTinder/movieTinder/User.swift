@@ -377,8 +377,7 @@ class UserViewModel:  ObservableObject{
                 print("No Documents")
                 return
             }
-                        
-            
+
             self.users = documents.map {  (QueryDocumentSnapshot) -> UserStore in
                 
                 let data = QueryDocumentSnapshot.data()

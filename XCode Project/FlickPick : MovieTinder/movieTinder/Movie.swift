@@ -158,12 +158,11 @@ class MovieViewModel : ObservableObject {
 /**
  Functions to help compare a movie to a set of parameters
  */
-class CompareMovieFunctions {
+class MovieModelFunctions {
     
     let userUID = Auth.auth().currentUser?.uid
     let userFunctions = UserStoreFunctions()
     @StateObject var viewModel = MovieViewModel()
-    
     
     
     /**
@@ -217,5 +216,19 @@ class CompareMovieFunctions {
      */
     public func getCurrentMovie(movie_id: Int) -> Bool{
         return isPopular(movie_id: movie_id) && compareMovieToUser(movie_id: movie_id) && streamingServiceCheck(movie_id: movie_id)
+    }
+    
+    /**
+     Gets the URL for the Movie Poster based off of its ID number
+     */
+    public func getMoviePosterURL(movie_id: Int) -> String {
+        return ""
+    }
+    
+    /**
+     Gets the URL for the Movie Banner based off of its ID number
+     */
+    public func getMovieBannerURL(movie_id: Int) -> String{
+        return ""
     }
 }

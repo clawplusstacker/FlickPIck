@@ -21,7 +21,7 @@
 		0F3B9FBA26B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */; };
 		0F3B9FBB26B34CDE00AFC2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */; };
 		0F3B9FBD26B49AD600AFC2B4 /* DividerWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */; };
-		0F519AF12630A4300005B845 /* MoviePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F519AF02630A4300005B845 /* MoviePreviewView.swift */; };
+		0F519AF12630A4300005B845 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F519AF02630A4300005B845 /* MovieDetailView.swift */; };
 		0F6677ED26113B0F00114612 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6677EC26113B0F00114612 /* MainContentView.swift */; };
 		0F72111B26FB6F8400D7B746 /* WelcomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F72111A26FB6F8400D7B746 /* WelcomeSheet.swift */; };
 		0F736642272863E400DC7088 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F736641272863E400DC7088 /* LoadingScreen.swift */; };
@@ -35,6 +35,7 @@
 		0FDF7DBA2775298100B335BB /* AddProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF7DB92775298100B335BB /* AddProfilePic.swift */; };
 		0FE76D85260BB89A00C23170 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE76D84260BB89A00C23170 /* User.swift */; };
 		0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */; };
+		0FF86B2C27A8780D00FC61AB /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF86B2B27A8780D00FC61AB /* ProgressCircle.swift */; };
 		E69B4DE61692AC7900A2CFB2 /* Pods_movieTinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C46FD4020090F753DF8D03 /* Pods_movieTinderTests.framework */; };
 		FD2AC179D5D3634FF8691F3D /* Pods_movieTinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF9F17F5E5B2C2871BB2C30 /* Pods_movieTinder.framework */; };
 /* End PBXBuildFile section */
@@ -74,7 +75,7 @@
 		0F1F72702605812800EA07C4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F3B9FBC26B49AD600AFC2B4 /* DividerWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerWithText.swift; sourceTree = "<group>"; };
-		0F519AF02630A4300005B845 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
+		0F519AF02630A4300005B845 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		0F6677EC26113B0F00114612 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		0F72111A26FB6F8400D7B746 /* WelcomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSheet.swift; sourceTree = "<group>"; };
 		0F736641272863E400DC7088 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		0FDF7DB92775298100B335BB /* AddProfilePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfilePic.swift; sourceTree = "<group>"; };
 		0FE76D84260BB89A00C23170 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FEFB34C2613CE6D000C416B /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
+		0FF86B2B27A8780D00FC61AB /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		1AF9F17F5E5B2C2871BB2C30 /* Pods_movieTinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movieTinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582AEB83752656B2F3D5EE3D /* Pods-movieTinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieTinderTests.debug.xcconfig"; path = "Target Support Files/Pods-movieTinderTests/Pods-movieTinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6832DE4DA4F600068143C058 /* Pods-movieTinder-movieTinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieTinder-movieTinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-movieTinder-movieTinderUITests/Pods-movieTinder-movieTinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,8 +171,9 @@
 				0FA5D17026126503003EFE22 /* LikedContentView.swift */,
 				0FA5D1752612651B003EFE22 /* SearchBar.swift */,
 				0FDF7DB92775298100B335BB /* AddProfilePic.swift */,
+				0FF86B2B27A8780D00FC61AB /* ProgressCircle.swift */,
 				0F736641272863E400DC7088 /* LoadingScreen.swift */,
-				0F519AF02630A4300005B845 /* MoviePreviewView.swift */,
+				0F519AF02630A4300005B845 /* MovieDetailView.swift */,
 				0F1F72702605812800EA07C4 /* Movie.swift */,
 				0F3B9FB826B34CDD00AFC2B4 /* GoogleService-Info.plist */,
 				0F1F724326057A8B00EA07C4 /* Assets.xcassets */,
@@ -480,10 +483,11 @@
 				0FA798DD26F5885F004D7EFB /* UserSheets.swift in Sources */,
 				0FA5D1762612651B003EFE22 /* SearchBar.swift in Sources */,
 				0F1F724226057A8A00EA07C4 /* MovieView.swift in Sources */,
-				0F519AF12630A4300005B845 /* MoviePreviewView.swift in Sources */,
+				0F519AF12630A4300005B845 /* MovieDetailView.swift in Sources */,
 				0F02117F260667F300D94701 /* LoginView.swift in Sources */,
 				0F72111B26FB6F8400D7B746 /* WelcomeSheet.swift in Sources */,
 				0FEFB34D2613CE6D000C416B /* SettingsContentView.swift in Sources */,
+				0FF86B2C27A8780D00FC61AB /* ProgressCircle.swift in Sources */,
 				0FA5D17126126503003EFE22 /* LikedContentView.swift in Sources */,
 				0F1F724026057A8A00EA07C4 /* movieTinderApp.swift in Sources */,
 				0FC3B081277D67410069B69A /* ImagePicker.swift in Sources */,

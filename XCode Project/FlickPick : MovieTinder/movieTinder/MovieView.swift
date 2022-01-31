@@ -30,6 +30,7 @@ struct MovieView: View {
     }
     
     @State var updater = ""
+    @State var showingMovieDetail = false
     
     var body: some View{
         
@@ -74,14 +75,17 @@ struct MovieView: View {
                         .padding(.horizontal, 50)
                         
                         Button {
-                            Text("hi")
-                            //Show MovieDetailView
+                            showingMovieDetail.toggle()
                         } label: {
                             Image(systemName: "info.circle.fill")
                                 .foregroundColor(.white)
                                 .font(.system(size: 30))
                                 .padding(.horizontal, 60)
                         } //Button
+                        
+                        .sheet(isPresented: $showingMovieDetail){
+                            MovieDetailView()
+                        }
                       
                     } //HStack
                     .offset(y: 250)
@@ -101,7 +105,7 @@ struct MovieView: View {
                             //Main Button Pressed
                             Button(action: {
     
-                                userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: "")
+//                                userStore.addToMoviesDisliked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: "")
     
                                 //currentMovie = getCurrentMovie(randomNum: randomNum)
                                 updater =  ""
@@ -132,7 +136,7 @@ struct MovieView: View {
                             //Main Button Pressed
                             Button(action: {
     
-                                userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: "")
+//                                userStore.addToMoviesLiked(index: userStore.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: "")
     
     
                                 //currentMovie = getCurrentMovie(randomNum: randomNum)
