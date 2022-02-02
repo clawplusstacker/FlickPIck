@@ -22,7 +22,7 @@ struct ProgressCircle: View {
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(self.progress, self.progress)/10))
                 .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.green)
+                .foregroundColor(Color.blue)
                 .rotationEffect(Angle(degrees: 270.0))
 
             Text(String(format: "%.0f%%", min(self.progress, self.progress)*10.0))

@@ -8,18 +8,19 @@
 import Foundation
 import SwiftUI
 
-
+private var MovieFunctions = MovieModelFunctions()
 
 struct MovieDetailView: View {
     
+    @State var currentMovie : Movie
     @State var rating : Float = 8.4
 
     var body: some View {
         
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg")
+        let urlBack = URL(string: MovieFunctions.getMovieBannerURL(movie: currentMovie))
+        let url = URL(string: MovieFunctions.getMoviePosterURL(movie: currentMovie))
         
-        let urlBack = URL(string: "https://image.tmdb.org/t/p/w500/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg")
-        
+
         let url2 = URL(string: "https://media.macosicons.com/parse/files/macOSicons/a84013184cc80749ff6eacbcda5c55fd_low_res_HBO_Max.png")
         
         ScrollView {
@@ -75,11 +76,11 @@ struct MovieDetailView: View {
             VStack {
                 
                 HStack{
-                    Text("Spider-Man: No Way Home")
+                    Text(currentMovie.title ?? "")
                         .foregroundColor(.pink)
                         .font(.system(size: 27))
                         .bold()
-                    Text("(2022)")
+                    Text("(" + MovieFunctions.getMovieYear(movie: currentMovie) + ")")
                 }
                 
                 
@@ -118,8 +119,8 @@ struct MovieDetailView: View {
                 .frame(width: 450, height: 70)
                 
                 VStack{
-                    Text("12/15/2021 (US) - 148min")
-                    Text("Action, Adventure, Science Fiction")
+                    Text(MovieFunctions.getMovieDetailSectionData(movie: currentMovie))
+                    Text(MovieFunctions.getMovieGenres(movie: currentMovie))
                 }
                 .font(.system(size: 14))
                 .frame(width: 450, height: 50)
@@ -127,7 +128,7 @@ struct MovieDetailView: View {
                 .padding()
                 
                 HStack{
-                    Text("The Multiverse Unleashed")
+                    Text(currentMovie.tagline ?? "")
                         .font(.system(size: 15))
                         .italic()
                         .foregroundColor(.gray)
@@ -145,7 +146,7 @@ struct MovieDetailView: View {
                 }.padding()
                 
                 
-                Text("Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.")
+                Text(currentMovie.overview ?? "")
                     .font(.system(size: 16))
                     .padding(.horizontal)
                 
@@ -243,15 +244,19 @@ struct MovieDetailView: View {
 
         }//Scroll View
         .background(Image("whitePinkGradient"))
+        .onAppear(){
+            //Has to be done because binding is stupid
+            rating = Float(currentMovie.voteAverage ?? 0.0)
+        }
 
     }
 }
 
-struct MovieDetailView_Preview: PreviewProvider  {
-
-    static var previews: some View {
-
-        MovieDetailView()
-
-    }
-}
+//struct MovieDetailView_Preview: PreviewProvider  {
+//
+//    static var previews: some View {
+//
+//        MovieDetailView()
+//
+//    }
+//}

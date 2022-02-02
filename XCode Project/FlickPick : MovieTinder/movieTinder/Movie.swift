@@ -168,13 +168,9 @@ class MovieModelFunctions {
     /**
         Checks if Movie confers with current popular minimum
      */
-    private func isPopular(movie_id: Int) -> Bool{
+    private func isPopular(movie: Movie) -> Bool{
         
-        viewModel.fetchMovie(movie_id: movie_id)
-        
-        let movie = viewModel.returnMovie
-        
-        if(movie.popularity ?? 0 > 50){
+        if((movie.popularity ?? 0) > 0.5){
             return true
         }
         return false
@@ -186,7 +182,7 @@ class MovieModelFunctions {
         Compares movie given to the current user and if it passes their current data
             Such as : not already liked / disliked, matches their streaming service preference
      */
-    private func compareMovieToUser(movie_id: Int) -> Bool{
+    public func compareMovieToUser(movie_id: Int) -> Bool{
         
         let likedList = userFunctions.getLikedList(index: userFunctions.getFireStoreUserIndex(uid: userUID ?? ""))
         
@@ -202,33 +198,82 @@ class MovieModelFunctions {
     /**
      Returns the given movies streaming services
      */
-    private func streamingServiceCheck(movie_id : Int) -> Bool{
+    public func streamingServiceCheck(movie_id : Int) -> Bool{
         
         return true
         
     }
     
-
-    /**
-        Function that will get the current movie needed for the currently logged in user.
-        Uses the previous helper functions to acheive this and get what movie would
-        be best.
-     */
-    public func getCurrentMovie(movie_id: Int) -> Bool{
-        return isPopular(movie_id: movie_id) && compareMovieToUser(movie_id: movie_id) && streamingServiceCheck(movie_id: movie_id)
-    }
     
     /**
      Gets the URL for the Movie Poster based off of its ID number
      */
-    public func getMoviePosterURL(movie_id: Int) -> String {
-        return ""
+    public func getMoviePosterURL(movie: Movie) -> String {
+        let basicURL = "https://image.tmdb.org/t/p/w500/"
+        return basicURL + (movie.posterPath ?? "")
     }
     
     /**
      Gets the URL for the Movie Banner based off of its ID number
      */
-    public func getMovieBannerURL(movie_id: Int) -> String{
-        return ""
+    public func getMovieBannerURL(movie: Movie) -> String{
+        let basicURL = "https://image.tmdb.org/t/p/w500/"
+        return basicURL + (movie.backdropPath ?? (movie.posterPath ?? ""))
+    }
+    
+    
+    /**
+     Gets the movies year from its release date and returns a string formatted version
+     */
+    public func getMovieYear(movie: Movie) -> String{
+        let date = movie.releaseDate
+        var year = ""
+        
+        year += String(date![0]) + String(date![1]) + String(date![2]) + String(date![3])
+        
+        
+        return year
+    }
+    
+    /**
+     Returns a string of the moveis release date and run time
+     */
+    public func getMovieDetailSectionData(movie: Movie) -> String {
+        
+        var movieDate = movie.releaseDate ?? ""
+        movieDate = movieDate.replacingOccurrences(of: "-", with: "/")
+        let runtime = movie.runtime ?? 0
+        
+        let countries = movie.productionCountries!
+        var countString = ""
+        
+        for coun in countries{
+            countString = coun.iso3166_1 ?? ""
+            break
+        }
+        
+        
+        return movieDate + " - (" + countString + ") - " + String(runtime) + "min"
+    }
+    
+    
+    /**
+     Returns a string of all of the movies genres
+     */
+    public func getMovieGenres(movie: Movie) -> String{
+        
+        let genres = movie.genres!
+        var result = ""
+        
+        for gen in genres{
+            
+            result += (gen.name ?? " ") + ", "
+        
+        }
+        if(result != ""){
+            result.removeLast(2)
+        }
+        
+        return result
     }
 }

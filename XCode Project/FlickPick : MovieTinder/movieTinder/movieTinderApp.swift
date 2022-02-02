@@ -54,3 +54,9 @@ extension UIImage {
         return normalizedImage
     }
 }
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
