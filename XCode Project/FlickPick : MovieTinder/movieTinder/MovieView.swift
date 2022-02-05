@@ -16,36 +16,7 @@ private var MovieFunctions = MovieModelFunctions()
 
 struct MovieView: View {
     
-    @StateObject var movieViewModel = MovieViewModel()
-    @State var randomNum = Int.random(in: 0..<950000)
-
-    
-    func getCurrentMovie(randomNum: Int) -> Movie?{
-        
-        movieViewModel.fetchMovie(movie_id: randomNum)
-        return movieViewModel.returnMovie
-        
-     
-//        if((movCur.popularity ?? -1) > 1 && MovieFunctions.compareMovieToUser(movie_id: randomNum)
-//           && MovieFunctions.streamingServiceCheck(movie_id: randomNum)){
-//
-//            return movCur
-//
-//        }
-//
-//        if(randomNum >= 950000){
-//            return nil
-//        }
-//
-//        var newRandomNum = randomNum + 1
-//        return getCurrentMovie(randomNum: newRandomNum)
-        
-    }
-    
-    @State var userIndex = UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? "")
-    @State var movie_id = 634649
-
-    
+    //Literally just for the navigation bar
     init() {
       let coloredAppearance = UINavigationBarAppearance()
       coloredAppearance.configureWithOpaqueBackground()
@@ -59,12 +30,74 @@ struct MovieView: View {
       UINavigationBar.appearance().tintColor = .white
     }
     
+    
+    @State var userIndex = UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? "")
+    @StateObject var movieViewModel = MovieViewModel()
+    @StateObject var popularViewModel = PopularViewModel()
+    @StateObject var recViewModel = RecViewModel()
+
+    @State var randomNum = Int.random(in: 0..<950000)
+    
+   
+    func getCurrentMovie() -> Int{
+        var likedList = UserFunctions.getLikedList(index: userIndex)
+        let dislikedList = UserFunctions.getDislikedList(index: userIndex)
+        
+
+        let randomNum = Int.random(in: 0...5)
+        
+        if(randomNum == 1){
+            likedList.reverse()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+            popularViewModel.fetchPopList()
+        }
+
+        if(likedList.count != 0){
+                                
+            for id in likedList {
+                
+                DispatchQueue.main.async{
+                    recViewModel.fetchRecList(movie_id: Int(id) ?? -1)
+                }
+                
+                let recList = recViewModel.returnRecList.results
+
+                for mov in recList{
+                    if(!likedList.contains(String(mov.id)) && !dislikedList.contains(String(mov.id))){
+                        return mov.id
+                    }
+                }
+                
+            } //Liked For Loop
+        }//If statement
+                
+        
+        var popList = popularViewModel.returnPopList.results;
+        if(randomNum == 4){
+            popList.reverse()
+        }
+        
+        for mov in popList{
+            if(!likedList.contains(String(mov.id)) && !dislikedList.contains(String(mov.id))){
+                return mov.id
+            }
+        }
+                
+        //THIS IS HORRIBLE!
+        return Int.random(in: 1..<950000)
+        
+    }
+    
+
+    @State var movie_id = 634649
     @State var updater = ""
     @State var showingMovieDetail = false
     
     var body: some View{
         
-        var currentMovie = getCurrentMovie(randomNum: randomNum)
+        var currentMovie = movieViewModel.returnMovie
         
         NavigationView {
         
@@ -73,7 +106,7 @@ struct MovieView: View {
                 
                 Text(updater)
                 
-                let posterURL = URL(string: MovieFunctions.getMoviePosterURL(movie: currentMovie!))
+                let posterURL = URL(string: MovieFunctions.getMoviePosterURL(movie: currentMovie))
                                 
                 let fade = Gradient(stops: [.init(color: .clear, location: 0),
                                             .init(color: .black, location: 1.3)])
@@ -86,7 +119,9 @@ struct MovieView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .overlay(LinearGradient(gradient: fade, startPoint: .top, endPoint: .bottom))
                         } else if phase.error != nil {
-                            Text("Network Error!")
+                            ProgressView()
+                            Text("Network Error")
+                                .foregroundColor(.white)
 
                         } else {
                             ProgressView()
@@ -97,11 +132,11 @@ struct MovieView: View {
                 VStack{
                     HStack{
                         VStack(alignment: .leading){
-                            Text(currentMovie!.originalTitle ?? "")
+                            Text(currentMovie.title ?? "")
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.system(size: 30))
-                            Text("(" + (currentMovie!.releaseDate ?? "2022") + ")")
+                            Text("(" + MovieFunctions.getMovieYear(movie: currentMovie) + ")")
                                 .foregroundColor(.white)
                                 .font(.system(size: 20))
                         }
@@ -118,7 +153,7 @@ struct MovieView: View {
                         } //Button
                         
                         .sheet(isPresented: $showingMovieDetail){
-                            MovieDetailView(currentMovie: currentMovie!)
+                            MovieDetailView(currentMovie: currentMovie)
                         }
                       
                     } //HStack
@@ -141,10 +176,14 @@ struct MovieView: View {
     
                                 UserFunctions.addToMoviesDisliked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: String(movie_id))
     
-                                randomNum = Int.random(in: 0..<950000)
-                                currentMovie = getCurrentMovie(randomNum: randomNum)
-                                updater =  ""
-                                updater =  " "
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                    movie_id = getCurrentMovie()
+                                    movieViewModel.fetchMovie(movie_id: movie_id)
+                                    currentMovie = movieViewModel.returnMovie
+                                    updater =  ""
+                                    updater =  " "
+                                }
+                  
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
@@ -169,12 +208,16 @@ struct MovieView: View {
                             Button(action: {
     
                                 UserFunctions.addToMoviesLiked(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""), movie_id: String(movie_id))
-    
-    
-                                randomNum = Int.random(in: 0..<950000)
-                                currentMovie = getCurrentMovie(randomNum: randomNum)
-                                updater =  ""
-                                updater =  " "
+
+
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                    movie_id = getCurrentMovie()
+                                    movieViewModel.fetchMovie(movie_id: movie_id)
+                                    currentMovie = movieViewModel.returnMovie
+                                    updater =  ""
+                                    updater =  " "
+                                }
+                   
     
                             }) {
                                 Image(systemName: "heart.circle.fill")
@@ -233,8 +276,17 @@ struct MovieView: View {
         }//Navigation view
         .background(Image("whitePinkGradient"))
         .onAppear{
-            movie_id = 634649
-            movieViewModel.fetchMovie(movie_id: movie_id)
+            DispatchQueue.main.async{
+                movie_id = getCurrentMovie()
+                movieViewModel.fetchMovie(movie_id: movie_id)
+                popularViewModel.fetchPopList()
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                movie_id = getCurrentMovie()
+                movieViewModel.fetchMovie(movie_id: movie_id)
+                popularViewModel.fetchPopList()
+            }
+            
         }
     } //Var body: some
 } //Struct

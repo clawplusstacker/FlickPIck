@@ -28,15 +28,15 @@ struct FriendsView: View {
         
 
     @State private var searchText = ""
-    @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
 
     @State var passingProfilePicture = ""
     @State var passingUserName  = ""
-    @State var passingMatchList = [String]()
+    @State var passingMatchList = [""]
     
     @State var showingSheet : FriendsSheetsSettings?
-    
-    @State var removeButtonText = "Remove"
+        
+    @State var friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+
 
  
     var body: some View {
@@ -74,8 +74,6 @@ struct FriendsView: View {
                             
                             Button(action: {
                                 
-                                
-                                
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                     
                                     
@@ -84,7 +82,6 @@ struct FriendsView: View {
                                     
                                     
                                     showingSheet = .friend
-                                    
                                     
                                 }
                                 
@@ -126,23 +123,24 @@ struct FriendsView: View {
                                     Spacer()
                                     
                                     
+                                    
                                     Button {
-                                        
-                                        removeButtonText = "Removed!"
-                                        
-                                        
+                                                                                
                                         //This is a really bad way to fix a pretty bad bug in my code
                                         UserFunctions.addUserToFriends(index: 0, userName: "handler")
                                         //
                                         
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                        DispatchQueue.main.asyncAfter(deadline: .now()){
 
                                             UserFunctions.removeUserFromFriends(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!), userName: friends)
-
                                         }
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                                            friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
+                                        }
+                                                                                
                                         
                                     } label: {
-                                        Text(removeButtonText)
+                                        Text("Remove")
                                             .foregroundColor(.white)
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 5)
@@ -152,11 +150,7 @@ struct FriendsView: View {
                                                 
                                            )
                                     }
-
-                                    
-                                    
-                                    
-                                    
+      
                                 } //HStack
                             })
                         }
@@ -164,7 +158,7 @@ struct FriendsView: View {
                     
                 }
                 .refreshable {
-                    friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
+                    friendsList = UserFunctions.getFreindsList(index: UserFunctions.getFireStoreUserIndex(uid: currentUserUID!))
                 }
                 .listStyle(InsetGroupedListStyle())
             }
@@ -178,7 +172,7 @@ struct FriendsView: View {
             case .add:
                 addFriendsView()
             case .friend:
-                FriendSheetView(profilePicture: $passingProfilePicture, userName: $passingUserName, matchList: $passingMatchList)
+                FriendSheetView(userName: $passingUserName, matchList: $passingMatchList)
             }
         }
         

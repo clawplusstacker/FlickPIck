@@ -28,6 +28,7 @@ struct LoadingScreenContentView : View {
                 FriendsView()
                 SettingsMainView(loggingIn: $testBool)
                 AddProfilePicView()
+                addFriendsView()
                 
                 //Main View We Want To See 
                 SplashScreenView(splashScreenShow: $splashScreenShow)

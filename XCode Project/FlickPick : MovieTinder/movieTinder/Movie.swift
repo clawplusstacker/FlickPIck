@@ -114,7 +114,6 @@ View Model to Fetch a Movie from the MovieDB API and convert into a Movie Object
  */
 class MovieViewModel : ObservableObject {
     
-    let popularMin = 50
     let urlFirst = "https://api.themoviedb.org/3/"
     let urlLast = "?api_key=63d93b08a5c17f9bbb9d8205524f892f"
     @Published var returnMovie : Movie = Movie(adult: false, backdropPath: "", belongsToCollection: BelongsToCollection(id: 2, name: "", posterPath: "", backdropPath: ""), budget: 0, genres: [Genre(id: 0, name: "")], homepage: "", id: -1, imdbID: "", originalLanguage: "", originalTitle: "", overview: "", popularity: 0.0, posterPath: "", productionCompanies: [ProductionCompany(id: 0, logoPath: "", name: "", originCountry: "")], productionCountries: [ProductionCountry(iso3166_1: "", name: "")], releaseDate: "", revenue: 2, runtime: 1, spokenLanguages: [SpokenLanguage(englishName: "", iso639_1: "", name: "")], status: "", tagline: "", title: "", video: false, voteAverage: 2.0, voteCount: 0)
@@ -127,8 +126,6 @@ class MovieViewModel : ObservableObject {
         
         let urlMiddle = "movie/" + String(movie_id)
         let urlFull = urlFirst + urlMiddle + urlLast
-        print(urlFull)
-
         guard let urlFull = URL(string: urlFull) else{
             return
         }
@@ -154,8 +151,53 @@ class MovieViewModel : ObservableObject {
     } // End of fetchMovie
 }
 
+class MovieListViewModel : ObservableObject {
+    
+    let urlFirst = "https://api.themoviedb.org/3/"
+    let urlLast = "?api_key=63d93b08a5c17f9bbb9d8205524f892f"
+    @Published var returnList : [Movie] = []
+    
+    
+    /**
+        Fetches A Movie With Given Movie_ID
+     */
+    func fetchMovieList(movies : [String]){
+        
+        for id in movies{
+            
+            let urlMiddle = "movie/" + String(id)
+            let urlFull = urlFirst + urlMiddle + urlLast
+            guard let urlFull = URL(string: urlFull) else{
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: urlFull) { [weak self] data, _, error in
+                guard let data = data, error == nil else{
+                    return
+                }
 
-/**
+            
+                do {
+                    let returnMovie = try JSONDecoder().decode(Movie.self, from: data)
+                    DispatchQueue.main.async {
+                        if(!(self?.returnList.contains(returnMovie))!){
+                            self?.returnList.append(returnMovie)
+                        }
+                    }
+                }
+                catch{
+                    print(error)
+                }
+            }
+            task.resume()
+        }
+      
+        
+    } // End of fetchMovie
+    
+}
+
+/***
  Functions to help compare a movie to a set of parameters
  */
 class MovieModelFunctions {
@@ -226,11 +268,15 @@ class MovieModelFunctions {
      Gets the movies year from its release date and returns a string formatted version
      */
     public func getMovieYear(movie: Movie) -> String{
+        
         let date = movie.releaseDate
         var year = ""
         
-        year += String(date![0]) + String(date![1]) + String(date![2]) + String(date![3])
-        
+        if((date?.count ?? 2) > 4){
+            year += String(date![0]) + String(date![1]) + String(date![2]) + String(date![3])
+
+        }
+    
         
         return year
     }

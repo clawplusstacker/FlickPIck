@@ -10,10 +10,10 @@ import SwiftUI
 
 private var MovieFunctions = MovieModelFunctions()
 
-struct MovieDetailView: View {
+struct BindMovieDetailView: View {
     
     @StateObject var creditViewModel = CreditViewModel()
-    @State var currentMovie : Movie
+    @Binding var currentMovie : Movie
     @State var rating : Float = 8.4
 
 
@@ -191,46 +191,3 @@ struct MovieDetailView: View {
 
     }
 }
-
-//struct MovieDetailView_Preview: PreviewProvider  {
-//
-//    static var previews: some View {
-//
-//        MovieDetailView()
-//
-//    }
-//}
-
-struct ActorView: View {
-    
-    @State var actor : Cast
-    
-    var body: some View {
-        
-        let actorURL = URL(string: "https://image.tmdb.org/t/p/w500/" + (actor.profilePath ?? ""))
-        
-        VStack(alignment: .center){
-            if #available(iOS 15.0, *) {
-                AsyncImage(url: actorURL) { phase in
-                    if let image = phase.image {
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } else {
-                        ProgressView()
-                    }
-                } //Async
-            } //If Image
-
-            
-            Text(actor.name ?? " ")
-                .bold()
-                .font(.system(size: 14))
-                .multilineTextAlignment(.center)
-        }
-        .frame(width: 100, height: 150)
-        .shadow(radius: 20)
-        .padding()
-    }
-}
-

@@ -27,17 +27,18 @@ enum ActiveSheet: Identifiable {
 struct addFriendsView: View {
     
     @State private var searchText = ""
+    @State var userIndex = UserFunctions.getFireStoreUserIndex(uid: Auth.auth().currentUser?.uid ?? "")
     
     
     
-    @ObservedObject private var viewModel = UserViewModel()
+    @ObservedObject private var userViewModel = UserViewModel()
+    
     @State var showingSheet: ActiveSheet?
 
     
     @State private var passingUserName = ""
-    //@State private var passingProfilePicture = "default"
     @State private var passingMoviesLiked = [""]
-    
+    @State private var passingMatchList = [String]()
 
     
     var body: some View {
@@ -66,23 +67,28 @@ struct addFriendsView: View {
                 
                 
                 
-                List(viewModel.users.filter({ searchText.isEmpty ? true : $0.userName.contains(searchText) })) { user in
+                List(userViewModel.users.filter({ searchText.isEmpty ? true : $0.userName.contains(searchText) })) { user in
                     
                     VStack(alignment: .leading) {
+                        
                         HStack{
                                                         
                             Button(action: {
                                 
+                                
                                 //Crappy way to solve a crappy problem
-                                let listHandler = UserFunctions.checkFriendListContains(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid)!), userName: user.userName)
+                                let listHandler = UserFunctions.checkFriendListContains(index: userIndex, userName: user.userName)
+                                
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                                     passingUserName = user.userName
                                     passingMoviesLiked = user.moviesLiked
                                 }
+  
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now()){
-
+                                passingMatchList = UserFunctions.getMatches(indexOfSelf: userIndex, userNameOfOther: user.userName)
+                                
+                                DispatchQueue.main.async(){
                                     if(user.uid == (Auth.auth().currentUser?.uid)!){
                                         showingSheet = .own
                                         
@@ -94,6 +100,7 @@ struct addFriendsView: View {
 
                                     }
                                 }
+                                
                             
                                
                             }, label: {
@@ -128,23 +135,6 @@ struct addFriendsView: View {
                                     
                                     Spacer()
                                     
-                                    
-                                    Button {
-                                        
-                                        Alert(title: Text("Hi"))
-                                        
-                                    } label: {
-                                        Text("Add Friend")
-                                            .foregroundColor(.white)
-                                            .padding(.horizontal, 10)
-                                            .padding(.vertical, 5)
-                                            .background(
-                                               RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.pink)
-                                                
-                                           )
-                                    }
-                                    
                                 } //HStack
                              
                             }) //Button (username)
@@ -164,12 +154,10 @@ struct addFriendsView: View {
                         case .own:
                             SelfSheetView(userName: passingUserName)
                         case .friend:
-                            FriendSheetViewAdd(userName: passingUserName, moviesLiked: passingMoviesLiked)
+                            FriendSheetView(userName: $passingUserName, matchList: $passingMatchList)
                         case .user:
                             UserSheetView(userName: passingUserName, moviesLiked: passingMoviesLiked)
-
                         }
-
                     }
                 
                 
@@ -178,7 +166,7 @@ struct addFriendsView: View {
         }   //ZStack
         
         .onAppear(){
-            self.viewModel.fetchData()
+            self.userViewModel.fetchData()
         }
         .background(Image("whitePinkGradient"))
 
