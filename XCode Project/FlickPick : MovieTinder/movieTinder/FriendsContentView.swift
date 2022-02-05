@@ -104,9 +104,12 @@ struct FriendsView: View {
                                                 .frame(width: 45, height: 45)
                                                 .scaledToFit()
                                                 .cornerRadius(150)
-                                            
                                             }
                                         }
+                                        .overlay(Circle()
+                                                    .stroke(lineWidth: 3)
+                                                    .opacity(0.3)
+                                                    .foregroundColor(Color.red))
                                     
                                     VStack(alignment: .leading){
                                         

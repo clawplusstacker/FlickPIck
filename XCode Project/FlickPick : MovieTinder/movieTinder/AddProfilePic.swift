@@ -61,7 +61,6 @@ struct AddProfilePicView: View {
                                     .frame(width: 200, height: 200)
                                     .scaledToFit()
                                     .cornerRadius(150)
-                                    .padding(.top, 30)
 
                             } else {
                                 Rectangle()
@@ -69,10 +68,15 @@ struct AddProfilePicView: View {
                                     .frame(width: 200, height: 200)
                                     .scaledToFit()
                                     .cornerRadius(150)
-                                    .padding(.top, 30)
 
                             }
                         }
+                        .overlay(Circle()
+                                    .stroke(lineWidth: 9)
+                                    .opacity(0.3)
+                                    .foregroundColor(Color.red))
+                        .padding(.top, 30)
+
                     }
                 }
             }

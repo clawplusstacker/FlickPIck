@@ -127,6 +127,7 @@ struct addFriendsView: View {
                                                 }
                                             }
                                         }
+                              
                                     
                                     Text(user.userName)
                                         .foregroundColor(.pink)

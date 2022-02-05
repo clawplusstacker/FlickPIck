@@ -44,16 +44,19 @@ struct UserSheetView : View {
                             .frame(width: 200, height: 200)
                             .scaledToFit()
                             .cornerRadius(150)
-                            .padding(.top, 40)
                     } else {
                         Rectangle()
                             .fill(Color("lightgray"))
                             .frame(width: 200, height: 200)
                             .scaledToFit()
                             .cornerRadius(150)
-                            .padding(.top, 40)
                         }
                     }
+                    .overlay(Circle()
+                                .stroke(lineWidth: 9)
+                                .opacity(0.3)
+                                .foregroundColor(Color.red))
+                    .padding(.top, 40)
                 }
 
                     
@@ -148,6 +151,10 @@ struct FriendSheetView : View {
                                     .cornerRadius(150)
                                 }
                             }
+                            .overlay(Circle()
+                                        .stroke(lineWidth: 9)
+                                        .opacity(0.3)
+                                        .foregroundColor(Color.red))
                             .padding(.top, 30)
                         }
 
@@ -329,17 +336,21 @@ struct FriendSheetView : View {
                                 .frame(width: 200, height: 200)
                                 .scaledToFit()
                                 .cornerRadius(150)
-                                .padding(.top, 40)
                         } else {
                             Rectangle()
                                 .fill(Color("lightgray"))
                                 .frame(width: 200, height: 200)
                                 .scaledToFit()
                                 .cornerRadius(150)
-                                .padding(.top, 40)
 
                             }
                         }
+                        .overlay(Circle()
+                                    .stroke(lineWidth: 9)
+                                    .opacity(0.3)
+                                    .foregroundColor(Color.red))
+                        .padding(.top, 40)
+
                     }
 
                         
@@ -395,7 +406,6 @@ struct SelfSheetView : View {
                             .frame(width: 200, height: 200)
                             .scaledToFit()
                             .cornerRadius(150)
-                            .padding(.top, 40)
 
                     } else {
                         Rectangle()
@@ -403,9 +413,14 @@ struct SelfSheetView : View {
                             .frame(width: 200, height: 200)
                             .scaledToFit()
                             .cornerRadius(150)
-                            .padding(.top, 40)
                         }
                     }
+                    .overlay(Circle()
+                                .stroke(lineWidth: 9)
+                                .opacity(0.3)
+                                .foregroundColor(Color.red))
+                    .padding(.top, 40)
+
                 }
 
                     

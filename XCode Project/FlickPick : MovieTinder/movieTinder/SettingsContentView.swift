@@ -38,171 +38,174 @@ struct SettingsMainView : View{
 
     @State var showingSettingSheet: ActiveSheetSettings?
     
-
-    
-
-    
     var body: some View{
         
-        VStack {
+        NavigationView{
             
-            HStack {
-                
-                Text("Settings")
-                    .font(.system(size: 25, weight: .medium, design: .default))
-                    .foregroundColor(.pink)
+            VStack {
 
-                
-                Spacer()
-            }
-            
-            .padding()
-            .padding(.bottom, 10)
-              
-
-            Button {
-                showingSettingSheet = .profilePic
-                
-            } label: {
-                
-                let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: userIndex))
-                
-                if #available(iOS 15.0, *) {
-                    AsyncImage(url: profilePicUrl) { phase in
-                        if let image = phase.image {
-                            image
-                                .resizable()
-                                .frame(width: 220, height: 220)
-                                .scaledToFit()
-                                .cornerRadius(150)
-                        } else {
-                            Rectangle()
-                                .fill(Color("lightgray"))
-                                .frame(width: 220, height: 220)
-                                .scaledToFit()
-                                .cornerRadius(150)
-                            
-                            } //else
-                        }//async image
-                    } //if aviablae
-                } //Picture/Button
-                    .padding(.vertical, 10)
-            
-            Text(UserFunctions.getBio(index: userIndex))
-                .foregroundColor(Color.gray)
-                .padding(.vertical)
-            
-            LabelledDivider(label: "")
-
-                   
-            List{
-                
-                Section(header: Text("User Information")){
+                Button {
+                    showingSettingSheet = .profilePic
                     
-                    HStack{
-                        Text("Username: ")
-                        Text(userName)
-                            .foregroundColor(.pink)
-                            .textCase(.lowercase)
-
-                    }
-                        .padding(5)
-                    HStack{
-                        Text("Email: ")
-                        Text((Auth.auth().currentUser?.email ?? " "))
-                            .foregroundColor(.pink)
-                    }
-                        .padding(5)
+                } label: {
                     
-                    Button {
-                        showingSettingSheet = .bio
-                    } label: {
+                    let profilePicUrl = URL(string: UserFunctions.getProfilePicture(index: userIndex))
+                    
+                    if #available(iOS 15.0, *) {
+                        AsyncImage(url: profilePicUrl) { phase in
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .frame(width: 220, height: 220)
+                                    .scaledToFit()
+                                    .cornerRadius(150)
+                            } else {
+                                Rectangle()
+                                    .fill(Color("lightgray"))
+                                    .frame(width: 220, height: 220)
+                                    .scaledToFit()
+                                    .cornerRadius(150)
+                                
+                                } //else
+                            }//async image
+                            .overlay(Circle()
+                                        .stroke(lineWidth: 9)
+                                        .opacity(0.3)
+                                        .foregroundColor(Color.red))
+                        } //if available
+                    } //Picture/Button
+                        .padding(.vertical, 15)
+                        .navigationBarHidden(true)
+                        
+                Text(userName)
+                    .bold()
+                    .font(.system(size: 25))
+                
+                Text(UserFunctions.getBio(index: userIndex))
+                    .foregroundColor(Color.gray)
+                    .padding(.vertical, 3)
+                
+                LabelledDivider(label: "")
+
+                       
+                List{
+                    
+                    Section(header: Text("User Information")){
+                        
                         HStack{
-                            Text("Bio: ")
-                                .foregroundColor(.black)
-                            Text(UserFunctions.getBio(index: userIndex))
-                                .lineLimit(1)
+                            Text("Username: ")
+                            Text(userName)
+                                .foregroundColor(.pink)
+                                .textCase(.lowercase)
+
+                        }
+                            .padding(5)
+                        HStack{
+                            Text("Email: ")
+                            Text((Auth.auth().currentUser?.email ?? " "))
                                 .foregroundColor(.pink)
                         }
+                            .padding(5)
+                        
+                        Button {
+                            showingSettingSheet = .bio
+                        } label: {
+                            HStack{
+                                Text("Bio: ")
+                                    .foregroundColor(.black)
+                                Text(UserFunctions.getBio(index: userIndex))
+                                    .lineLimit(1)
+                                    .foregroundColor(.pink)
+                            }
+                        }
+                            .padding(5)
+                        
+                        Button(action: {
+                            showingSettingSheet = .changePass
+                        }, label: {
+                            Text("Change Password")
+                                .foregroundColor(.black)
+
+
+                        })
+                            .padding(5)
                     }
-                        .padding(5)
-                    
-                    Button(action: {
-                        showingSettingSheet = .changePass
-                    }, label: {
-                        Text("Change Password")
-                            .foregroundColor(.black)
-
-
-                    })
-                        .padding(5)
-                }
+                       
                    
-               
-                Section(header: Text("Other")){
-                    
-                    Button(action: {
-                        showingSettingSheet = .stremServ
-                    }, label: {
-                        Text("Streaming Services")
-                            .foregroundColor(.black)
-                    })
-                        .padding(5)
-                    
-                    
-                } //Section
-              
-            }.listStyle(InsetGroupedListStyle())
-                
-                
-            Spacer()
-
-                    
-            HStack{
-                Button{
+                    Section(header: Text("Other")){
                         
+                        Button(action: {
+                            showingSettingSheet = .stremServ
+                        }, label: {
+                            Text("Streaming Services")
+                                .foregroundColor(.black)
+                        })
+                            .padding(5)
+                        
+                        
+                    } //Section
+                  
+                }.listStyle(InsetGroupedListStyle())
+                    
+                    
+
+                        
+                HStack{
+                    
+                    Button{
+                            
                         let firebaseAuth = Auth.auth()
-                    do {
-                      try firebaseAuth.signOut()
-                    } catch let signOutError as NSError {
-                      print("Error signing out: %@", signOutError)
+                        do {
+                          try firebaseAuth.signOut()
+                        } catch let signOutError as NSError {
+                          print("Error signing out: %@", signOutError)
+                        }
+                            loggingIn = false;
+                                                
+                
+                    } label: {
+                        Text("Logout")
+                            .frame(width: 350, height: 50)
                     }
-                        loggingIn = false;
-                                            
-            
-                } label: {
-                    Text("Logout")
-                        .frame(width: 350, height: 50)
+                            
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 350, height: 50)
+                    .background(Color.pink)
+                    .cornerRadius(15.0)
                 }
-                        
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: 350, height: 50)
-                .background(Color.pink)
-                .cornerRadius(15.0)
-            }
-            .padding()
-            
-            
-            
-            .sheet(item: $showingSettingSheet) { item in
-                switch item {
-                case .profilePic:
-                    AddProfilePicView()
-                case .stremServ:
-                    StreamingServiceSettingsView()
-                case .changePass:
-                    ChangePasswordView()
-                case .bio:
-                    ChangeBioView()
+                .padding()
+                
+                
+                
+                .sheet(item: $showingSettingSheet) { item in
+                    switch item {
+                    case .profilePic:
+                        AddProfilePicView()
+                    case .stremServ:
+                        StreamingServiceSettingsView()
+                    case .changePass:
+                        ChangePasswordView()
+                    case .bio:
+                        ChangeBioView()
+                    }
+
                 }
+             
+              
 
+            } //Main VStack
+        }//Navigation View
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal){
+                Text("Settings")
+                    .bold()
+                    .foregroundColor(.pink)
+                    .font(.system(size: 18))
             }
-         
-          
-
         }
-        .navigationBarHidden(true)
+
 
         .onAppear(){
             
@@ -211,8 +214,6 @@ struct SettingsMainView : View{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 userName = UserFunctions.getUsername(index: UserFunctions.getFireStoreUserIndex(uid: (Auth.auth().currentUser?.uid) ?? ""))
             }
-            
-
         }
     }
 }
