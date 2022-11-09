@@ -147,8 +147,7 @@ struct SettingsMainView : View{
                   
                 }.listStyle(InsetGroupedListStyle())
                     
-                    
-
+                
                         
                 HStack{
                     
@@ -177,23 +176,20 @@ struct SettingsMainView : View{
                 .padding()
                 
                 
-                
                 .sheet(item: $showingSettingSheet) { item in
                     switch item {
-                    case .profilePic:
-                        AddProfilePicView()
-                    case .stremServ:
-                        StreamingServiceSettingsView()
-                    case .changePass:
-                        ChangePasswordView()
-                    case .bio:
-                        ChangeBioView()
+                        case .profilePic:
+                            AddProfilePicView()
+                        case .stremServ:
+                            StreamingServiceSettingsView()
+                        case .changePass:
+                            ChangePasswordView()
+                        case .bio:
+                            ChangeBioView()
                     }
 
                 }
              
-              
-
             } //Main VStack
         }//Navigation View
         .navigationBarTitleDisplayMode(.inline)

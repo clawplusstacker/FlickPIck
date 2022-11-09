@@ -71,7 +71,7 @@ struct SplashScreenView : View {
                     .shadow(radius: 3)
                 
                 
-                
+        
                 ZStack{
                     
                     Circle()

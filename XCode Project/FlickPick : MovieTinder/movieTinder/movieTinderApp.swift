@@ -7,18 +7,9 @@
 
 import SwiftUI
 import Firebase
-
-///
-///Configuring and Setting up Firebase
-///
-
-
-
-@main   //Obvisouly shows that this is the main App sequence
-
+@main
 
 struct movieTinderApp: App {
-
 
     init() {
         FirebaseApp.configure()
@@ -28,11 +19,8 @@ struct movieTinderApp: App {
     var body: some Scene {
         
         WindowGroup {
-            
             LoadingScreenContentView()
             //LoginContentView()
-            
-                   
         }
     }
 }
